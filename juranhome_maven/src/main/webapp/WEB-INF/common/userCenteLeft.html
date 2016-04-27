@@ -1,0 +1,193 @@
+			<#if users?exists>
+			   <#if users.type=='member'>
+				<ul class="main-navigation-menu PersonalIcon clearfix" id="menubar"style="background: #fff; height:100vh; width: 200px;padding-top: 35px;">
+                       <!--<li class="active open" ng-if="!type"> <a href="${baseUrl}/user/index/"><i  class="clip-user"></i> <span class="title"> 个人中心首页</span><span class="selected"></span> </a> </li>-->
+                      <div class="center" style="max-width: 150px;max-height: 150px;border: 7px solid #f3f3f3;border-radius: 100%;text-align: center;
+    				vertical-align: middle;overflow: hidden;margin: 0 auto 20px;box-shadow:0 1px 5px rgba(0,0,0,0.3);-mz-box-shadow:0 1px 5px rgba(0,0,0,0.3); -webkit-box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);">
+    						<img ng-if="!data.avatar" src="${baseUrl}/images/global/avatar_def.jpg"  style="width:100%; min-height: 100px;"/>
+    			  	        <img ng-if="data.avatar" ng-src="{{data.avatar}}" style="width:100%;min-height: 150px;"/>
+    					</div>
+                       <div class="center" style="margin-bottom:10px;margin-top:10px;">
+                       		<span class="username" style="width:80px;white-space: nowrap;overflow:hidden !important;text-overflow: ellipsis;" >${users.userName}</span>
+                       </div>
+                       <div class="center centerInf" style="margin-bottom:20px;">
+                       		<a href="${baseUrl}/user/personalinformation"><img src="${baseUrl}/images/global/icon_d(1).png"/>
+                       			<div class="center Inf-Pop">修改您的个人信息
+                       				<div class="popBg"><img alt="" src="${baseUrl}/images/global/pop_bg_arrow_03.png"></div>
+                       			</div>
+                       		</a>
+                       		<a href="" style="margin:0 10px; cursor:default; "></a>
+                       		<a href="#security_center">
+                       			<img src="${baseUrl}/images/global/icon_d(3).png"/>
+                       			<div class="center Inf-Pop" style="left:-134px;">安全中心
+                       				<div class="popBg popBga"><img alt="" src="${baseUrl}/images/global/pop_bg_arrow_03.png"></div>
+                       			</div>
+                       		</a>
+                       </div>
+                       <li class="menuitem" directive> 	
+                     		<a id="myorder" href="#myorder/">
+                     			<i class="Personal_bg_icon"></i>
+                     			<span class="title"> 我的装修项目 </span><span class="selected"></span> 
+                     		</a> 
+                     	</li>
+						<li class="menuitem">
+							<a href="#mydiy">
+								<i class="Personal_bg_icon Personal_bg_icon1"></i>
+								<span class="title"> 我的DIY方案 </span>
+							</a>
+					   </li>
+                       <!--  <li> <a href="#im/"><i  class="fa fa-reorder"></i> <span class="title"> 即时通讯</span><span class="selected"></span> </a></li>-->
+					 
+						<li class="menuitem">
+							<a href="#message/">
+								<i class="Personal_bg_icon Personal_bg_icon2"></i>
+								<span class="title">消息中心</span>
+								<span class="selected"></span>
+							</a>
+						</li>
+					</ul>
+					<#else>
+
+					<ul class="main-navigation-menu MainPersonalIcon clearfix" id="menubar" style="background: #fff;width: 200px;height:100vh; padding-top: 35px;border-right:1px solid #eee;">
+					 <!--<li class="active open" ng-if="!type"> <a href="${baseUrl}/user/index/"><i  class="clip-user"></i> <span class="title"> 个人中心首页</span><span class="selected"></span> </a> </li>-->
+                       <div class="center" style="max-width: 150px;max-height: 150px;margin-bottom:20px;border: 7px solid #f3f3f3;border-radius: 100%;text-align: center;
+    				vertical-align: middle;overflow: hidden;margin: 0 auto;box-shadow:0 2px 10px rgba(0,0,0,0.3);-mz-box-shadow:0 1px 5px rgba(0,0,0,0.3);-webkit-box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);">
+    						<img  ng-if="!data.avatar" src="${baseUrl}/images/global/avatar_def.jpg" style="width:100%;min-height: 100px;"/>
+    			  	        <img  ng-if="data.avatar" ng-src="{{data.avatar}}" style="width:100%;min-height: 150px;"/>
+    				</div>
+                       <div class="center" style="margin-bottom:10px;margin-top:10px;">
+                       		<span class="username" style="width:80px;white-space: nowrap;overflow:hidden !important;text-overflow: ellipsis;" >${users.userName}</span>
+                       </div>
+                       <div class="center centerInf" style="margin-bottom:20px;">
+                       		<a href="${baseUrl}/user/personalinformation" ><img src="${baseUrl}/images/global/icon_d(1).png"/>
+                       			<div class="center Inf-Pop" style="margin-left:6px;">修改您的个人信息
+                       				<div class="popBg popBg""><img alt="" src="${baseUrl}/images/global/pop_bg_arrow_03.png"></div>
+                       			</div>
+                       		</a>
+                       		<a href="${baseUrl}/user/authentication" style="margin:0 15px;"><img src="${baseUrl}/images/global/icon_d(2).png"/>
+                       			<div class="center Inf-Pop" style="left:-81px;">实名认证
+                       				<div class="popBg popBgs"><img alt="" src="${baseUrl}/images/global/pop_bg_arrow_03.png"></div>
+                       			</div>
+                       		</a>
+                       		<a href="#security_center"><img src="${baseUrl}/images/global/icon_d(3).png"/>
+                       			<div class="center Inf-Pop" style="left:-138px;">安全中心
+                       				<div class="popBg popBga"><img alt="" src="${baseUrl}/images/global/pop_bg_arrow_03.png"></div>
+                       			</div>
+                       		</a> 
+                       </div>
+                       <li id="my_main" class="activeremove"> 
+                       		<a href="${baseUrl}/mark/main/" target="__blank">
+                       			<i class="Personal_bg_icon"></i>
+                       			<span class="title"> 我的主页 </span>
+                       			<div class="DesignerSelected"></div>
+                       		</a> 
+                       </li>
+                       <li class="menuitem"> 
+                       		<a href="#mybidlist/" id="mybidlist">
+                       			<i class="Personal_bg_icon Personal_bg_icon1"></i>
+                       			<span class="title"> 我的应标 </span>
+                       			<div class="DesignerSelected"></div>
+                       		</a> 
+                       </li>
+                       <li class="multi-menu menuitem" ng-if="designerInfo.designer.is_loho==1" directive>
+							<a href="javascript:void(0)">
+								<i class="Personal_bg_icon Personal_bg_icon2"></i>
+								<span class="title"> 我的订单</span>
+								<div class="DesignerSelected"></div>
+							</a>
+							<ul class="sub-menu">
+								<li class="menuitem">
+									<a href="#designerOrder" class="center">
+										我的装修订单
+									</a>
+								</li>
+								<li class="menuitem">
+									<a href="#beishuOreder" class="center">
+										北舒套餐订单
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li class="menuitem" ng-if="designerInfo.designer.is_loho!=1" directive> 
+                       		<a href="#designerOrder" >
+                       			<i class="Personal_bg_icon Personal_bg_icon2"></i>
+                       			<span class="title">我的订单</span>
+                       			<div class="DesignerSelected"></div>
+                       		</a> 
+                       </li>
+                       <li class="menuitem"> 
+                       		<a href="#mymoney" id="mymoney"> 
+                       			<i class="Personal_bg_icon Personal_bg_icon3"></i>
+                       			<span class="title"> 我的资产 </span>
+                       			<div class="DesignerSelected"></div>
+                       		</a> 
+                       </li>
+                       
+                       <li class="menuitem"> 
+                       		<a href="#my3DScheme/">
+                       			<i class="Personal_bg_icon Personal_bg_icon4"></i>
+                       			<span class="title"> 我的3D设计 </span>
+                       			<div class="DesignerSelected"></div>
+                       		</a> 
+                       	</li>
+                       	<li class="menuitem">
+							<a href="#message/"> 
+								<i class="Personal_bg_icon Personal_bg_icon5"></i>
+								<span class="title">消息中心</span>
+								<div class="DesignerSelected"></div>
+							</a>
+						</li>
+					</ul>
+					  </#if>	
+			
+					<#else>
+					   <script type="text/javascript">
+					   		location.href =baseUrl+"/";
+					   		//location.href = "http://www.juranzx.cn";
+					   </script>	
+					</#if>
+					<!--Menu background color switch 菜单背景颜色切换-->
+					 <script>
+                  		$('.main-navigation-menu .centerInf a img').mouseover(function(){
+                  			//alert();
+                  			$(this).siblings('.Inf-Pop').css({"display":"block"});
+                  		})
+                  		$('.main-navigation-menu .centerInf a img').mouseleave(function(){
+                  			//alert();
+                  			$(this).siblings('.Inf-Pop').css({"display":"none"});
+                  		})
+ 
+						$(document).on('click', '#menubar li', function(){ 		 
+					        if($(this).hasClass('multi-menu')) { 
+					        	if(!$(this).find('ul.sub-menu li').hasClass('active'))
+					        		$(this).find('ul.sub-menu li:first').addClass('active').siblings().removeClass('active');
+					        	window.location = $(this).find('ul.sub-menu li.active a').prop('href');
+					        } 
+					        $(this).addClass('active').siblings().removeClass('active');
+					        
+					        if($(this).attr('id') != 'my_main')
+					        	return false;
+					    });	
+						app.directive('directive', function($timeout) {
+						    return {
+						      link: function(scope, element, attr) {
+						      	$timeout(function() {
+						         	$('#menubar li.menuitem').each(function(index, item) {
+										var href = ($(item).find('a:first').attr('href')).replace('#', '').replace('/', '');
+										if(location.hash.indexOf(href) != -1) { 
+											var $this = $(this);
+											var $sub = $this.parent('ul');
+											if($sub.hasClass('sub-menu')) {
+												$this = $sub.parent('li');
+												$(this).addClass('active').siblings().removeClass('active');
+											}
+											$this.addClass('active').siblings().removeClass('active');
+											return false;
+										}
+									});
+						      	});
+						      }
+						    }
+						});
+					</script>
+												

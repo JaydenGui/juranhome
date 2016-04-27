@@ -1,0 +1,71 @@
+/*
+*2016/4/20
+*jungang.liu
+*/
+*::after, *::before {
+    box-sizing: border-box;
+}
+/* global NewBtn*/
+.NewBtn {
+   display: inline-block;
+	padding: 6px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	width:100px;
+	height:34px;
+	transition:all 0.3s;
+}
+.NewBtn.focus, .NewBtn:focus, .NewBtn:hover {
+    text-decoration: none;
+}
+/* -btn- close button style start */
+.btn-defaultClose {
+    background-color: #fff;
+    border-color: #ccc;
+    color: #333!important;
+}
+.btn-defaultClose:hover {
+    background-color: #e6e6e6;
+    border-color: #adadad;
+    color: #333!important;
+}
+/* -btn- close button style end */
+/* -btn- submit button style start */
+.btn-primarySubmit{
+	background-color: #0084ff;
+    border-color: #0084ff;
+    color: #fff;
+}
+.btn-primarySubmit:hover {
+    background-color: #0084ff;
+    border-color: #0084ff;
+    color: #fff;
+}
+/* -btn- submit button style end */
+/* -btn- refuse button style start */
+.btn-refuse{
+	background-color: #F24713;
+    border-color: #F24713;
+    color: #fff;
+}
+.btn-refuse:hover {
+    background-color: #F24713;
+    border-color: #F24713;
+    color: #fff;
+}
+/* -btn- refuse button style end */

@@ -1,0 +1,47 @@
+/*-----Personal center--个人中心-----*/
+/*-----index right my favorite--首页右侧我的收藏-----*/
+.home_page_title{ margin: 0px; padding: 0px; background-color: #f6f6f6; height: 45px; width: 100%; padding-bottom:5px; border-bottom: 1px solid #ddd;}
+.home_page_title .titleactive{ max-height: 45px;  line-height: 38px;  padding-top: 5px;  border-bottom: none;  border-top: 2px solid #364F6A;  background-color: #fff;  color: #000; }
+.home_page_title a{ width: 100px;  max-height: 44px;  padding-bottom: 1px;  line-height: 43px;  cursor: pointer;  float: left;  margin-left: 5px;  font-size: 12px;
+	background-color: #6C7F92;  color: #fff;  border-right: 1px solid #ddd;  border-top: 1px solid #ddd;  border-left: 1px solid #ddd;  text-align: center; }
+.massivegallery .inwenzi a,.Looking_designer .inwenzi a{ margin-left: 6%}
+.gt_bg{ background-color: #F6F6F6; width: 100%; display: inline-block; min-height: 460px; height: auto; border: 1px solid #ddd; margin-top: 10px;}
+.gallery dl{ height: 360px; width: 235px; float: left; border: 1px solid #ddd; margin-left:2%; margin-top:2.6%; margin-bottom:2.6%; box-shadow:0px 1px 1px 1px #ddd;}
+.tuku a{ background-color: #F6F6F6; color: #666; text-decoration: none;}
+.tuku a i{display: inline-block; width: 35px; margin-left: 5px; height: 15px; line-height: 15px; background-color: #dd4f50; color: #FFF; border-radius: 15px;}
+.tuku a img{ margin-right: 5px;}
+.gallery dl dt{height: 175px; width: 235px; overflow: hidden;}
+.gallery dl dt img{max-height: 175px; max-width: 235px; width: 100%; height: auto;}
+.gallery dl dt:hover{ cursor: pointer; background-color: #FFF; opacity: 0.4;  -moz-transition: all 0.5s ease-in;  -webkit-transition: all 0.5s ease-in;  -o-transition: all 0.5s ease-in;
+ transition: all 0.5s ease-in;}
+.gallery dl dd{ padding: 2% 4%;}
+.gallery dl dd p{ color: #666; font-size: 13px; line-height: 20px;}
+.gallery dl dd span{ display:block; margin-top: 10%; margin-bottom: 5%;}
+.gallery dl dd ul{ width:210px; margin: auto 0; display: inline-block; padding: 0px;}
+.gallery dl dd ul li{ float: left; list-style: none; }
+.gallery dl dd ul .figure{ width: 60px; height: 60px; border: 1px solid #ddd; border-radius: 5px; padding: 2% 2%;}
+.gallery dl dd ul .figure img{ max-height: 60px; max-width: 60px; width: 100%; height: auto;}
+.gallery dl dd ul .jiesha{ width: 150px; height: 60px;  padding: 2% 2%;}
+.gallery dl dd ul li h5,.gallery dl dd ul li h6{ font-weight: 100; line-height: 13px; display: block; font-size: 12px; color: #666; padding: 0px; margin:5px 0px;}
+.gallery dl dd ul li h5{ font-size: 16px; color: #000;}
+.gallery dl dd ul li a{font-size: 12px; color: #007AFF; margin-left: 3px;}
+
+/*-----index right Looking for a designer--首页右侧找设计师-----*/
+.Looking_designer{ margin-top: 5%; }
+.designer{ background-color: #F6F6F6; display: inline-block; border-bottom: 1px solid #ddd; border-left: 1px solid #ddd; border-right: 1px solid #ddd; min-height: 320px; margin-top: 10px; padding:0 0 2% 1%;}
+.desig a{ display: block; text-align: left; height: 38px; line-height: 38px; width: 120px;border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;  border-left: 1px solid #ddd;
+	background-color: #F6F6F6; color: #000;  text-decoration: none;}
+.desig a img{ margin:0px 5px;}
+.desig .desigactive{ background-color: #fff;  border-left: 2px solid #3D9400; border-right: none; position: relative; z-index: 100;}
+.desig,.figures_show{ float: left;}
+.figures_show{ width: 900px; height: 310px; border: 1px solid #ddd; margin-left: -1px; padding: 1% 1.5%;}
+.figures_show ul{ height: auto; padding: 0px; margin: 0px;}
+.rightwi{ margin-left: 6%;}
+
+.figures_show ul li{width: 273px; height: 270px; display:inline-block; border: 1px solid #ddd; border-radius: 2px; margin:0 3px;  padding: 7px 7px;}
+.figures_show ul li img{ max-width: 273px; max-height: 270px; width: 100%; height: auto;}
+.figures_show ul li:hover{cursor: pointer; background-color: #FFF; opacity: 0.4;  -moz-transition: all 0.5s ease-in;  -webkit-transition: all 0.5s ease-in;
+	-o-transition: all 0.5s ease-in;  transition: all 0.5s ease-in;  }
+
+/*-----Edit personal information--编辑个人信息-----*/
+.dataspacing{ height: 35px; margin: 5px 0px;}

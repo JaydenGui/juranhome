@@ -1,0 +1,29 @@
+.designer-list-one>div{
+	padding: 15px;
+	box-sizing: border-box;
+}
+#Designer-list{
+	width: 100%!important;
+	border:1px solid #ddd;
+	padding:10px;
+	box-sizing:border-box;
+	display: block;
+}
+#Designer-list span{
+	font-size: 1.5rem;
+	line-height: auto;
+	box-sizing: border-box;
+}
+#Designer-list button{
+	margin-top:10px;
+	margin-right:12px;
+}
+.his-case ul{
+	padding:0;
+	width: 100%;
+	box-sizing:border-box;
+}
+.his-case ul li{
+	width: 18%;
+	box-sizing: border-box;
+}

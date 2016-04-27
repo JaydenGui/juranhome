@@ -1,0 +1,369 @@
+body{font-family: "微软雅黑";}
+.wrap-image .designersface{
+	max-width:200px;
+	max-height:200px;
+	overflow: hidden;
+	border-radius: 100%;
+	margin-top: 40px;
+	}
+.wrap-image .designersface img{
+	width:100%;}
+.timeline-box-inner.animate-right,.timeline-box-inner.animate-left{border-radius: 5px!important 5px!important 10px!important 10px!important;}
+.desktop .animate-left.animated .sun,.desktop .animate-right.animated .sun{
+	
+    /* margin-right: 15px; */
+    float: left;
+    height:110px;
+    }
+    .desktop .animate-left.animated .sun  p,.desktop .animate-right.animated .sun p{
+    font-size:12px;
+    color: #333;
+    height:27px;
+    }
+.desktop .animate-left.animated .sunbd,.desktop .animate-right.animated .sunbd{
+	float: left;
+	
+    }
+.desktop .animate-left.animated .daadasdy,.desktop .animate-right.animated  .daadasdy{
+	font-size:14px;
+	color:#333; 
+	 font-family: 微软雅黑; 
+	 float: right;
+	/*  margin-left: 22%; */
+	}
+.desktop .animate-left.animated ul,.desktop .animate-right.animated ul{
+	width:150px;}
+ .desktop .animate-left.animated ul li,.desktop .animate-right.animated ul li{
+ 	font-size: 12px;
+    color: #000;
+    font-family: 微软雅黑;
+ 	list-style:none;}  
+ .desktop .animate-left.animated .creationtime,.desktop .animate-right.animated .creationtime{
+ 	height: 95px;}
+
+.desktop .animate-left.animated .kapdsar div,.desktop .animate-right.animated .kapdsar div{
+	float:left; white-space:nowrap; 
+}
+ .desktop .animate-left.animated .namecolor,.desktop .animate-right.animated .namecolor{
+ 	font-family: 微软雅黑;
+ 	color:#000;
+ 	}
+ .desktop .animate-left.animated .date, .desktop .animate-right.animated .date{
+ 	margin-top:3px;
+ }	
+ .desktop .animate-left.animated .sdsgsdh,.desktop .animate-right.animated .sdsgsdh{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    float: left;
+    min-width: 220px;
+    height: 25px;
+    max-width:260px;
+} 	
+.desktop .animate-left.animated .namefont img,.desktop .animate-right.animated .namefont img{
+	max-width:26px;
+	max-height:26px;
+	overflow: hidden;
+	margin-right: 10px;
+	border-radius: 100%;
+	}
+.desktop .animate-left.animated .namefont a,.desktop .animate-right.animated .namefont a{	
+	color: #0084ff;
+	text-decoration: none;}
+.desktop .animate-left.animated .namefont,.desktop .animate-right.animated .namefont{
+	font-size:14px;
+	float: left;
+	width: 316px;
+	border-radius:0 0  5px 5px;
+	}
+.fulllist{
+	width: 15px;
+    margin: 0 auto;
+    border: 1px solid #eaeaea;
+	border-left: 10px solid transparent;
+    border-bottom: 8px solid #fff;
+    border-right: 10px solid transparent;}
+.timeline-box-left .timeline-box-inner th,.timeline-box-right .timeline-box-inner th{
+	color:#333;
+	font-size:14px;
+	font-weight: 100;
+	height: 25px;
+	
+	}
+.timeline-box-left .timeline-box-inner .zhstyle,.timeline-box-right .timeline-box-inner .zhstyle{	
+	color:#333;
+	font-size:14px;}
+.timeline-box-left .timeline-box-inner .state,.timeline-box-right .timeline-box-inner .state{
+	color:#0084ff;
+	font-size:14px;}
+
+.desktop .animate-left.animated .procedureul,.desktop .animate-right.animated .procedureul{ 
+	width: 100%;
+    height: 35px;
+    margin:0px;
+    }
+.desktop .animate-left.animated .procedureul a.selected:before, .swMain li > a.done:before,.desktop .animate-right.animated .procedureul a.selected:before, .swMain li > a.done:before {
+    border-color: #0084ff;
+}
+.desktop .animate-left.animated .procedure li,.desktop .animate-right.animated .procedure li{display: inline-block;}
+.desktop .animate-left.animated .procedure li a,.desktop .animate-right.animated .procedure li a{
+	display: inline-block;
+	text-decoration: none;}	
+
+.desktop .animate-left.animated .procedure li,.desktop .animate-right.animated .procedure li{
+    border-radius: 100% 100% 100% 100%;
+    color: #B5B5B5;
+    display: inline-block;
+    font-size: 15px;
+    height: 30px;
+    position: relative;
+    text-align: center;
+    width: 93px;
+    z-index: 2;
+    border-width: 2px;
+    font-family: "微软雅黑";
+}
+.desktop .animate-left.animated .procedure a,.desktop .animate-right.animated .procedure a{
+	 display: inline-block;
+    
+     height: 2px;
+     width:98px;
+     margin-bottom: 3px;
+}
+.desktop .animate-right.animated .procedure .ddsol{height: 85px!important}
+
+.desktop .animate-left.animated .procedure,.desktop .animate-right.animated .procedure{
+	width: 500px;
+    height: 110px;
+    margin-bottom: 30px;
+    margin-top: 70px;
+	}
+.desktop .animate-left.animated ol,.desktop .animate-right.animated ol{
+	height: 40px!important;
+	margin: 0px;
+	
+}
+
+.desktop .animate-left.animated .procedure,.desktop .animate-right.animated .procedure{width:500px;}
+
+.desktop .animate-left.animated .procedure,.desktop .animate-right.animated .procedure{
+	width:100%;
+    height: 110px;
+    margin-bottom: 20px;
+    margin-top: 70px;
+	}
+
+
+.desktop .animate-left.animated .procedure ol dd,.desktop .animate-right.animated .procedure ol dd{
+	width:65px;
+	height:25px;
+	font-size:12px;
+	color:#333;
+	line-height: 25px;
+    text-align: center;
+}
+.desktop .animate-left.animated .procedure ol dt,.desktop .animate-right.animated .procedure ol dt,.desktop .animate-left.animated .procedure ol dd,.desktop .animate-right.animated .procedure ol dd{
+	display: inline-block!important;
+}
+.desktop .animate-left.animated .procedure ol dt,.desktop .animate-right.animated .procedure ol dt{
+	width: 68px;
+    height: 40px;   
+}
+.desktop .animate-left.animated .procedure ol dt,.desktop .animate-right.animated .procedure ol dt{
+	display: inline-block!important;
+
+    height: 40px;
+    width: 58px;
+    line-height: 18px;
+
+}
+.timeline-box-left .timeline-box-inner .deliverysh a,.timeline-box-right .timeline-box-inner .deliverysh a{
+	width:120px;
+	height:35px;
+	text-align: center;
+    margin-left: 30px;
+    text-decoration: none;
+    margin-top: 3px;
+	background-color: #0084ff;
+	color:#fff;
+	font-size:14px;
+	border-radius: 6px;
+	line-height: 35px;
+	display: inline-block;
+}
+
+.timeline-box-left .timeline-box-inner .zilas,.timeline-box-right .timeline-box-inner .zilas{
+	font-size:14px;
+	color:#0084ff;
+	line-height: 20px;
+}
+.timeline-box-left .timeline-box-inner .zilasad,.timeline-box-right .timeline-box-inner .zilasad{
+	font-size: 18px;
+    color: #333;
+    line-height: 30px;
+    height: 30px;
+}
+.creationtime-mian-design-data{ width:100%;height:155px;border:1px solid #d7d7d7;margin-top:25px;border-radius:5px;}
+.creationtime-mian-design-data-header{height:38px;line-height:38px;border-bottom:1px solid #d7d7d7;}
+.creationtime-mian-design-data-header div{float:left;width:50%;padding-left:15px;font-size:14px;color:#333;}
+.creationtime-mian-design-data-body{padding-top:15px;}
+.creationtime-mian-design-data-body div{float:left;width:50%;padding-left:15px;font-size:14px;color:#333;}
+.creationtime-mian-design-data-body-left>div{ width:16%;text-align:center;padding:0;cursor:pointer;}
+.creationtime-mian-design-data-body div a{width:118px;height:28px;border:1px solid #0084ff;border-radius:2px;padding:0;
+line-height:24px;font-size:14px;color:#0084ff;text-align:center; display:inline-block;text-decoration:none;}
+
+.procedureul>li> a.noline::before {
+    border-top: 0 solid #fff;
+    content: "";
+    display: block;
+    font-size: 0;
+    height: 1px;
+    overflow: hidden;
+    position: relative;
+    top: 21px;
+    width: 100%;
+    z-index: 1;
+}
+.procedureul>li> a::before {
+    border-top: 3px solid #ced1d6;
+    content: "";
+    display: block;
+    font-size: 0;
+    height: 1px;
+    overflow: hidden;
+    position: relative;
+    top: 16px;
+    width: 100%;
+    z-index: 1;
+}
+.procedureul>li:first-child > a::before {
+    left: 50%;
+    max-width: 51%;
+}
+.procedureul>li:last-child > a::before {
+    max-width: 50%;
+    width: 50%;
+}
+.procedureul>li> a.selected::before, .swMain li > a.done::before {
+}
+.stepNumber {
+    background-color: #ffffff;
+    border: 2px solid #ced1d6;
+    border-radius: 100%;
+    color: #cacaca;
+    display: inline-block;
+    font-size: 15px;
+    height: 32px;
+    line-height: 27px;
+    position: relative;
+    text-align: center;
+    width: 32px;
+    z-index: 2;
+}
+.selected.selecting .clip-checkmark-2 {
+    background: #0084ff none repeat scroll 0 0;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 18px;
+    height: 36px;
+    left: -1px;
+    padding-top: 8px;
+    position: absolute;
+    top: -1px;
+    width: 36px;
+}
+
+.procedureul>li > a.done .stepNumber {
+    background-color: #5293c4;
+    border-color: #5293c4;
+    color: #fff;
+    text-indent: -9999px;
+}
+.procedureul> li > a.done .stepNumber::before {
+    content: "";
+    display: inline;
+    float: right;
+    font-family: FontAwesome;
+    font-weight: 300;
+    height: auto;
+    margin-right: 7px;
+    text-indent: 0;
+    text-shadow: none;
+}
+.procedureul>li > a.done.wait .stepNumber {
+    background-color: #f6f6f6 !important;
+    color: #cccccc !important;
+    text-indent: 0 !important;
+}
+..procedureul>li > a.done.wait .stepNumber::before {
+    content: "" !important;
+}
+.procedureul>li .stepDesc {
+    color: #333;
+    display: block;
+    font-size: 14px;
+    margin-top: 4px;
+    max-width: 100%;
+    table-layout: fixed;
+    text-align: center;
+    word-wrap: break-word;
+    z-index: 104;
+}
+.procedureul>li > a.selected .stepDesc, .procedureul>li> a.done .stepDesc {
+    color: #333;
+}
+.procedureul>li > a:hover, .procedureul>li > a:active, .procedureul>li > a:link, .procedureul>li> a:focus {
+    text-decoration: none;
+}
+.procedureul>li > a.disabled, .procedureul>li > a {
+    cursor: default;
+}
+.procedureul>li > a.selected .stepNumber {
+    border-color: #0084ff;
+    color: #0084ff;
+}
+.selected.selecting .clip-checkmark-2 {
+    background: #0084ff none repeat scroll 0 0;
+    border-radius: 100%;
+    color: #fff;
+    font-size: 18px;
+    height: 30px!important; 
+    padding-top: 8px;
+    position: absolute;   
+    width: 30px!important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

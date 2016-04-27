@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* CSS Reset */
+*,body,div,span,iframe,input,h1,h2,h3,h4, h6,p,a,em,img,b,dl,dt,dd,ul,li,label{padding:0px;margin:0px;}
+#tFocus-leftbtn,#tFocus-rightbtn,.gamePrev,.sotfPrev,.gameNext,.sotfNext,.nav_box ul.nav .on a{display:block;}
+/* link css */
+
+#tFocus{width:100vw;height:100vh;min-height: 978px;background:#09091a;overflow:hidden;z-index:9999999999999999999;}
+#tFocus-pic{width:1220px;height:760px;position:relative; margin: 0 auto;left: 50%; margin-left: -560px;}
+#tFocus-pic li{width:338px;height:243px;position:absolute;top:10px;filter:alpha(opacity:0);opacity:0;  display:table; text-align: center; margin:0 auto;}
+#tFocus-pic li a{position: absolute;display:table-cell; vertical-align:middle;}
+#tFocus-pic li img{min-width:30vw;min-height:30vh;display: block;max-height:60vh;}
+#tFocuop{height: auto;border-top: 1px solid #222231;margin-top: 35px;}
+#tFocusBtn{width:1250px;height:150px;margin-top:5px;z-index:20;overflow:hidden; position: absolute; left: 50%; margin-left: -618px;}
+#tFocus-btn{width:1200px;height:150px;position:relative;left:0;bottom:0;overflow:hidden;float:left;margin-right:3px;}
+#tFocus-btn ul{width:100000px;position:absolute;left:0;top:0;margin-top: 2%;}
+#tFocus-btn li{height:115px;width:150px;display:block;float:left;margin-right:8px;list-style: none;border: 1px solid #fff;}
+.active{border:2px solid #fff!important;}
+#tFocus-btn li img{width: 100%;height: 112px;}
+#tFocus-leftbtnb{left: 20%;position: absolute; top: 40%;}
+#tFocus-rightbtnb{right: 20%;position: absolute; top: 40%;}
+#tFocus-leftbtnb .leftbtnimg,#tFocus-rightbtnb .leftbtnimg{height:40px;margin-top:30%;width:15px;float:left;}
+#tFocus-leftbtn,#tFocus-rightbtn{height:40px;margin-top:60px;width:15px;float:left;}
+#tFocus-leftbtn{margin-right:5px;background-position:-455px -60px;}
+#tFocus-rightbtn{background-position:-480px -60px;}
+#asdhsop{position: absolute;left: 50%;padding-top: 11px;}
+#asdhsoal{position: absolute;left: 96%;padding-top: 30px; z-index: 9999999999;}
+
+.navnnv1 ul li a {height:48px;line-height: 46px!important;}

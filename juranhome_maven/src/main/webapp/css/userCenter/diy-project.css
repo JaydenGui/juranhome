@@ -1,0 +1,23 @@
+.gh-selector {
+    width: 100%;
+    float: left;
+    position: relative;
+    border-bottom: 2px dotted #aaa;
+}
+.selector-left {
+    float: left;
+    width: 7%;
+    margin: 15px 0px;
+    line-height: 2;
+}
+.selector-right {
+    float: left;
+    position: relative;
+    width: 80%;
+    margin: 15px 0px;
+}
+.gh-scont {
+    float: left;
+    width: 10%;
+    line-height: 2;
+}

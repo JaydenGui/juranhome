@@ -1,0 +1,335 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: "Microsoft Yahei";
+}
+body, ul, dl, dd, dt, ol, li, p, h1, h2, h3, h4, h5, h6, textarea, form, select, fieldset, table, td, div, input {margin:0;padding:0;-webkit-text-size-adjust: none}
+a img {border:0}
+ul, ol, li {list-style-type:none;vertical-align:0}
+body{
+    background-color: #f5f5f5;
+}
+li{ list-style: none;}
+a{ text-decoration: none;}
+.content{
+    width: 1200px;
+    margin: 0 auto;
+    height: auto;
+    margin-top: 93px;
+    min-height:790px;
+    margin-bottom:1%;
+}
+.classify{
+    height:290px;
+    margin-bottom: 20px;
+}
+.city_lt{
+    width: 154px;
+    margin-right: 2px;
+    border-bottom-left-radius: 6px;
+    border-top-left-radius: 6px;
+}
+.city_right{
+    height: 100px;
+}
+.city_right p{
+    line-height: 100px;
+    color: #3e3937;
+    text-align: center;
+    font-size: 16px;
+    border-bottom: 1px solid #f5f5f5;
+}
+.city_lt .city_right p:nth-child(3n){
+    border-bottom: none;
+}
+.city_rt{
+    width: 1044px;
+    height: 300px;
+    border-top-right-radius:6px;
+    border-bottom-right-radius:6px;
+}
+.ato{
+    padding-top: 15px;
+}
+.city_lt,.city_rt{
+    background-color: #fff;
+    float: left;
+}
+.city_left{
+    margin:0px 3px;
+    height: 85px;
+    width: 1038px;
+    border-bottom: 1px solid #ececec;
+}
+.city_left li{
+    float:left;
+    margin: 2px 10px;
+    text-align: left;
+    min-width: 65px;
+}
+.city_left li a{
+    display: inline-block;
+    color: #3e3937;
+    min-width: 45px;
+    padding: 0px 5px;
+    line-height: 33px;
+    height: 33px;
+    font-size: 16px;
+}
+.city_left li span{
+    display: inline-block;
+    width: 90px;
+    line-height: 33px;
+    height: 33px;
+    cursor: pointer;
+}
+.city_left .on a{border-radius: 8px; color: #0576c2;}
+.ltop li{
+    padding-top: 15px;
+}
+.design_show{
+    width: 290px;
+    height: 440px;
+}
+.design_show ul{
+    display: inline-block;
+    width: 290px;
+    height: 440px;
+    background-color: #fff;
+    border-radius: 6px;
+}
+.design_show ul li{
+    width: 288px;
+    height: 440px;
+    float: left;
+}
+.design_show ul li img{
+    width: 290px;
+    height: 440px;
+    overflow: hidden;
+    border-radius: 6px;
+}
+.simpleTabs:hover{
+    cursor:pointer;
+    box-shadow: 0 15px 20px rgba(0,0,0,0.1);
+    transform: translate3d(0,-2,0);
+    transition: all 0.6s;
+    -webkit-transition: all 0.6s;
+    -webkit-box-shadow: 0 15px 20px rgba(0,0,0,0.1);
+    -webkit-transform: translate3d(0,-2,0);
+    padding-top: -1px;
+    z-index: 102;
+}
+.tabs{
+    margin:0 2px 5px;
+    display: inline-block;
+    position:relative;
+    z-index: 101;
+    width: 290px;
+    height: 440px;
+    overflow:hidden;
+    border-radius: 6px;
+    border: 1px solid #e8e8e8;
+    transition: all 0.6s;
+}
+.tabs .ggg{
+    display: block;
+}
+.arrows{
+    display:none;
+}
+.control {
+    position:absolute;
+    right:90px;
+    bottom:10px;
+    width:150px;
+    height:24px;
+    text-align:right;
+}
+.control a{
+    display:inline-block;
+    width:24px;
+    height:24px;
+    background:#fff;
+    color:#312318;
+    border-radius:50%;
+    text-align:center;
+}
+.control a{
+    display:inline-block;
+    width:10px;
+    height:10px;
+    background:#e7e7e7;
+    color:#312318;
+    border-radius:50%;
+    text-align:center;
+    margin: 0px 6px;
+}
+.control .now{
+    background:#3ba8f1;
+    color:#fff;
+}
+.tabs .prev,.tabs .next {
+    position:absolute;
+    top:190px;
+    height:40px;
+    width: 20px;
+    color: #fff;
+    background-color:#999;
+}
+.tabs .next{
+    right:0;
+}
+.exhibition{
+    margin: 25px;
+    height: 350px;
+    width: 235px;
+}
+.exhibition{
+    text-align: center;
+}
+.avatar{
+    margin-top: 20px;
+    position: relative;
+    z-index: 100;
+    height: auto;
+    border-radius: 100%;
+    overflow: hidden;
+    border: 1px solid #d7d7d7;
+    display: inline-block;
+    background-color: #f8f8f8;
+    max-width: 91px;
+    max-height: 91px;
+}
+.avatar img{
+    max-width: 91px;
+    max-height: 91px;
+}
+.design_show ul li .exchange{
+    top: 105px;
+    left: 165px;
+    position: absolute;
+    z-index: 1000;
+}
+.design_show ul li .exchange img{
+    width: 32px;
+    height: 32px;
+}
+.design_show ul li .price{
+    margin-top: 35px;
+    font-size: 18px;
+    color: #999;
+}
+.design_show ul li .price p{
+    font-size: 28px;
+    color: #dd4f50;
+    display: inline-block;
+    margin-right: 20px;
+}
+.particulars{
+    text-align: left;
+    margin-top: 20px;
+}
+.particulars span strong{
+    font-size: 14px;
+    color: #333;
+}
+.particulars span s{
+    text-decoration: none;
+    padding: 0px 5px;
+    font-size: 10px;
+    display: inline-block;
+    border-radius: 30px;
+    color: #fff;
+}
+.particulars span s i{
+    display: inline-block;
+    margin-right: 4px;
+    font-size: 8px;
+}
+
+.particulars span .pinkbg{
+    margin-left: 5px;
+    background-color: #ee749b;
+}
+.particulars span .greenbg{
+    background-color: #68bc86;
+}
+.particulars p,.particulars a{
+    display: inline-block;
+    font-size: 12px;
+}
+.particulars p{
+    line-height: 20px;
+    color: #999;
+    margin-right: 5px;
+}
+.particulars a{
+    margin-left: 8px;
+    color: #666;
+}
+.subscribe{
+    margin-top: 20px;
+}
+.subscribe p,.subscribe a{
+    text-align: left;
+    display: block;
+}
+.subscribe p{
+    font-size: 12px;
+    color: #999;
+}
+.subscribe a{
+    font-size: 22px;
+    color: #666;
+}
+
+/*....................pages...............*/
+.tcdPageCode{
+    margin: 100px 20px;
+    text-align: center;
+    color: #ccc;
+}
+.tcdPageCode a{
+    display: inline-block;
+    font-size: 16px;
+    color: #2a2727;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 32px;
+    margin: 0 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    vertical-align: middle;
+}
+.tcdPageCode a:hover {
+    color:#3ba8f1;
+}
+.diandian{
+    color: #2a2727;
+    letter-spacing:2px;
+}
+.nextPage,.prevPage{
+    background-color: #fff;
+}
+.tcdPageCode span.current{
+    display: inline-block;
+    font-size: 16px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 32px;
+    margin: 0 2px;
+    color: #3ba8f1;
+    vertical-align: middle;
+}
+.tcdPageCode span.disabled{
+    display: inline-block;
+    font-size: 16px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 32px;
+    margin: 0 2px;
+    color: #747474;
+    background: #e7e7e7;
+    vertical-align: middle;
+}

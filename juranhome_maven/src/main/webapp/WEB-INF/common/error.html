@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>网络出错！您访问的找到不到请再去首页试试！</title>
+</head>
+<body  style="cursor:pointer;">
+<div style="width:100%;overflow: scroll;overflow-x: hidden;">
+	<img id="pic" alt=""  src="">
+</div>
+	<script type="text/javascript">
+	
+	 function url() {
+        var curWwwPath = window.document.location.href;
+        var pathName = window.document.location.pathname;
+        var pos = curWwwPath.indexOf(pathName);
+        var localhostPath = curWwwPath.substring(0, pos);
+        var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
+        return(localhostPath + projectName);
+    } 
+	 var url=url();
+	 
+	 document.body.onclick=function home(){
+			  window.location.href=url+"/";
+	  };
+	 
+	 
+	 
+	 var imgUrl=url+"/images/global/404.png";
+	  //document.body.style.background="url("+imgUrl+") no-repeat";
+	  
+	  var img=document.getElementById("pic");
+	  img.src=imgUrl;
+	  //setInterval(home,3000);
+	  
+	 
+	</script>
+</body>
+</html>

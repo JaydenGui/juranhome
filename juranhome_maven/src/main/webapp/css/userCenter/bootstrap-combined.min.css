@@ -1,0 +1,270 @@
+.bootstrap-datetimepicker-widget td span {
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    float: left;
+    height: 54px;
+    line-height: 54px;
+    margin: 2px;
+    width: 47px;
+}
+.bootstrap-datetimepicker-widget td span.old {
+    color: #999;
+}
+.bootstrap-datetimepicker-widget td, .bootstrap-datetimepicker-widget th {
+    border-radius: 4px;
+    height: 20px;
+    text-align: center;
+    width: 20px;
+}
+.table-condensed th, .table-condensed td {
+    padding: 4px 5px;
+}
+.bootstrap-datetimepicker-widget thead tr:first-child th {
+    cursor: pointer;
+}
+.bootstrap-datetimepicker-widget th.next, .bootstrap-datetimepicker-widget 
+
+th.prev {
+    font-size: 21px;
+}
+.table-condensed th, .table-condensed td {
+    padding: 4px 5px;
+}
+table {
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+    max-width: 100%;
+}
+.bootstrap-datetimepicker-widget table {
+    margin: 0;
+    width: 100%;
+}
+.bootstrap-datetimepicker-widget td, .bootstrap-datetimepicker-widget th {
+    border-radius: 4px;
+    height: 20px;
+    text-align: center;
+    width: 20px;
+}
+.bootstrap-datetimepicker-widget th.switch {
+    width: 145px;
+}
+.collapse{
+    overflow:hidden;
+    position:relative;
+    transition:height 0.35s ease 0s;
+}
+li{
+    line-height:20px;
+}
+.collapse.in {
+    height: auto;
+}
+.bootstrap-datetimepicker-widget > ul {
+    list-style-type: none;
+    margin: 0;
+}
+ul, ol {
+    margin: 0 0 10px 25px;
+    padding: 0;
+}
+.bootstrap-datetimepicker-widget{
+    display:none;
+    left:614px;
+    position:absolute;
+    right:auto;
+    top:70px;
+    z-index:999999999;
+} 
+.bootstrap-datetimepicker-widget::before {
+    border-bottom: 7px solid rgba(0, 0, 0, 0.2);
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    content: "";
+    display: inline-block;
+    left: 6px;
+    position: absolute;
+    top: -7px;
+}
+.bootstrap-datetimepicker-widget::after {
+    border-bottom: 6px solid #fff;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    content: "";
+    display: inline-block;
+    left: 7px;
+    position: absolute;
+    top: -6px;
+}
+.bootstrap-datetimepicker-widget {
+    border-radius: 4px;
+    left: 0;
+    margin-top: 1px;
+    padding: 4px;
+    top: 0;
+    width: 250px;
+    z-index:999999999999999;
+}
+.dropdown-menu {
+    background-clip: padding-box;
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    float: left;
+    left: 0;
+    list-style: outside none none;
+    margin: 2px 0 0;
+    min-width: 160px;
+    padding: 5px 0;
+    position: absolute;
+    top: 100%;
+    z-index: 9999999999999;
+}
+/* ================== */
+.well .input-append.date .add-on i,.well .input-prepend.date .add-on i {
+    cursor: pointer;
+    display: block;
+    height: 16px;
+    width: 16px;
+}
+.well .icon-calendar {
+    background-position: -192px -120px;
+}
+[class^="icon-"], [class*=" icon-"] {
+    background-image: url("../../images/global/glyphicons-halflings.png");
+    background-position: 14px 14px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 14px;
+    line-height: 14px;
+    margin-top: 1px;
+    vertical-align: text-top;
+    width: 14px;
+}
+.icon-calendar {
+    background-position: -192px -120px;
+    margin:8px auto 0;
+}
+.well .input-append .add-on,.well .input-prepend .add-on {
+    background-color: #eeeeee;
+    border: 1px solid #ccc;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: normal;
+    height: 20px;
+    line-height: 20px;
+    min-width: 16px;
+    padding: 4px 5px;
+    text-align: center;
+    text-shadow: 0 1px 0 #ffffff;
+    width: 40px;
+}
+.well .input-append .add-on,.well .input-prepend .add-on,.well .input-append .btn, 
+.well .input-prepend .btn,.well .input-append .btn-group > .dropdown-toggle,.well .input-prepend 
+.btn-group > .dropdown-toggle {
+    border-radius: 0;
+    vertical-align: top;
+}
+.well .input-append .add-on,.well .input-append .btn,.well .input-append .btn-group {
+    margin-left: -1px;
+}
+
+.well .input-append .add-on:last-child,.well .input-append .btn:last-child,.well .input-append 
+
+.well .btn-group:last-child > .dropdown-toggle {
+    border-radius: 0 4px 4px 0;
+}
+.well label,.well input,.well button,.well select,.well textarea {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+}
+.well input,.well button,.well select,.well textarea {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.well input,.well textarea,.well .uneditable-input {
+    width: 206px;
+}
+.well select,.well textarea,.well input[type="text"],.well input[type="password"],.well input
+
+[type="datetime"],.well input[type="datetime-local"],.well input[type="date"],.well input
+
+[type="month"],.well input[type="time"],.well input[type="week"],.well input[type="number"],.well 
+
+input[type="email"],.well input[type="url"],.well input[type="search"],.well  input[type="tel"], 
+
+.well input[type="color"],.well .uneditable-input {
+    border-radius: 4px;
+    color: #555555;
+    display: inline-block;
+    font-size: 14px;
+    height: 20px;
+    line-height: 20px;
+    margin-bottom: 10px;
+    padding: 4px 6px;
+    vertical-align: middle;
+}
+.well textarea, .well input[type="text"], .well input[type="password"], .well input[type="datetime"], 
+
+.well input[type="datetime-local"], .well input[type="date"], .well input[type="month"], .well input
+
+[type="time"], .well input[type="week"], .well input[type="number"], .well input[type="email"], 
+
+.well input[type="url"], .well input[type="search"], .well input[type="tel"], .well input[type="color"], 
+
+.well .uneditable-input {
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+}
+.well .input-append input, .well .input-prepend input,.well .input-append select, .well.input-prepend 
+
+select, .well.input-append .uneditable-input,.well .input-prepend .uneditable-input, 
+
+.well.input-append .dropdown-menu, .well .input-prepend .dropdown-menu,.well .input-append 
+
+.popover,.well .input-prepend .popover {
+    font-size: 14px;
+}
+.well .input-append input, .well .input-prepend input,.well .input-append select,.well .input-prepend 
+
+select,.well .input-append .uneditable-input,.well .input-prepend .uneditable-input {
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 0;
+    position: relative;
+    vertical-align: top;
+}
+.well .input-append input,.well .input-append select,.well .input-append .uneditable-input {
+    border-radius: 4px 0 0 4px;
+}
+.well .input-append,.well .input-prepend {
+    display: inline-block;
+    font-size: 0;
+    margin-bottom: 10px;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+#datetimepicker1 input{
+	float:left;
+}
+#datetimepicker1 span{
+	float:left;
+	border:1px solid #d5d5d5;
+	width:36px;
+	color:#000;
+	background:#ECECEC;
+	border-radius:0 5px 5px 0;
+}
+.well {
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+    margin-bottom: 20px;
+    min-height: 20px;
+    padding: 19px;
+}

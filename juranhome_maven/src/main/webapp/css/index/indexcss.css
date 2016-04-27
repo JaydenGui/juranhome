@@ -1,0 +1,64 @@
+.navnnv ul li a{height: 50px; line-height: 25px;font-size:14px;color:#777;line-height: 25px;font-size:18px;color:#333!important;width:120px;text-align:center;font-family: "Microsoft Yahei";}
+.navnnv1{overflow:hidden;clear:both;}
+.navnnv1 ul li{list-style:none;width:120px;float:left;}
+.navnnv1 ul li a{height: 50px; line-height:50px;color:#777;font-size:18px;color:#333!important;width:120px;text-align:center;font-family: "Microsoft Yahei";display:block;}
+.navnnv1 ul li a:hover{border-bottom:1px #0084ff solid;text-decoration:none;}
+.navnnv1 ul li a.activeaa{background:#eee;border-bottom:2px #0084ff solid;}
+
+#naver{
+	background:#fff;
+	top:50px;
+	height: 50px;
+	line-height: 48px;
+	box-shadow:0 0 15px rgba(0,0,0,0.3);
+}    
+.nav-designer li:hover{ border-bottom:2px solid #007aff;}
+.nav-designer li.active{ border-bottom:2px solid #28aef5;}
+.search-field .shadow-x{
+    position:absolute;
+    top:0;
+    left:1px;
+    width:300px;
+    height:0;
+    border-top:1px solid #d0d0d0;
+    border-bottom:1px solid #f0f0f0;
+    overflow:hidden;
+    z-index:1;
+}
+.search-field .shadow-y{
+    position:absolute;
+    top:0;
+    left:0;
+    width:0;
+    height:30px;
+    border-left:1px solid #d0d0d0;
+    border-right:1px solid #f0f0f0;
+    overflow:hidden;
+}
+#asfafay{     
+	position: absolute;
+    vertical-align: middle;
+    z-index: 100000;
+    left: 45px;
+    top: 11px;}
+ #searchbox{     
+	position: absolute;
+    vertical-align: middle;
+    z-index: 100000;
+    right: 10px;
+    top: 7px;
+    cursor: pointer;
+    }
+    
+#search-form{ width: 260px; height: 32px; background-color: #fff;}
+#search-form button{border: none;  background-color: #ededed;}
+#search-field .button-indesigner-detail{padding: 1px 15px;}
+#search-form button,#search-form .search-input{ height: 30px; display: inline-block;font-size: 13px;cursor: initial;line-height: 30px;}
+#search-form .shadow-y input{ padding: 6px 35px!important; outline:medium; border:none; background-color: #D5D5D5;}
+
+.slides-pagination {
+	position: fixed !important;
+	width: 80px !important;
+	margin-left: 50% !important;
+	left: -40px !important;
+}

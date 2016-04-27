@@ -1,0 +1,125 @@
+<#assign baseUrl=request.contextPath />
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	
+	<#include '/common/commonjs.html'/>
+<link rel="stylesheet" href="${baseUrl}/css/im/index_im.css" >
+</head>
+<body style="background:#f3f3f3;">
+    <#include '/common/userheader.html'/>
+    <div class="xfj_content">
+    	<div class="xfj_tit1">
+    		<span></span>
+    		即时通讯
+    	</div>
+    	<div class="xfj_content1">
+    		<div class="xfj_left1">
+    			<div class="xfj_search">
+    				<input type="text" placeholder="搜索" class="xfj_inp1"/>
+    				<div class="xfj_btn1"></div>
+    			</div>
+    		
+	    		<div class="xfj_here1">
+	    			<div class="xfj_left2">
+						<div class="xfj_img1">
+	    					<img src="${baseUrl}/images/im/50x50.png" width="50" height="50" class="img-circle"/>
+							<div class="xfj_img2"></div>
+							<div class="xfj_num1">3</div>
+						</div>
+	    			</div>
+	    			<div class="xfj_right2">
+	    				<div class="xfj_tit2">
+	    					<span>16/03/03</span>
+	    					Lisa家居设计...
+	    				</div>
+	    				<p>我对你的项目很感兴趣，方便聊...</p>
+	    			</div>
+	    		</div>
+	    		<div class="xfj_here01">
+	    			<div class="xfj_left2">
+	    				<img src="${baseUrl}/images/im/50x50.png" width="50" height="50" />
+	    			</div>
+	    			<div class="xfj_right2">
+	    				<div class="xfj_tit2">
+	    					<span>16/03/03</span>
+	    					Lisa家居设计。。。
+	    				</div>
+	    				<p>我对你的项目很感兴趣，方便聊...</p>
+	    			</div>
+	    		</div>
+	    		<div class="xfj_here01">
+	    			<div class="xfj_left2">
+	    				<img src="${baseUrl}/images/im/50x50.png" width="50" height="50" />
+	    			</div>
+	    			<div class="xfj_right2">
+	    				<div class="xfj_tit2">
+	    					<span>16/03/03</span>
+	    					Lisa家居设计。。。
+	    				</div>
+	    				<p>我对你的项目很感兴趣，方便聊...</p>
+	    			</div>
+	    		</div>
+			</div>
+    		<div class="xfj_right1">
+    			<div class="xfj_tit3">
+    				赵大宝设计
+    				<div class="xfj_tit3_float1"></div>
+    				<div class="xfj_tit3_float2"></div>
+    				<div class="xfj_num2">3</div>
+    			</div>
+    			<div class="xfj_content2">
+    				<div class="xfj_content2_float1">确认量房</div>
+    				<div class="xfj_date1">3月25日</div>
+    				<div class="xfj_him">
+    					<div class="xfj_him_pic"><img src="${baseUrl}/images/im/50x50.png" width="50" height="50" class="img-circle"/></div>
+    					<div class="xfj_him_text1">
+    						<div class="xfj_him_text">
+	    						<div class="xfj_him_text2">这里可以写最多这里可以写最多这里可以写最多这里可以写最多这里可以写最多这里可以写最多这里可以写最多这里可以写最多</div>
+	    						<div class="xfj_date2">20:25</div>
+    						</div>
+    					</div>
+						<div class="clear"></div>
+    				</div>
+    				<div class="xfj_me">
+    					<div class="xfj_me_pic"><img src="${baseUrl}/images/im/50x50.png" width="50" height="50" class="img-circle"/></div>
+    					<div class="xfj_me_text1">
+    						<div class="xfj_me_text">
+	    						<div class="xfj_me_text2">哦</div>
+	    						<div class="xfj_date3">20:25</div>
+    						</div>
+    					</div>
+						<div class="clear"></div>
+    				</div>
+    			</div>
+    			<ul class="xfj_list1">
+    				<li class="li1">发送图片</li>
+    				<li class="li2">我要量房</li>
+    				<li class="li3"></li>
+    			</ul>
+    			<div class="xfj_textarea">
+    				<textarea name="textarea" placeholder="这里是输入区域"></textarea>
+    			</div>
+    			<dl class="xfj_button">
+    				<dd class="dropdown">
+	    				<button type="button" class="btn btn-primary btn-lg dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+	    					发送
+	    					<span class="caret"></span>
+	    				</button>
+	    				 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+						     <li>按Enter键发送消息，按Ctrl+Enter键换行</li>
+						     <li>按Ctrl+EEnter键发送消息，按nter键换行</li>
+					     </ul>
+    				</dd>
+    				<dd><button type="button" class="btn btn-default btn-lg">关闭</button></dd>
+    				
+    			</dl>
+    		</div>
+    		<div class="clear"></div>
+    	</div>
+    </div>
+    <#include '/common/footer.html'/>	
+</body>
+</html>

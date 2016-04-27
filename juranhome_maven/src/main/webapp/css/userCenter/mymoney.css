@@ -1,0 +1,87 @@
+*{box-sizing: border-box; font-family: Microsoft YaHei;}
+/*money1*/
+#sample-table-1 tr td,#sample-table-1 tr th{ text-align: left!important; }
+.guarantee{margin:8px 10px;height:85px;background-color: #f9f9f9;border:1px solid #eaeaea;padding-left: 20px;}
+.guarantee h3{display: inline-block; height:30px;line-height: 52px;font-size:14px;color:#666;margin:0!important;font-family: "微软雅黑";}
+.guarantee h3 .balance{color:#0084ff;font-size:16px;font-size: 22px;font-weight: bold;text-decoration: none;}
+.guarantee p{ display: inline-block;}
+ul.money-record {margin:8px 0 20px 0px;height:40px;line-height:66px;border-bottom:2px solid #e6e6e9;padding:0px;}
+ul.money-record li{float:left;font-size:18px;padding:9px 10px; }
+ul.money-record li a{color:#000;text-decoration: none;cursor: pointer;}
+.current{ color:#0084ff;border-bottom:2px solid #0084ff;}
+ul.money-record .current a{color:#0084ff;}
+.deal-date{height:60px;padding:20px 0 16px 30px;}
+.deal-btn{height:26px;width:54px;margin-left:10px;border-radius:2px;border:1px solid #d7d7d7;padding:0!important;background-color: #f9f9f9;}
+.black-font{ color:#000;font-weight: 700;}
+/*money2*/
+.panel-scroll{margin:0px!important;}
+.header-money2{ background-color: #f9f9f9;height:40px;max-width: 910px;}
+.head-money2{height:40px!important;border:1px solid #d7d7d7!important;background:#f9f9f9;}
+.head-money2 th{color:#9c9c9c;}
+.table .no-border td{border-top:0px solid transparent!important;}
+.body-money2 td{color:#000;font-weight: 700;height:30px;}
+.process-state{padding-left:30px!important;background: url("../../images/userCenter/money2_03.png") no-repeat 23px;}
+/*money3*/
+.money3-body{height:400px;}
+.bank-card{height:40px;color:#000;font-size:16px;}
+.bank-card label{   
+	font-size: 14px!important;
+    text-align: left;
+    width: 150px;
+    margin-left: 1%;}
+.form-group .commit{
+    	top: 350px; left: 2%; position: absolute;
+    }
+.form-group .commit:hover{ color:#fff}
+.bank-card input{color:#000;font-size:14px;font-weight: 700;}
+/*money4*/
+.withdrawal-application{position:absolute;left:50%;margin-left:-185px;top:50%;margin-top:-160px;
+    height:320px;width:370px;border-radius:6px;box-shadow:0 0 30px 0px;background: #e1e1e1;
+    padding:38px;
+}
+.page-header {
+    border-bottom: none!important;
+}
+.table>thead>tr>th {
+    border-bottom: 0px!important;font-weight: 100;
+}
+#surepayment{ width:820px; min-height:320px; text-align: center;}
+#surepayment .doapsder img{
+	margin-top: 5%;
+}
+#surepayment .doapsder h3{
+	font-size: 26px;
+    color: #333;
+    font-family: "微软雅黑";
+    width: 310px;
+    margin: 0 auto;
+    line-height: 45px;
+    font-weight: bold;
+    margin-top: 5%;
+    margin-bottom: 5%;}
+#surepayment .doapsder .adspsdl{
+	margin-top: 5%;
+    padding-bottom: 3%;
+    margin-left: 70%;
+    }
+#surepayment .modal-content{
+	border:none;
+}
+.bank-card .inputwid input{ width:335px; height:35px; border-radius: 5px!important;}
+.inputwid select{ border: 1px solid #D5D5D5!important; width:335px; height:35px; border-radius: 5px!important; display: inline-block;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: rgba(0, 0, 0, 0) url("../../images/userCenter/select-icon2.png") no-repeat scroll 0 0 !important;
+    border-color: #d7d7d7 !important;
+    border-radius: 5px !important;
+    box-shadow: none !important;
+    color: #858585 !important;
+    padding-right: 40px !important;
+    background-position: 290px 0 !important;
+}
+
+.withdrawal-application h1{ padding-left:45px;height:56px;font-size: 28px;color:#284600;margin:0px!important;font-weight: 700;}
+.withdrawal-application h3{padding-left:30px;font-size:14px;height:20px;font-weight: 700;margin:0px!important;}
+.withdrawal-application p{font-size:14px;height:20px;font-weight: 700;margin:0px!important;}
+
+.datetimepicker-minutes{min-height:240px;}

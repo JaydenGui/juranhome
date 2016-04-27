@@ -1,0 +1,46 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>SSO_login</title>
+<script src="../js/index/jquery.min.js"></script>
+<!-- include javascript js_base46 -->
+<script src="${baseUrl}/js/public/js_base64.js" charset="utf-8" type="text/javascript"></script>
+<!-- include javascript js_coockies -->
+<script src="${baseUrl}/js/public/js_cookies.js" charset="utf-8" type="text/javascript"></script>
+</head>
+
+<body>
+<input id="testVal" type="hidden" value="ok" />
+<script>
+var Host = location.host;
+HostArr = Host.split(":");
+var SiteHost = HostArr[0];
+var Token = location.href.substr(location.href.indexOf("?") + 1);
+var dataBase64 = Base64.decode(decodeURIComponent(Token).replace(/(\s*)/g,""),'utf-8');
+var memberType = JSON.parse(dataBase64).Member_Type;
+$.cookie('users', decodeURIComponent(e.originalEvent.data), { expires: 7, path: '/' });
+
+//location.href = "http://" + SiteHost + "/3partyLogin?MT=" + memberType;
+
+if(memberType == "designer"){
+	
+	location.href = "http://" + SiteHost+"/mark/index";
+}
+else{
+		location.href = "http://" + SiteHost+"/";
+}
+
+
+
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    //alert(decodeURIComponent(results[1].replace(/\+/g, " "));
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+.logo-indesigner-detail{margin-top:0px!important;}
+.button-indesigner-detail{position:relative;top:-8px;}
+.input-indesigner-detail{height:30px!important;}
+#scroll-top {
+    background-color: #363839;
+    border: 1px solid #444444;
+    border-radius: 2px;
+    bottom: 70px;
+    color: #eeeeee;
+    display: none;
+    height: 50px;
+    line-height: 50px;
+    opacity: 1;
+    position: fixed;
+    right: 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease-out 0s;
+    width: 50px;
+    z-index: 10000;
+}
+#sub-menu ul li a{color:#fff;}
+.span-indesigner-detail .username{color:#999;}

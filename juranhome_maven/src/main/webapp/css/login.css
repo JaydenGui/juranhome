@@ -1,0 +1,68 @@
+.regsitera{
+    width: 865px;
+    height: 650px;
+    background-color: #fff;
+    position: absolute;
+    left: 28%;
+    text-align: center;
+    box-shadow: 2px 2px 15px rgba(0,0,0,0.1);
+}
+.yuedu a{
+    color: #046eb5;
+    font-size: 14px;
+    text-decoration:underline;
+    margin-left: 330px;
+    letter-spacing: 1px;
+}
+.contact_zhuce ul li{
+    padding: 7px 0px;
+}
+.other{
+    margin-top: 50px;
+}
+.bottomnav{
+    margin-top: 760px;
+}
+.bottomnav ul{ 
+    width: 600px;
+    height: 30px;
+    margin: 0 auto;}
+.regsiter_top{
+    margin-top: 100px;
+}
+.remembe{ 
+	margin-right:10px;
+	 display: inline-block;
+	 }
+.pass{
+	height:30px;
+	margin-top:20px;
+}
+.pass .emem{ 
+	display: inline-block;
+    width: 100px;
+    border-right: solid 1px #e7e7e7;
+	}
+.pass .ememb{ 
+    margin-left:15px;
+	}
+	
+.pass a{ 
+	font-size:14px; 
+	color:#999;
+	}
+	
+input::-webkit-input-placeholder {
+　　color: #aaa !important; /* WebKit browsers */
+　　}
+input:-moz-placeholder {
+　　color: #aaa !important; /* Mozilla Firefox 4 to 18 */
+　　}
+　　input::-moz-placeholder {
+　　color: #aaa !important; /* Mozilla Firefox 19+ */
+　　}
+input:-ms-input-placeholder {
+　　color: #aaa !important; /* Internet Explorer 10+ */
+　　}	
+
+	

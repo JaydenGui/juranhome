@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>您当前的浏览器版本过低！建议升级最高版本！</title>
+  	<script src="${baseUrl}/js/index1/jquery.min.js"></script>
+</head>
+<body>
+	<a style="cursor: pointer" id="butontal">提示</a>
+    <div class="versioncue">
+        <i id="hideasi"><img src="${baseUrl}/images/user/versioncue_01.png"></i>
+        <div class="version">
+           <span>提示</span>
+           <p>您在使用低版本或不兼容的浏览器，使用此类浏览器可能导致浏览异常。为了更好的体验设计家服务，我们建议您安装使用以下浏览器。</p>
+           <ul>
+               <li>
+               	   <img src="${baseUrl}/images/user/versioncue_02.png">Firefox   浏览器 34.0.5 及以上版本
+               	   <a class="axma" id="Firefox" href="http://www.firefox.com.cn/" target="_blank">下载链接</a>
+               </li>
+               <li>
+                   <img src="${baseUrl}/images/user/versioncue_03.png">Chrome 浏览器 47.0.2526.111 及以上版本
+               	   <a id="Chrome"  href="http://www.google.cn/chrome/browser/" target="_blank">下载链接</a>
+               </li>
+               <li class="axli">我已了解浏览器兼容性问题。<a class="axmb" href="http://uat415www.gdfcx.net/"  target="_blank">仍然继续</a></li>
+           </ul>
+        </div>
+    </div>
+
+<script type="text/javascript">
+    function browserRedirect() {
+        var sUserAgent = navigator.userAgent.toLowerCase();
+        var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+        var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+        var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+        var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+        var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+        var bIsAndroid = sUserAgent.match(/android/i) == "android";
+        var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+        var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+        var chromeUrl;
+        var uirefoxUrl;
+        if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+            chromeUrl="http://www.google.cn/chrome/browser/mobile/";
+            uirefoxUrl="http://www.firefox.com.cn/mobile/";
+        } else {
+            chromeUrl="http://www.firefox.com.cn/mobile/";
+            uirefoxUrl="http://www.firefox.com.cn/mobile/";
+        }
+        $("#Chrome").attr('href',chromeUrl);
+        $("#Firefox").attr('href',chromeUrl);
+    }
+    
+    $(function(){
+        $("#butontal").click(function(){
+            $(".versioncue").show();
+        });
+        $("#hideasi").click(function(){
+            $(".versioncue").hide();
+        });
+    });
+</script>
+ 
+</body>
+</html>

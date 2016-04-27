@@ -1,0 +1,11 @@
+*{box-sizing: border-box;}
+/*money1*/
+.homestyler-title h3{height:73px;padding:20px 0 8px 0px;}
+.project-design .homestyler-juran{border:1px solid #eaeaea;height:200px;line-height:200px;text-align:center;}
+.project-design  p{text-align:center;height:44px;line-height:44px;color:#333;overflow: hidden;text-overflow: ellipsis; white-space: nowrap;}
+.project-design a{color:#666;}
+.normal-design img{transition:all 0.3s ease ;}
+.normal-design img:hover{box-shadow: 0px 5px 20px rgba(0,0,0,0.3);}
+
+ #logopadding .logopa{padding-top:13px!important;}
+ #spanheigh span{color:#333;line-height: 25px;}

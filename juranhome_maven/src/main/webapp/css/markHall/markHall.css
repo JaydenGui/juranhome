@@ -1,0 +1,275 @@
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img { margin:0; padding:0; font-family: "Microsoft YaHei";}
+fieldset, img { border:none; } /*涓轰簡鐓ч【ie6 閾炬帴鍥剧墖鏈夎竟妗�*/
+ul, ol,li { list-style:none; }
+*{-webkit-box-sizing: border-box; -moz-box-sizing: border-box;box-sizing: border-box;}
+input { padding-top:0; padding-bottom:0;}
+select, input { vertical-align:middle; }
+select, input, textarea { font-size:12px; margin:0; }
+textarea { resize:none; }
+table { border-collapse:collapse;border-spacing: 0; }
+input { padding-top:0; padding-bottom:0;}
+.clearfix:after { content:"."; display:block; height:0; visibility:hidden; clear:both; }
+.clearfix { zoom:1; }
+.clearit { clear:both; height:0; font-size:0; overflow:hidden; }
+a,input,button,div,select,option{ outline:none!important;}
+::-moz-focus-inner{border:0px;outline: 0;}
+a:focus{outline:none;}
+a{color:#666;text-decoration: none;}
+input[type=button]:focus,input[type=submit]:focus{outline:none;}/*ie*/
+body{font-family: "Microsoft YaHei";}
+.markhall-main-content{width: 100%;padding:0;margin:0;}
+.markhall-container-bg{position: relative;overflow: hidden;height: 290px;}
+.markhall-container-header{background-color: #f3f3f3;}
+.markhall-container-header-content{max-width:1200px;margin:0 auto;padding:14px 0;overflow:hidden;}
+.markhall-container-header-content span{height:32px;line-height: 32px;width:50px;padding:0px;}
+.markhall-container-body .rowMarhall{
+	overflow:hidden;
+}
+.markhall-container-header-content .Mscreening{
+	margin:0 auto;
+}
+select.markhall-form-control{display: inline;width:146px;height:30px;padding:0 12px;}
+.margin-rightMscreening{margin:0 10px 0 0;padding:0;max-width: 230px;}
+.margin-rightMscreening .markhall-form-control{background: url("../../images/markHall/markHall-sprites.png") 115px -230px no-repeat; appearance: none;-webkit-appearance: none;-moz-appearance: none;padding-right:12px;border-radius:5px;}
+.margin-rightMscreening select::-ms-expand { display: none; }
+.margin-rightMscreening select option{
+	background:#fff;
+}
+.margin-rightMscreening span{font-size:16px;color:#333; }
+.markhall-btn{height:32px;}
+.markhall-container-body{width: 100%;padding-bottom:20px;margin:0;background-color: #f3f3f3; min-height:500px;}
+.markhall-container-body-content{max-width:1200px;margin:0 auto;padding-top:35px;}
+.markhall-container-body-content li{position: relative;height:290px;max-width:273px;border-top:5px solid #fff;background-color: #fff;padding:28px 18px 0 10px;transition: all 0.4s ;margin:15px;}
+.markhall-container-body-content li:hover{border-top-color:#0084ff; box-shadow: 0px 5px 20px rgba(0,0,0,0.2);}
+.markhall-container-body-content li p{margin:0;}
+.markhall-container-body-content li button{max-width:100px;height:32px;line-height:18px;font-size:12px;}
+.markhall-container-body-content-topleft h3{font-size: 12px; color:#333;font-weight: normal;margin:0;}
+.markhall-container-body-content-topleft p{font-size:24px;height: 36px;line-height: 36px;font-weight: 700; }
+.markhall-container-body-content-topleft  span{ font-size:10px;padding-top:8px;height:18px;}
+.markhall-container-body-content-topright {padding-top:12px;}
+.markhall-container-body-content-topright .markhall-release-time{padding-left:28px;padding-bottom:8px;font-size: 12px;color:#333;background: url("../../images/markHall/markHall-sprites.png") 0 -269px no-repeat;}
+.markhall-container-body-content-topright .markhall-budget{padding-left:28px;font-size: 12px;color:#333;background: url("../../images/markHall/markHall-sprites.png") 0 11px no-repeat;}
+.markhall-container-body-content-topright .markhall-pnum{padding-left:28px;padding-top:8px;font-size:12px;color:#333;background: url("../../images/markHall/markHall-sprites.png") 0 -12px no-repeat;}
+.markhall-container-body-content-topright span{color:#333;}
+.markhall-container-body-content .markhall-list-botton{ bottom: 25px;position: absolute;width: 100%;}
+.markhall-container-body-content-middle{ padding: 0 0 20px 25px !important;}
+.markhall-container-body-content-middle h3{height: 30px; font-size: 18px;color:#333;margin:0;}
+.markhall-container-body-content-middle p{height: 12px; font-size: 12px;color:#333;}
+.markhall-container-body-content-middle span{height: 12px; font-size: 12px;color:#999;padding:0 13px;}
+.markhall-button{width:90%;height:34px;background-color:#fff;color:#0084ff;border:1px solid #0084ff; font-size:12px;font-family: 'microsoft yahei';}
+.markhall-button-request{margin:0 0 0 20px;}
+/*Modal Window of no  Certification*/
+.no-certification{width:35%;height:180px;border-radius: 8px;background-color: #fff;margin:0 auto;}
+.no-certification-header{height:30px;padding:0px 16px 0 0; font-size:32px;color:#666;}
+.no-certification-body{height:150px;}
+.no-certification-body h3{height:37px;font-size: 18px;font-family: "microsoft yahei";color:#ff9a0c;padding-top:13px;margin:0;}
+.no-certification-body p{font-size:14px;color:#333;margin:0;}
+.no-certification-body-btn{float: right;margin-right:24px;width:100px;  height: 33px;text-align: center;margin-top:20px;font-size:16px;}
+/*Modal Window of failed reasons*/
+.cause-failure{width:30%;height:180px;border-radius: 8px;background-color: #fff;margin:0 auto;background: url("../../images/markHall/tip-nocertife_03.png") no-repeat 25px 25px #fff; margin-top:12%}
+.cause-failure-header{padding-left:120px;height:118px; }
+.cause-failure-body{height:62px;}
+.cause-failure-header h3{font-size:18px;color:#ff9a01;height:66px;padding-top:42px;margin:0;}
+.cause-failure-header p{height: 52px;font-size: 14px;font-family: "microsoft yahei";color:#333;}
+.cause-failure-body-btn{float: right;margin-right:24px;width:100px;  height: 36px;text-align: center;margin-top:0px;font-size:12px;}
+
+/*Modal Window of full bid*/
+.full-bid{width:41%;height:330px;border-radius: 8px;background-color: #fff;margin:0 auto;}
+.full-bid-header{height:190px; background: url("../../images/markHall/tip-nocertife_03.png") no-repeat center center;}
+.full-bid-body{text-align: center;}
+.full-bid-body p{height: 46px;font-size: 26px;font-family: "microsoft yahei";font-weight: 700;color:#333;}
+.full-bid-body-btn{float: right;margin-right:24px;width:100px;  height: 33px;text-align: center;margin-top:30px;font-size:16px;}
+
+/*Modal Window of needDetail*/
+.needDetail{width:41%;max-height:664px;border-radius: 8px;background-color: #fff;}
+.needDetail-header{height:113px;padding:40px 5px 0 25px;}
+.needDetail-header h3{ font-size: 24px;color:#333;font-family: "microsoft yahei";height:40px;}
+.needDetail-header p{ font-size: 12px;color:#666;font-family: "microsoft yahei";}
+.needDetail-body{padding:0px 20px 0 25px;height: 268px; }
+.needDetail-body div{height:28px;font-size:14px;font-family: "microsoft yahei";color:#333;}
+.button-area{margin:0;}
+.needDetail-body-btn{float: right;margin-right:37px;width:100px;  height: 33px;text-align: center;margin-top:30px;font-size:16px;}
+.needDetail-footer{padding: 20px 40px 0 40px;height:282px;}
+.needDetail-footer .row{margin:0!important;padding:0!important;font-size:16px;color:#333;position: relative; }
+.needDetail-footer h3{font-size: 18px;color:#333;margin:0;}
+.needDetail-footer span{color:#666;}
+.needDetail-footer textarea{width:100%;height:114px;border:1px solid #eaeaea;padding:10px 20px 20px 20px;color:#666;font-size:18px; margin-top:20px;}
+.needDetail-footer textarea::-webkit-input-placeholder {color:#999;font-size:18px;}
+.needDetail-footer textarea:-moz-placeholder{color:#999;font-size:18px;}
+.needDetail-footer textarea::-moz-placeholder {color:#999;font-size:18px;}
+.needDetail-footer textarea:-ms-input-placeholder {color:#999;font-size:18px;}
+.bid-people-num{ color:#999;font-size:14px;position: absolute;right:20px;bottom:0px;}
+.bid-people-num span{color:#0084ff;}
+/*edit-personal part*/
+.markhall-container-bg-skin-all{width: 100%;position: absolute;height:100%}
+.markHall-avatarInfo {margin: 0 auto;position:relative;width: 1200px; height: 290px;padding-left: 55px}
+.markhall-container-bg-icon .avatar img:first-child{border-radius: 50%;height: 131px;width: 131px;}
+.markhall-container-bg-skin{width: 132px;height: 39px;cursor:pointer;border-radius: 30px;position: absolute;bottom:20px; right:10px;background:  rgba(0,0,0,0.5);}
+.markhall-container-bg-skin p{height:39px;line-height: 39px;font-size: 16px;color:#fff;text-align: center;}
+.markhall-container-bg-icon{width: 131px;height: 155px;position: absolute; top: 50%;transform: translateY(-50%);width:100%;top:30%\0;}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)  {
+    .markhall-container-bg-icon{
+        top: 50%;
+    }
+}
+.markhall-container-bg-icon .avatar {float: left;width: 131px;margin-top: 30px;}
+.markhall-container-bg-icon .info {float: left;margin-left: 30px;padding-top: 35px;}
+.markhall-container-bg-icon p{text-align: left;line-height: 1.7;color:#333;margin:0px;letter-spacing: 2px;}
+.markhall-container-bg-icon .info .d-nickName { font-size: 30px;}
+.markhall-container-bg-icon .info .d-workLife {font-size: 18px !important;}
+.markhall-container-bg-icon .info .d-roomFee,.markhall-container-bg-icon .info .d-goodStyle{font-size: 14px !important;}
+.edit-personal-container-body{padding:0px 0 20px 0;background-color: #f3f3f3;width: 100%;}
+.edit-personal-container-body-content{margin:0 auto;width:1200px;border:1px solid #eaeaea;border-radius: 5px;}
+.edit-personal-container-body-content h3,.edit-personal-container-body-content p{margin:0;}
+.edit-personal-container-body-content .edit-profile{ height: 40px;border-bottom:1px solid #eaeaea;line-height: 40px;background:url("../../images/markHall/markHall-sprites.png") 14px -122px no-repeat #fafafa;padding-left:44px;
+font-size:16px;color:#333;margin:0;}
+.edit-personal-container-body-container{padding:5px 40px 60px 20px;background-color: #fff;}
+.edit-personal-about-me{padding-bottom:5px;}
+.edit-personal-about-me .dot{width: 10px;height: 10px;border-radius: 5px;background-color: #eaeaea;display: inline-block;margin-right: 10px; }
+.edit-personal-about-me textarea{resize:none;margin-left:20px;width:100%;height:200px;border:1px solid #eaeaea;}
+.edit-personal-about-me .limit-text{position: absolute;bottom:16px;right:0px; color:#9F9F9F}
+.edit-personal-about-me input{margin-left:20px;height: 32px;width: 300px;border:1px solid #eaeaea;line-height: 32px;padding:0 0 0 10px!important;margin-bottom: 10px;}
+.continue-adding{padding-left: 20px;cursor: pointer;}
+/*edit-personal-transaction-related*/
+.edit-personal-transaction-related{padding:20px 0;}
+.edit-personal-transaction-related .dot{width: 10px;height: 10px;border-radius: 5px;background-color: #eaeaea;display: inline-block;margin-right: 10px;}
+.edit-personal-transaction-related h3,.edit-personal-about-me h3{height:34px;width:107px;line-height: 34px;font-size:16px;color:#333;display: inline-block;padding-left: 12px;}
+.edit-personal-about-me h3{padding-left:20px;}
+.edit-personal-transaction-related .related-fee{text-align:left;width:97px;margin-left:20px;height:34px;color:#333;font-size:14px;line-height:34px;display: inline-block;margin-bottom:20px;}
+.de-check-tip{color: red; position: absolute; bottom: 0px; left: 142px;display:none;font-size: 12px;}
+#relatedFee.error,#workyears.error,#fee.error{border-color: red;}
+.edit-personal-transaction-related select{margin-left:20px;width:250px;height:34px;border:1px solid #eaeaea;line-height: 34px;}
+.edit-personal-transaction-related-top select{margin-left:20px;width:250px;height:34px;border:1px solid #eaeaea;line-height: 34px;background:url("../../images/markHall/markHall-sprites.png") 210px -48px no-repeat;appearance: none;-webkit-appearance: none;-moz-appearance: none;padding-right:12px;}
+.edit-personal-transaction-related .limit-text{position: absolute;bottom:16px;right:30px;}
+.edit-personal-transaction-related-top input{margin-left:20px;height: 32px;width: 300px;border:1px solid #eaeaea;line-height: 32px;padding:0 0 0 10px!important;margin-bottom: 10px;}
+.continue-adding{padding-left: 20px;cursor: pointer;border-radius:5px;}
+.measure-unit{color:#999;}
+.edit-personal-transaction-related p{height:30px;color:#333;font-size: 14px;padding-left: 20px;}
+.edit-personal-transaction-related p span{color:#0084ff;}
+.edit-personal-checkbox-inline{height: 30px;width: 100px;position: relative;color:#333;font-size: 14px;}
+.assist-show{position: absolute;background: url("../../images/markHall/designer-edit.png") -6px -33px no-repeat;top:1px;left:0;height: 30px;width: 100px;padding-left: 20px;}
+.assist-show-click{height: 30px;width: 100px;position: relative;color:#333;font-size: 14px;position: absolute;background: url("../../images/markHall/designer-edit.png") -6px -69px no-repeat;height: 30px;width: 100px;top:1px;left:0;}
+.assist-show input{opacity: 0;}
+/*edit management*/
+.edit-personal-container-body-content .edit-management{margin:0px;height: 40px;border-bottom:1px solid #eaeaea;line-height: 40px;background:url("../../images/markHall/markHall-sprites.png") 14px -155px no-repeat #fafafa;padding-left:44px;
+    font-size:16px;color:#333;}
+.edit-management-diy{padding-bottom:40px;border-bottom:0px solid #fff;}
+.my-diy-project {padding:0px;}
+.my-diy-project li{position:relative;cursor:pointer;overflow:hidden;float:left;font-size:18px;margin:0px 20px 30px 0;height:274px;width:268px;border:10px solid #fff;border-bottom:1px solid #eee;transition: all 0.4s;padding:0!important;}
+.my-diy-project li:hover{border-bottom-color:#fff; box-shadow: 0px 5px 10px rgba(0,0,0,0.2);}
+#material:hover{border-top-color:#fff; box-shadow: 0px 0px 0px rgba(0,0,0,0);height:264px;}
+.my-diy-project li:nth-child(4n+4){margin-right:0px;}
+.my-diy-project li img{width: 100%; height:190px;}
+.my-diy-project h3{height:42px;padding-top:20px;color:#333;font-size: 14px;padding-left: 13px;margin:0;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.my-diy-project p{color:#999;font-size: 12px;padding-left: 13px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.my-diy-project p span{padding:0 6px;}
+.my-diy-project-img .rotate45{padding: 22px 0 0 20px;  position: absolute;  top: -15px;  right: -23px;  width: 100px;  color: #fff;
+      height: 50px;  text-align: center;  transform: rotate(45deg); text-align: center; background: rgba(0,0,0,0.6);font-size:14px;}
+p.my-diy-check{background-color: rgba(0,0,0,0.6);width:100%;color:#fff;font-size:18px;position: absolute;top:0;left:0;height:264px;line-height: 264px;text-align: center;}
+p.my-diy-check:hover{height:274px;}
+.audit-not-through,.audit-not-through:hover{height:264px;background-color: rgba(0,0,0,0.6);width:100%;position: absolute;top:0;left:0;text-align: center;}
+.audit-not-through p:nth-child(1){height:135px;padding-top:100px;color:#fff;font-size:18px;}
+.audit-not-through p:nth-child(2){width:120px;height:36px;border-radius:6px;margin:0 auto;color:#0084ff;font-size:14px;background-color:#fff;border:1px solid #0084ff;line-height:36px;padding:0;}
+.audit-not-through p:nth-child(2):hover{background-color:#0084ff;color:#fff;}
+
+.change-theme{width:100%;height:286px;background-color: #fff;}
+.change-theme-content{width:1200px;height:286px;margin: 0 auto;}
+.change-theme-title{font-size:18px;color:#333; margin-bottom: 20px; margin-top: 20px;}
+.change-theme-title div:nth-child(2){color:#1396f2;cursor: pointer;}
+.change-theme-main{height: 270px;margin: 0;overflow: hidden;width: 100%;}
+.change-theme-main ul{ height: 280px;overflow: hidden;position: relative;width: 100%;overflow-y: auto;overflow-x:hidden}
+.change-theme-main li{ border: 1px solid #eaeaea; cursor: pointer;float: left; height: 128px; margin-bottom: 10px;margin-right: 10px;padding: 2px;position: relative;width: 49%;}
+.change-theme-main li img{width:100%;height:122px;}
+.change-theme-main .change-theme-arrow{width:30px;height:120px;margin-top:4px;  cursor: pointer;}
+.change-theme-main .change-theme-ul li div{width:30px;height:30px;position: absolute;top:3px;right:3px;background: url("../../images/markHall/click-theme.png") no-repeat center -30px;}
+.click-theme{background: url("../../images/markHall/click-theme.png") no-repeat center 0px !important;}
+
+
+/*case-details-content*/
+.case-details-content{width:100%;background-color: #f3f3f3;padding-top: 106px;}
+.case-details-container{width:1200px;margin: 0 auto;}
+.case-details-container-left{width:798px;float: left;margin-right:20px;background-color: #fff;margin-bottom: 4%;}
+.case-details-container-left h3,.case-details-container-left p{margin:0;}
+.case-details-container-left h3{height: 48px;line-height: 48px;padding-left: 20px;border-bottom:1px solid #eaeaea;color:#333;font-size:16px;}
+.case-details-container-left-container{padding:15px 40px 0 40px;}
+.case-details-container-left-container p{height: 42px;padding: 20px 0 0 0;font-size:14px;color:#666;}
+.case-details-container-left-container p span{ color:red;}
+.case-details-container-left-container input{width:248px;height:34px;border:1px solid #eaeaea;border-radius: 5px!important;padding-left: 10px;color:#333;font-size: 16px;}
+.case-details-container-left-container input.clicked{width:248px;height:34px;border:1px solid red;}
+.case-details-container-left-container select{width:124px;height:34px;border:1px solid #eaeaea;border-radius: 5px;padding-left: 10px;color:#333;font-size: 16px;margin-right: 20px;
+background:url("../../images/markHall/markHall-sprites.png") 86px -48px no-repeat;appearance: none;-webkit-appearance: none;-moz-appearance: none;padding-right:12px;  }
+.case-details-container-left-container textarea{resize:none;width: 100%;height:198px;border:1px solid #eaeaea;padding-left: 20px;font-size: 16px;color:#999;}
+.uploading-img{width: 95%;border:1px solid #eaeaea;padding:0 20px 0 20px;font-size: 16px;color:#999;position:relative;}
+.describe-case{position: absolute;bottom:15px;right:45px;color:#999;font-size: 12px;}
+.uploading-img img{width:100%;height:76px;}
+.uploading-img-img{padding: 3px!important;position:relative;  border: 1px solid #d7d7d7;  margin: 0 10px 20px 0;  height: 84px;width:84px!important;  overflow: hidden;}
+.uploading-img-img-del-img{cursor:pointer;position:absolute;right:6px;bottom:6px;background:#333;width:20px;height:20px;background: url("../../images/markHall/del-img-del.png") no-repeat center center;}
+#case-uploading-img{position: relative;}
+.uploading-img p{padding-left: 20px;}
+#house-style,#select_style{width:248px;background-position:209px -48px;}
+/*
+case-details-container-right*/
+.case-details-container-right{width:382px;float: left;background-color: #f3f3f3;}
+.case-details-container-right-top{background-color: #fff;}
+.case-details-container-right-top h3{height: 48px;line-height: 48px;padding-left: 20px;border-bottom:1px solid #eaeaea;color:#333;font-size:16px;background-color: #fafafa;}
+.case-details-container-right-rule{padding:20px 35px 0 20px;height:150px;}
+.case-details-container-right-rule .dot{width: 10px;  height: 10px;  border-radius: 5px;  background-color: #eaeaea;  display: inline-block;  margin-right: 10px;}
+.case-details-container-right-rule p{height: 24px;  line-height: 24px;  font-size: 14px;  color: #333;display: inline-block;}
+.case-details-container-right-bottom{margin-top: 20px;background-color: #fff;}
+.case-details-container-right-bottom h3{height: 48px;line-height: 48px;padding-left: 42px;border-bottom:1px solid #eaeaea;color:#333;font-size:16px;
+    background: url("../../images/markHall/markHall-sprites.png") 10px -186px no-repeat #fafafa;}
+    
+.contentHeader .edit-manage-btn{background: url(../../images/markHall/markHall-sprites.png) 0px -155px no-repeat;color:#0084ff;width:110px;position:absolute;cursor:pointer;
+right:6px;top:5px;padding-left:30px;font-size:12px;}
+.contentHeader .edit-manage-btn a,.contentHeader .edit-personal-data-btn a{color:#0084ff;text-decoration:none;}
+.contentHeader .edit-personal-data-btn{background: url(../../images/markHall/markHall-sprites.png) 14px -122px  no-repeat;color:#0084ff;width:110px;position:absolute;cursor:pointer;
+right:6px;top:2px;padding-left:45px;font-size:12px;}
+.state1{  color:#aaa;  }
+.state2{  color:#333;  }
+.state3{  color:red;  }
+.state4{  color:green;  }
+/*find designer*/
+.find-designer-main-content{width:100%;background-color: #eff3f5;}
+.find-designer-container{width:1200px;margin: 90px auto 0;}
+.find-designer-container-mian{padding:25px 25px 15px 25px;background-color: #fff;margin-bottom: 20px;}
+.find-designer-container-mian-header{padding-bottom:20px;}
+.find-designer-container-img{width:120px;height:120px;border-radius: 50%;overflow: hidden;margin-left: 15px;padding-left: 0;margin-bottom:10px;}
+.find-designer-container-img>img{width:120px;height:120px;cursor:pointer}
+.find_desimga a img{width:120px;height:120px;cursor:pointer}
+.find-designer-container-messages{height:120px; margin-top:24px;}
+.find-designer-container-messages h3{height:28px;font-size: 18px;color:#333;margin:0;}
+.find-designer-container-messages p{height:24px;font-size:14px;color:#333;margin:0;}
+.find-designer-authenticated{height:28px;line-height: 28px;color:#666;width:130px;padding-left:15px;}
+.find-designer-authenticated img{width:89px;margin:0 auto;}
+.find-designer-container-messages p span{padding-right:15px;font-size: 14px;}
+.find-designer-container-fee{height:120px;padding-top: 34px;width:28.6%;}
+.find-designer-container-fee h3{height:28px;font-size: 18px;color:#333;margin:0; }
+.find-designer-container-fee p{color:#333;font-size:14px;margin:0;}
+.find-designer-container-fee p span{color:#0084ff;padding-right:15px;font-size:22px;line-height:22px;}
+.find-designer-show-img li{margin-bottom: 25px;height:203px;overflow: hidden;}
+.find-designer-show-img li img{width:100%;cursor:pointer;height:203px;}
+.find-designer-container-arrow-top{width:46px;height:46px;position:fixed; right: 10px; bottom: 186px; /*display:none;*/}
+.button.disabled, .button[disabled], fieldset[disabled] .button {background-color: #e7e7e7 !important;box-shadow: none;
+    cursor: not-allowed;border-color: #e7e7e7 !important;}
+@media screen and (max-width: 1000px) { 
+.find-designer-show-img li{width:80%; height:auto;}	
+.find-designer-show-img li img{ width:100%; height:auto;}
+.find-designer-container-fee{ position:relative; top:-230px; left:50%; }
+.find-designer-container-mian-header{height:280px}
+}
+
+@media screen and (max-width: 800px) { 
+.find-designer-show-img li{width:60%; height:auto;}	
+.find-designer-show-img li img{ width:100%; height:auto;}
+.find-designer-container-mian-header{ height:280px}
+.find-designer-container-fee{ position:relative; top:-230px; left:30%;}
+
+}
+
+@media screen and (max-width: 600px) { 
+.find-designer-show-img li{width:40%; height:auto;}	
+.find-designer-show-img li img{ width:100%; height:auto;}
+.find-designer-container-mian-header{ height:290px}
+.find-designer-container-fee{ position:relative; top:-230px;  left:10%;}
+
+}

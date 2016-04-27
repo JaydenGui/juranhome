@@ -1,0 +1,18 @@
+.city_lt{
+    background-color: #535050;
+}
+.city_lt p{
+    color: #fff;
+    margin: 0 5px;
+    border-bottom: 1px solid #434141;
+}
+.city_lt p{
+    height: 99px;
+}
+
+.nextPage,.prevPage{
+    background-color: #3e3b3b;
+}
+.tcdPageCode .nextPage,.tcdPageCode .prevPage{
+    color: #fff;
+}

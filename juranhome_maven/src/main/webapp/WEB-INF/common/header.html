@@ -1,0 +1,259 @@
+	 <link rel="stylesheet" href="${baseUrl}/css/index/main.css"/>
+	 <link rel="stylesheet" href="${baseUrl}/css/index/style.css"/>
+	 <link rel="stylesheet" href="${baseUrl}/css/index/theme_blue.css"/>
+	 <link rel="stylesheet" href="${baseUrl}/css/index/indexcss.css"/>
+	 <link rel="stylesheet" href="${baseUrl}/css/public/tooltip-classic.css"/>
+	 <link rel="stylesheet" href="${baseUrl}/css/index/verion.css">
+	   <!--header start-->
+	<div id="LIOF" class="logInOutFrame">
+		<div class="logInOutF">
+			<button class="sds" style="border:1px solid #fff;">&times;</button>	
+			<iframe id="logInOutFrame" style="border:none;" scrolling="no"></iframe>
+			<iframe id="HS_logInOutFrame" style="width:0px; height:0px"></iframe>
+		</div>
+	</div>
+
+
+	<div class="container"  style="background:#333;position:relative;z-index:99999;height:53px;">
+	    <div class="navbar-header">
+	        <!-- start: RESPONSIVE MENU TOGGLER -->
+	        <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+	            <span class="clip-list-2"></span>
+	        </button>
+	        <!-- end: RESPONSIVE MENU TOGGLER -->
+	    </div>
+	    <div class="navbar-tools" style="margin: 0 auto;">
+	        <div class="nadso">
+	            <div id="search-field">
+	                <form id="search-form">
+	                    <button type="submit" class="button-indesigner-detail" style="float:left;color:#000;font-size:13px;font-family: "微软雅黑";">案例</button>
+	                    <!-- <img id="asfafay" src="${baseUrl}/images/userCenter/Caseicon.png"></img> -->
+	                    <div class="search-input"><!-- 
+	                        <div class="shadow-x"></div>
+	                        <div class="shadow-y"></div> -->
+	                        <input  class="input-indesigner-detail" style="padding:0px!important;height:29px;width:100%; background-color: #fff; border:none;" type="text" id="searchKeyWord" />
+	                        <img id="searchbox" src="${baseUrl}/images/userCenter/searchbox_03.png"></img>
+	                    </div>
+	                </form>
+	            </div>
+	        </div>
+	        <div class="logo logo-indesigner-detail" style="position:absolute;">
+	        	<a href="${baseUrl}/"></a>
+	        	<a class="logoleft" href="${baseUrl}/"><img src="${baseUrl}/images/index/logo_02.png" id="img-logo" alt="logo"></a>
+	        </div>
+	        <!-- start: TOP NAVIGATION MENU -->
+	        <ul class="nav navbar-right indexlogohd" style="float:right;">
+	            <!-- start: TO-DO DROPDOWN -->
+	            <!-- end: TO-DO DROPDOWN-->
+	            <!-- start: NOTIFICATION DROPDOWN -->
+	            <#if users?exists & users.type='member'>
+					<li class="">
+		              <a class="dropdown-toggle" href="${baseUrl}/myOrder/addNeeds/"   style="height: 52px; line-height: 31px;">发布设计需求</a>
+		            </li>
+	           <#elseif users?exists & users.type='designer'> 
+		            <li class="">
+				       <a class="dropdown-toggle" href="${baseUrl}/mark/category"   style="height: 52px; line-height: 31px;">应标大厅</a>
+				    </li>
+				 </#if>
+                 <li><img src="${baseUrl}/images/index/d_line.png"></li>
+		            <li class="dropdown" style="height:50px">
+		            <!--  -->
+	                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" data-close-others="true" href="javascript:;" style="height: 52px; line-height: 32px;" >
+	                    <em style="font-size: 18px; vertical-align: middle;" class="clip-mobile"></em> 
+	                    <span style="font-size: 14px;" class="username">设计家APP</span>
+	                </a>
+					<ul style="min-width: 122px" class="dropdown-menu">
+						<!-- <li>
+							<a href="#">
+								<img src="${baseUrl}/images/markHall/1.jpg">
+							</a>
+						</li>-->
+						<li>
+							<a href="javascript:void(0);" style="width: 122px;padding:2%;">
+								<img style="width:118px;height:120px;" src="${baseUrl}/images/index/shejijia.png" >
+							</a>
+						</li> 
+					</ul>
+	            </li>
+                <li><img src="${baseUrl}/images/index/d_line.png"></li>
+	            <!-- end: NOTIFICATION DROPDOWN -->
+	             <#if users?exists>
+	            <!-- start: MESSAGE DROPDOWN -->
+	             <!-- <li class="dropdown" style="height:50px">
+	                <a class="dropdown-toggle" data-close-others="true" data-hover="dropdown" data-toggle="dropdown" href="" style="padding-bottom:10px;">
+	                 	<em class="clip-bubble-3" style="border-left: 1px solid #5c5c5c;padding-left: 15px; border-right: 1px solid #5c5c5c; padding-right: 15px;"></em>
+	                 	 <span class="badge">4</span>
+	                </a>
+	                <ul class="dropdown-menu posts" style="position: absolute; z-index: 100000000000000">
+	                    <li>
+	                        <span class="dropdown-menu-title"> 您有{{message.newMsgCount}}则信息</span>
+	                    </li>
+	                    <li>
+	                        <div class="drop-down-wrapper ps-container">
+	                            <ul>
+	                                <li ng-repeat="item in message.messages">
+	                                    <a href="${baseUrl}/user/index#/message/">
+	                                        <div class="clearfix">
+	                                            <div class="thread-image">
+	                                                <img alt="" src="${baseUrl}/images/index/avatar-2.jpg">
+	                                            </div>
+	                                            <div class="thread-content">
+	                                                <span class="author">{{item.subject}}</span>
+	                                                <span class="preview">{{item.body|substr:10}}</span>
+	                                                <span class="time">{{item.sent_time|fdate}}</span>
+	                                            </div>
+	                                        </div>
+	                                    </a>
+	                                </li>
+	                           </ul>
+	                        <div class="ps-scrollbar-x-rail" style="width: 270px; display: none; left: 0px; bottom: 3px;"><div class="ps-scrollbar-x" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 250px; display: none; right: 3px;"><div class="ps-scrollbar-y" style="top: 0px; height: 0px;"></div></div></div>
+	                    </li>
+	                    <li class="view-all">
+	                        <a href="${baseUrl}/user/index#/message/"> 浏览全部信息 <i class="fa fa-arrow-circle-o-right"></i>
+	                        </a>
+	                    </li>
+	                </ul>
+	            </li> -->
+	            <!-- end: MESSAGE DROPDOWN -->
+	            
+	            <!-- start: USER DROPDOWN -->
+	            <li class="dropdown current-user" style="cursor:pointer;">
+	            <#if users?exists & users.type='member'>
+	            <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" data-close-others="true" style="padding-top:9px; ">
+	            <#elseif users?exists & users.type='designer'> 
+	            <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" data-close-others="true" onClick="window.open('${baseUrl}/mark/index');" style="padding-top:9px;">
+	            </#if> 
+	                   <#if users.avatar != "">
+	                   	<!--  <img src="${users.avatar}" class="circle-img" style="display:inline;height: 24px;width: 24px;margin-bottom:8px;" />-->
+	                   <#else>
+	                     <!-- <img src="${baseUrl}/images/global/avatar_def.jpg" class="circle-img" style="display:inline;height: 24px;width: 24px;margin-bottom:8px;" />-->
+	                   </#if>
+	                    <span class="username" style="line-height:34px;height:26px;width:80px;white-space: nowrap;overflow:hidden !important;text-overflow: ellipsis;display:inline-block;" >${users.userName}</span>
+	                    <em class="clip-chevron-down"></em>
+	                </a>
+	                <ul class="dropdown-menu" style="z-index:999999">
+	                	<#if users?exists & users.type='member'>
+	                    <li>
+	                        <a href="${baseUrl}/user/index#/myorder/">
+	                            <i class="clip-user-2"></i>
+	                            &nbsp;个人中心
+	                        </a>
+	                     </li>
+	                     <#elseif users?exists & users.type='designer'>  
+	                     <li>
+	                        <a href="${baseUrl}/user/index#/mybidlist/">
+
+	                            <i class="clip-user-2"></i>
+	                            &nbsp;个人中心
+	                        </a>
+	                    </li>
+	                     </#if>
+	                    <li class="divider"></li>
+	                    <li>
+	                        <a href="javascript:void(0)" onclick="userLogoug();">
+	                            <i class="clip-exit"></i>
+	                            &nbsp;帐号退出
+	                        </a>
+	                    </li>
+	                </ul>
+	            </li>
+	            <li></li>
+	            <#else>
+	              <li><a id="register" href="javascript:userLogin()">登录 / 注册</a></li>
+	              <!--<li><a href="${baseUrl}/login/register" style="height: 50px; line-height: 25px;">注册</a></li>-->	
+	            </#if>
+	            <a href="${baseUrl}/3Dscheme/create3D" target="_blank" style="height: 50px; line-height: 25px; display: block;float:left;"><img src="${baseUrl}/images/index/3d-diy_icon.png" /></a>   
+	            
+	            <!-- end: USER DROPDOWN -->
+	        </ul>
+	        <!-- end: TOP NAVIGATION MENU -->
+	    </div>
+	</div>
+	<!--header end-->
+	
+	   <!--nav start-->
+	   <div role="navigation" ng-if="userType" class="navbar navbar-default navbar-fixed-top space-top" id="naver">
+	       <!-- start: TOP NAVIGATION CONTAINER -->
+	       <div class="container" style="margin-top:0px">
+	           <div class="navbar-header" style="display:none">
+	               <!-- start: RESPONSIVE MENU TOGGLER -->
+	               <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+	                   <span class="sr-only">Toggle navigation</span>
+	                   <span class="icon-bar"></span>
+	                   <span class="icon-bar"></span>
+	                   <span class="icon-bar"></span>
+	               </button>
+	               <!-- end: RESPONSIVE MENU TOGGLER -->
+	           </div>
+	          <div class="navnnv1">
+	               <ul id="menu" style="margin-left:35%;">
+	                   <li>
+	                       <a href="${baseUrl}/" id="indexSrc" > 首页</a>
+	                   </li>
+	                   <li>
+	                       <a class="dropdown-toggle" href="${baseUrl}/caseBase/index/">海量案例</a>
+	                   </li>
+	                   <li>
+	                       <a class="dropdown-toggle" href="${baseUrl}/designer/index/">找设计师</a>
+	                   </li>
+	                   <li>
+	                       <a href="http://cas.juranzaixian.com.cn/" target="_blank">居然在线</a>
+	                   </li>
+	               </ul>
+               <div id="slidingbar-area">
+                   <!-- start: SLIDING BAR TOGGLE BUTTON -->
+                    
+                   <!-- end: SLIDING BAR TOGGLE BUTTON -->
+               </div>
+	          </div> 
+	       </div>
+	       <!-- end: TOP NAVIGATION CONTAINER -->
+	   </div>
+	   <!--nav end-->
+	   
+	   <!--nav mark index start  -->
+	   <div class="head-bg" ng-if="userTypeNav"></div>
+	   <div ng-show="userTypeNav">
+	   <div class="head-bar head-barers">
+          <div class="head-bar-inner">
+              <div class="row">
+                  <div class="col-sm-4 col-xs-6" style="width:460px;"></div>
+                 <div class="col-sm-8 col-xs-6" style="float:left;">
+                      <div class="nav-wrap nav-wrapers">
+                          <nav class="nav" style="float:left;padding:0px 115px 15px 0">
+							<ul class="clearfix markdnav">
+				         <!-- <li><a href="${baseUrl}/mark/category" target="_parent">应标大厅</a></li> -->
+							  <li><a href="${baseUrl}/mark/index#package" ng-if="designerInfo.designer.is_loho==1" target="_parent">北舒套餐</a></li>
+                              <li class="active"><a href="${baseUrl}/mark/index#experience2" target="_parent">我的应标</a></li>
+                              <li><a href="${baseUrl}/mark/index#experience" target="_parent">我的订单</a></li> 
+							 <li><a href="${baseUrl}/mark/main/" target="_blank" >我的主页</a></li>
+							</ul>
+						</nav>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      </div>
+	  <!--nav mark index end  -->
+	  
+	 <!--determine the browser version start-->
+	 <div class="versioncue">
+        <i class="hideasi"><img onclick="untilGo()" src="${baseUrl}/images/user/versioncue_01.png"></i>
+        <div class="version">
+           <span>提示</span>
+           <p>为了使您享有最好的用户体验，请您使用 Chrome47、Firefox34 以上版本的浏览器来体验设计家。</p>
+           <ul>
+              <li>
+               	  <img src="${baseUrl}/images/user/versioncue_02.png">Firefox   浏览器 34.0.5 及以上版本
+               	  <a class="axma" id="Firefox" href="" target="_blank">下载链接</a>
+               </li>
+               <li>
+                   <img src="${baseUrl}/images/user/versioncue_03.png">Chrome 浏览器 47.0.2526.111 及以上版本
+               	   <a id="Chrome" style="margin-left:36px;" href="" target="_blank">下载链接</a>
+               </li>
+               <li class="axli"><input style="margin:0px" type="checkbox" id="ckBox" />&nbsp;下次不再提示。<button style="margin-left:271px;height:25px;line-height:13px;font-size: 12px;"class="btn btn-primary full color-1 size-1 hover-1 designerwork dropdown-toggle hideasi"  onclick="untilGo()" >知道了</button></li>
+           </ul>
+        </div>
+    </div>
+ 	 <!--determine the browser version end-->

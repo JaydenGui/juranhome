@@ -1,0 +1,100 @@
+<style>
+#orderDetail .modal-body{font-size:14px;}
+</style>
+<div class="modal fade confirmMain" id="orderDetail" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog" style="width: 660px;">
+			<div class="modal-content" >
+				<div class="modal-header" style="border:none;padding:25px;padding-left:45px;">
+					<button type="button" class="close not-transparent" data-dismiss="modal" aria-hidden="true">
+						<img src="${baseUrl}/images/userCenter/m-close-icon.png"/>
+					</button>
+					<h4 class="modal-title">{{detail.community_name}}</h4>
+					<div class="needs_num">编号 : {{detail.needs_id}}</div>
+				</div>
+				<div class="modal-body col-xs-12">
+				<div class="col-md-12" style=background:#fff;line-height:15px;">
+		            <div class="col-md-12 confirmform">
+		            	<div class="col-md-4">客户姓名&nbsp;:</div>
+		            	<div class="col-md-8">{{detail.contacts_name}}</div>
+		            </div>
+		            <div class="col-md-12 confirmform">
+		            	<div class="col-md-4">联系电话&nbsp;:</div>
+		            	<div class="col-md-8">{{detail.contacts_mobile}}</div>
+		            </div>
+		            <div class="col-md-12 confirmform">
+		            	<div class="col-md-4">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址&nbsp;&nbsp;:</div>
+		            	<div class="col-md-8">{{detail.province_name}}{{detail.city_name}}{{detail.district_name|replaceNone}}</div>
+		            </div>
+		            <div class="col-md-12 confirmform">
+		            	<div class="col-md-4">设计预算&nbsp;:</div>
+		            	<div class="col-md-8">{{detail.design_budget}}</div>
+		            </div>
+		            <div class="col-md-12 confirmform">
+		            	<div class="col-md-4">装修预算&nbsp;:</div>
+		            	<div class="col-md-8">{{detail.decoration_budget}}</div>
+		            </div>
+		            <div class="col-md-12 confirmform">
+		            	<div class="col-md-4">房屋类型&nbsp;:</div>
+		            	<div class="col-md-8">{{detail.house_type|replaceHouseType}}</div>
+		            </div>
+		            <div class="col-md-12 confirmform">
+		            	<div class="col-md-4">房屋面积&nbsp;:</div>
+		            	<div class="col-md-8">{{detail.house_area|replaceArea}} m²</div>
+		            </div>
+		            <div class="col-md-12 confirmform">
+		            	<div class="col-md-4">户&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型&nbsp;&nbsp;:</div>
+		            	<div class="col-md-8">{{detail.room|replaceRoomType}}{{detail.living_room|replaceBedRoom}}{{detail.toilet|replaceRestRoom}}</div>
+		            </div>
+		            <div class="col-md-12 confirmform">
+		            	<div class="col-md-4">风&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格&nbsp;&nbsp;:</div>
+		            	<div class="col-md-8">{{detail.decoration_style|replaceStyle}}</div>
+		            </div>
+		            <div class="col-md-12 confirmform">
+		            	<div class="col-md-4">发布时间&nbsp;:</div>
+		            	<div class="col-md-8">{{detail.publish_time}}</div>
+		            </div>
+		            <div class="col-md-12 confirmform" ng-if="type!=1&&status>=11">
+		            	<div class="col-md-4">量房时间&nbsp;:</div>
+		            	<div class="col-md-8">{{measure_time}}</div>
+		            </div>
+		        </div>
+	            <!--<div class="col-sm-12"><div class="center"><div><img src="${baseUrl}/images/userCenter/house.png" alt=""></div></div>-->
+					<table class="table table-condensed">										
+						<tbody>
+	                  		<div style="padding-left:30px;" class="col-md-12 datatime" ng-if="type!=1&&status<11">
+						          <div class="form-group col-md-12">
+									<label class="control-label" style="color:#0084ff">预约量房时间 :</label>
+										<div style="width:100%;height:30px;">
+											<div id="info-datetimepicker" class="input-group date form_datetime col-md-12" data-date="" data-date-format="yyyy-mm-dd hh:ii:ss" data-link-field="dtp_input1">
+										        <input id="dateop" onchange="testnull();"  ng-focus="clearError.selectTatime();" class="form-control" size="16" type="text"  readonly style="background-color: #fff;border-radius: 5px;" placeholder="请点击右侧小图示选取预约量房时间">
+										        <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+										    </div>
+									    <input type="hidden" id="dtp_input1" value=""  />
+									     <sapan id="time" ng-if="selectTatime_error==true" class="tips_false_style" style="color:red;right:8%;">请选择量房时间！</sapan>
+									    <br/>
+										</div>
+										
+								</div>  
+				            </div>
+				            <div class="col-md-12">
+					            <div class="col-md-12">
+					            	<div class="" id="emporalsupport"></div>
+					            	 <div class="col-md-12" ng-if="type!=1">				            	 
+					            			设计师量房费用<span style="color:#0084ff">{{expenses|currency:''}}</span>元
+					            			<input  type="hidden" name="expenses" ng-model="expenses" /> 
+					            	</div>					            
+					            </div>
+					        </div>		  
+	                   </tbody>
+					</table>
+				</div>
+				<div class="modal-footer">
+					<div id="poploading" class="poploading"  style="position: absolute;bottom: 10px;left: 15px;"><img src="${baseUrl}/images/global/LoadingCursor2.gif" /></div>
+	                 <a data-original-title="关闭" data-placement="bottom" class="NewBtn btn-defaultClose tooltips" data-dismiss="modal" href="javascript:void(0);">关闭</a>
+	                 <button type="button" id="transmit" ng-if="type!=1&&status<11"  class="NewBtn btn-primarySubmit" ng-disabled="selectTaAbleFlag" onclick="testnull()" ng-click="selectTa(needs_id,designer_id);">发送</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>    

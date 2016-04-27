@@ -1,0 +1,183 @@
+	 	 <link rel="stylesheet" href="${baseUrl}/css/public/bootstrap.min.css"/>
+		 <link rel="stylesheet" href="${baseUrl}/css/index/main.css"/>
+		 <link rel="stylesheet" href="${baseUrl}/css/index/style.css"/>
+		 <link rel="stylesheet" href="${baseUrl}/css/index/theme_blue.css"/>
+		 <link rel="stylesheet" href="${baseUrl}/css/index/indexcss.css"/>
+		 <!--include jQuery file-->
+		 <script src="${baseUrl}/js/public/jquery-1.11.2.min.js" charset="utf-8" type="text/javascript"></script>
+		 <script src="${baseUrl}/js/user/jquery.cookie.js"></script>
+	   <!--header start-->
+	<div id="LIOF" class="logInOutFrame" >
+		<div class="logInOutF">
+			<button class="sds" style="border:1px solid #fff;">&times;</button>	
+			<iframe id="logInOutFrame" style="border:none;" scrolling="no">
+			</iframe>
+			<iframe id="HS_logInOutFrame" style="width:0px; height:0px">
+			</iframe>
+		</div>
+	</div>
+	<script>
+		x_token = "";
+		$('.logInOutFrame button').click(function(){
+			$('.logInOutFrame').css({"display":"none"});
+		})
+		$('.logInOutFrame').click(function(){
+			$('.logInOutFrame').css({"display":"none"});
+		})
+	</script>
+	<style>
+		@media screen and (max-width:1380px) {#sosa{top:15px!important;}}
+	</style>
+	<div class="container" id="sosa" style="background:#333;position:relative;z-index:99999;height:53px;">
+	    <div class="navbar-header">
+	        <!-- start: RESPONSIVE MENU TOGGLER -->
+	        <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+	            <span class="clip-list-2"></span>
+	        </button>
+	        <!-- end: RESPONSIVE MENU TOGGLER -->
+	    </div>
+	    <div class="navbar-tools" style="margin: 0 auto; height:53px;">
+	        
+	        <div class="logo logo-indesigner-detail" style="position:absolute;">
+	        	<a href="${baseUrl}/" style="display: block; height: 40px;position: absolute;top: -5px;width: 130px; z-index: 9999;"></a>
+	        	<a style="display: inline-block; width:220px;" href="${baseUrl}/"><img src="${baseUrl}/images/index/logo_02.png" id="img-logo" alt="logo"></a>
+	        </div>
+	        <!-- start: TOP NAVIGATION MENU -->
+	        <ul class="nav navbar-right">
+	             <#if users?exists>
+	            <li class="dropdown current-user" style="margin-top:3px;">
+	                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" data-close-others="true" style="padding-top:7px;">
+	                   <!--   <img id="avatar" src="${users.avatar}" class="circle-img" style="display:inline;height: 24px;width: 24px;margin-bottom:6px;" />	--> 
+	                    <span id="username" class="username" style="display:inline-block;line-height:34px;height:26px;width:80px;white-space:nowrap;overflow:hidden !important;text-overflow: ellipsis;" >${users.userName}</span>
+	                    <em class="clip-chevron-down"></em>
+	                </a>
+	                <ul class="dropdown-menu" style="z-index:999999">
+	
+	                    <li>
+	                        <a href="#" onclick="userLogoug('HS');">
+	                            <i class="clip-exit"></i>
+	                            &nbsp;帐号退出
+	                        </a>
+	                    </li>
+	                </ul>
+	            </li>
+	            <li></li>
+	            <#else>
+	           <span id="UserLogin" style="display:none">
+	            <li class="dropdown current-user" style="cursor:pointer; margin-top:15px;">
+	                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" data-close-others="true" style="padding-top:7px;">
+	                   <!--   <img id="avatar" src="${baseUrl}/images/global/avatar_def.jpg" class="circle-img" style="display:inline;height: 24px;width: 24px;margin-bottom:6px;" />-->
+	                    <span id="username" class="username" style="display:inline-block;line-height:34px;height:26px;width:80px;white-space: nowrap;overflow:hidden !important;text-overflow: ellipsis;" ></span>
+	                    <em class="clip-chevron-down"></em>
+	                    </a>
+	                <ul class="dropdown-menu" style="z-index:999999;line-height:34px;height:26px;width:80px!important; ">
+	                    <li>
+	                        <a href="#" onclick="userLogoug('HS');">
+	                            <i class="clip-exit"></i>
+	                            &nbsp;帐号退出
+	                        </a>
+	                    </li>
+	                </ul>
+	            </li>
+	            </span>
+	            <li></li>
+	              <!--<li><a href="${baseUrl}/login/register" style="height: 50px; line-height: 25px;">注册</a></li>-->
+	            </#if>
+	            <!-- end: USER DROPDOWN -->
+	        </ul>
+	        <!-- end: TOP NAVIGATION MENU -->
+	    </div>
+	</div>
+	<!--header end-->
+	  
+    <script src="${baseUrl}/js/index/twitter-bootstrap-hover-dropdown.min.js"></script>
+    <script src="${baseUrl}/js/public/redirectUrl.js"></script>
+    <script type="text/javascript">
+    userLogin = function()
+    {
+    	$("#LIOF").attr("style", "width:100%; height:100%; display:block;position:fixed;top:0;left:0;");
+    	$("#logInOutFrame").attr("src", loginPaht()+"/SSO_login.html?caller=HS&browser_type=windows");
+    }
+    
+    userLogoug = function()
+    {
+    	document.getElementById("3DiFrame").contentWindow.postMessage({
+            eType: 'logOutSuccess',
+            eData: {},
+            },   "*");
+    	
+    	//$("#LIOF").attr("style", "width:100%; height:100%; display:block");
+    	$("#logInOutFrame").attr("src", logoutPath()+"/member/sso_login_out.htm");
+    	LogoutStr = "location.href='${baseUrl}/login/loginOut?caller=HS";
+    	LogoutStr += "&token=" + x_token + "'";
+    	//alert(LogoutStr);
+    	setTimeout(LogoutStr,1500);
+    }
+    
+    refrashParent = function()
+    {
+    	alert("refrash");
+    }
+        
+    </script>
+	   <!--nav end-->
+	   <script>
+    		$(document).ready(function(){
+				$(window).scroll(function(event) {
+					if($(window).scrollTop() > 50){
+						$('#naver').css({
+	    					'position':'fixed',
+	    					'top':'0',
+	    					'left':'0',
+	    					'z-index':'9999',
+	    					'box-shadow':'0 0 15px rgba(0,0,0,0.8)'
+    					})
+					}else{
+						$('#naver').css({
+	    					'position':'absolute',
+	    					'top':'48px',
+	    					'z-index':'999',
+	    					'box-shadow':'0 0 15px rgba(0,0,0,0.3)'
+    					})
+					}
+				});
+
+			
+		        $('.navbar-collapse ul li').each(function () {  
+		        	var curHref = $(this).find('a').attr('href');	
+		        	
+		        	if(window.location.href.contains(curHref)) {
+		        		$(this).addClass('active');
+		        		$(this).siblings('li').removeClass('active');
+		        	}
+    			});
+    		})
+
+		var messagelistener = function(event) { 
+            var msg = event.data;
+            var type = msg.eType;
+            var data = msg.eData;
+
+            if (!type) return;
+
+           	var tokenValue = decodeURIComponent(escape(atob(data.token)));
+           	var tokenData = $.parseJSON(tokenValue);
+
+           	x_token = tokenData.X_Token;
+        	console.log("avatar ===========================> " + tokenData.avatar);
+           	$("#avatar").attr("src", tokenData.avatar);
+           	$("#username").html(decodeURI(tokenData.user_name));
+    		$.cookie('users', data.token, { expires: 7, path: '/' });
+    		var cc = $.cookie("users");
+
+    		$("#UserLogin").attr("style", "display:block");
+        };
+
+        var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+        var eventer = window[eventMethod];
+        var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+
+        eventer(messageEvent, messagelistener,false);
+
+
+    	</script>
