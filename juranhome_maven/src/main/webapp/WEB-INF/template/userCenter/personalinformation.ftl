@@ -39,9 +39,9 @@
 <ul class="Personalxu">
    	<li>
    	 	<#if users.type=='member'>
-      	 <a href="${baseUrl}/user/index/#myorder/">个人中心></a>
+      	 <a href="${baseUrl}/user/index/#myorder">个人中心></a>
 	    <#else>
-	       <a href="${baseUrl}/user/index/#mybidlist/">个人中心></a>
+	       <a href="${baseUrl}/user/index/#mybidlist">个人中心></a>
 	    </#if>
    	</li>
    	<li>&nbsp个人信息修改</li>
@@ -62,17 +62,17 @@
                               <table width="100%" style="table-layout:fixed;">
                                   <tbody>
                                   <tr>
-                                      <td style="width:125px;">用户名</td>
+                                      <td style="width:125px;">&nbsp;&nbsp;用户名</td>
                                       <td style="width:300px;"><input id="user_name" type="text" value="" name="hitachi_account" class="inputxt"  ng-model="hitachi_account" readonly="readonly" style="border:none;" onFocus="userName()" onBlur="UserName()"></td>
                                       <td><div class="promptse" style="color:green;display:none;">用户名不可修改</div></td>
                                   </tr>
                                   <tr>
-                                      <td style="width:125px;">昵称<span class="symbol required"></td>
-                                      <td style="width:300px;"><input id="nickname" type="text" ng-model="nick_name" name="nickname" value="{{nick_name}}" class="inputxt" maxlength="10" onkeyup="this.value=this.value.replace(/[@#\$%\^&!()_+-==/\.,~`，;?><。、|—{}【】｛｝；‘’：:\*[]/g,'')"></td>
-                                      <td><div class="prompts" style="color:red;display:none;">昵称为2-10个字符</div></td>
+                                      <td style="width:125px;"><span class="symbol required"></span> 昵称</td>
+                                      <td style="width:300px;"><input id="nickname" type="text" ng-model="nick_name" name="nickname" value="{{nick_name}}" class="inputxt" maxlength="20"></td>
+                                      <td><div class="prompts" style="color:red;display:none;">请输入2-20个中文、字母或数字</div></td>
                                   </tr>
                                   <tr>
-                                      <td>性别</td>
+                                      <td>&nbsp;&nbsp;性别</td>
                                       <td>
                                           <input type="radio" value="2" name="gender" id="male" class="pr1"  errormsg="请选择性别！" ng-model="gender">
                                           <label for="male">男</label> <input type="radio" value="1" name="gender" id="femaleb" class="pr1" ng-model="gender">
@@ -82,7 +82,7 @@
                                       <td><div class=""></div></td>
                                   </tr>
                                   <tr>
-                                      <td style="position:relative;">生日<span class="symbol required"></span></td>
+                                      <td style="position:relative;"><span class="symbol required"></span> 生日</td>
                                       <td width="480px" colspan="2">
                                           <!--<input class="vintage" type="text" placeholder="1982" id="yyyy" name="yyyy"  class="form-control"  onkeyup="return ValidateNumber(this,value)">  -->
 										  <select  class="month elect-none form-control" name="year1" id="yyyy"></select>
@@ -92,24 +92,24 @@
                                       <td><div class=""></div></td>
                                   </tr>
                                   <tr>
-                                      <td>邮箱</td>
+                                      <td>&nbsp;&nbsp;邮箱</td>
                                       <td class="hasfa" ng-if="data.is_email_binding == 0">您还没有绑定邮箱 <a href="javascript:void(0);" style=" text-decoration:none; color: #3b85d1" ng-click="emailBind()">立即绑定</a></td>
                                       <td ng-if="data.is_email_binding != 0" ><input style="border:none;" id="email" type="text" maxlength="25" value="" name="email" class="inputxt"  ignore="ignore" nullmsg="请输入您常用的邮箱！"  errormsg="请输入您常用的邮箱！" ng-model="email" readonly="readonly"></td>
                                       <td><div class="promptEmail" style="color:green;display:none;">邮箱不可修改</div></td>
                                   </tr>
                                   <tr>
-                                      <td>手机</td>
+                                      <td>&nbsp;&nbsp;手机</td>
                                       <td class="hasfa" ng-if="data.is_validated_by_mobile == 0||data.is_validated_by_mobile == 2">您还没有绑定手机号码 <a href="#" style=" text-decoration:none; color: #3b85d1" ng-click="mobileBind()">立即绑定</a></td>
                                       <td ng-if="data.is_validated_by_mobile == 1" ><input id="mobile_phone" type="text" maxlength="11" value="" name="mobile_number" class="inputxt" ng-disabled="true"  errormsg="输入的手机号码有误！" ng-model="mobile_number" ></td>
                                       <td><div class=""></div></td>
                                   </tr>
                                   <tr>
-                                      <td>住宅电话</td>
-                                   	  <td><input id="home_phone" type=text value="" name="home_phone"  class="inputxt"  ng-model="home_phone" maxlength="13"></td>
-                                      <td><div class="promptPhone" style="color:red;display:none;">住宅电话只能输入数字和"-"</div></td>
+                                      <td>&nbsp;&nbsp;住宅电话</td>
+                                   	  <td><input id="home_phone" type=text value="" name="home_phone"  class="inputxt"  ng-model="home_phone" maxlength="11"></td>
+                                      <td><div class="promptPhone" style="color:red;display:none;">只能填写不超过11位字符的数字</div></td>
                                   </tr>
                                   <tr>
-                                      <td>所在地<span class="symbol required"></span></td>
+                                      <td><span class="symbol required"></span> 所在地</td>
                                       <td width="480px" colspan="3">
                                           <select id="seachprov" name="s_province" class="form-control date  elect-none"  placeholder="省"  onChange="changeComplexProvince(this.value, sub_array, 'seachcity', 'seachdistrict');"> </select>                                      
                                           <select id="seachcity" name="s_city" class="form-control date  elect-none" placeholder="市" onChange="changeCity(this.value,'seachdistrict','seachdistrict');"> </select>                                      
@@ -117,7 +117,7 @@
                                       </td>
                                   </tr>
                                   <tr>
-                                      <td>邮编</td>
+                                      <td>&nbsp;&nbsp;邮编</td>
                                       <td><input id="zip_code" type="text" value="" name="zip_code" class="inputxt"  ng-model="zip_code"  maxlength="6"></td>
                                       <td><div class="promptCode" style="color:red;display:none;">邮编格式不正确</div></td>
                                   </tr>
@@ -165,7 +165,7 @@
                                   <span ng-if="data.avatar == ''"><img src="${baseUrl}/images/userCenter/edit_avatar_03.png"/></span>
                                   <!--<span class="datvtar" ng-if="data.avatar != ''"><img ng-src="{{data.avatar}}"/></span>-->
                               </div>
-                              <img id="case_edit_loader" width="32" height="32" src="${baseUrl}/images/global/LoadingCursor2.gif" style="float:left;" />
+                              <!--  <img id="case_edit_loader" width="32" height="32" src="${baseUrl}/images/global/LoadingCursor2.gif" style="float:left;" />-->
                               <button class="avatarwen avatarbj adaswid NewBtn btn-primarySubmit"  type="button" id="btnSubmit" onclick="formSubmit_add()">保存上传</button>
                           </div>
                       </div>
@@ -269,45 +269,47 @@
 		};
 		
 		$(function() {
-			if(getUrlParam('act') && getUrlParam('act') == 'success') {
-				alert('头像上传成功！');
+			var status = $.cookie("status");
+
+			if (status < 400 && status != null) {
+				$.cookie('status', null, {
+					expires : 0
+				});
+				alert("保存成功！");
+			} else if (status != null && status != "") {
+				$.cookie('status', null, {
+					expires : 0
+				});
+				alert("保存失败！");
 			}
-			
-			if(getUrlParam('act') && getUrlParam('act') == 'error') {
-				alert('头像上传失败！');
+
+			$.cookie('status', null, {
+				expires : 0
+			});
+			formSubmit_add = function(){
+		
+				//$('#case_edit_loader').show();
+				var fileSize;
+				if(file.value == null || file.value.length <=0){
+					alert("请选择图档!");
+					return;
+				}
+				else{
+					fileSize = file.files[0].size / 1024 / 1024;
+				
+				}
+				
+			    if(fileSize > 5) {
+			    	alert("图档大于5M，请选择小于5M的图档");
+			    	return false;
+			    }
+			    else{
+					$("#btnSubmit").attr("disabled", "disabled");
+					document.getElementById("form").submit();
+				}
 			}
-			
-			$('#case_edit_loader').hide();
 		});
 		
-		function formSubmit_add(){
-		/*
-			if(ckImgSize == false){
-				alert("图片大小不能小于截图框");
-				return false;
-			
-			}
-			*/				
-			$('#case_loader').show();
-			var fileSize;
-			if(file.value == null || file.value.length <=0){
-				alert("请选择图档!");
-				return;
-			}
-			else{
-				fileSize = file.files[0].size / 1024 / 1024;
-			
-			}
-			
-		    if(fileSize > 5) {
-		    	alert("图档大于5M，请选择小于5M的图档");
-		    	return false;
-		    }
-		    else{
-				$("#btnSubmit").attr("disabled", "disabled");
-				document.getElementById("form").submit();
-			}
-		}
   </script>
   <#include '/common/footer.html'/>
 </body>

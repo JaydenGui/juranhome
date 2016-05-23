@@ -10,6 +10,28 @@ app.controller('seoCtrl',function($scope){
 // main controller
 app.controller('ctrl', function($scope,indexService ,userCenterService, $http,$rootScope,messageService) {
 	$scope.editMemberMessage = function(){
+		var rf_reg=/^[\w\u4e00-\u9fa5]+$/gi;
+		if(!(rf_reg.test($('#nickname').val())&&$('#nickname').val().length>=2)){
+			$('#nickname').attr('style','border: 1px red solid');
+			$('.prompts').css({'display':'block'});
+			return false;
+		}
+		
+		var fe_reg = /^[0-9]+$/;
+		var value=document.getElementById("home_phone").value.trim();
+		if(!((fe_reg.test(value) && value.length>=7) || value.length==0)){
+			$('#home_phone').attr('style','border: 1px red solid');
+			$('.promptPhone').css({'display':'block'});
+			return false;
+		}
+		
+		if(!(fe_reg.test($('#zip_code').val())&&$('#zip_code').val().length==6||$('#zip_code').val().length==0)){
+			$('#zip_code').attr('style','border: 1px red solid');
+			$('.promptCode').css({'display':'block'});
+			return false;
+		}
+		
+		
   	  $('#loadingMask').css({'display':'block'});
   	 
 		  //----------------------

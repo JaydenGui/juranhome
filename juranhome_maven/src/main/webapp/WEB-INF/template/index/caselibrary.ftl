@@ -23,11 +23,11 @@
     
     <body id="page" >
         <ul class="cb-slideshow" style="cursor:pointer;">
-             <li><a class="hrefiad" curl="${baseUrl}/caseBase/casedetail/caseid/1558534/"><span></span></a></li>
-             <li><a class="hrefiad" curl="${baseUrl}/caseBase/casedetail/caseid/1557982/"><span></span></a></li>
-             <li><a class="hrefiad" curl="${baseUrl}/caseBase/casedetail/caseid/1558621/"><span></span></a></li>
-             <li><a class="hrefiad" curl="${baseUrl}/caseBase/casedetail/caseid/1553917/"><span></span></a></li>
-             <li><a class="hrefiad" curl="${baseUrl}/caseBase/casedetail/caseid/1558765/"><span></span></a></li>
+             <li><a class="hrefiad" curl="${baseUrl}/caseBase/casedetail/caseid/1558534/uid/41769b62-8f96-4794-85bb-135c7b22d8cc/"><span></span></a></li>
+             <li><a class="hrefiad" curl="${baseUrl}/caseBase/casedetail/caseid/1557982/uid/44a39d8b-54de-4d83-9a65-84a5f8c6a565/"><span></span></a></li>
+             <li><a class="hrefiad" curl="${baseUrl}/caseBase/casedetail/caseid/1558621/uid/44a39d8b-54de-4d83-9a65-84a5f8c6a565/"><span></span></a></li>
+             <li><a class="hrefiad" curl="${baseUrl}/caseBase/casedetail/caseid/1553917/uid/71fe7f7e-2c45-4ef2-9d82-d51326a4812a/"><span></span></a></li>
+             <li><a class="hrefiad" curl="${baseUrl}/caseBase/casedetail/caseid/1558765/uid/96403d96-65be-4988-81d7-83e5e4dbd01a/"><span></span></a></li>
         </ul>
         <div class="container" >
           <div class="morecaselibrary" style=" position:absolute; top:100px; left:70px;  z-index:10000 "><a href="${baseUrl}/caseBase/index/" target="_blank"></a></div>

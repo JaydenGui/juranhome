@@ -108,8 +108,15 @@ app.controller('ctrl', function($scope, markHallService, userCenterService,membe
 								//$scope.visible = true;
 								alert("应标成功！");
 								location.href = baseUrl +"/mark/category";
+							}else if(r.status ==400){
+								alert("无法应标！");
+								location.href = baseUrl +"/mark/category";
 							} else {
-								alert("应标失败！");
+								alert("无法应标！");
+								$('#loadingMask').css({'display':'none'});
+								$('#orderReceiving').attr({'display':'none'});
+								$("html").css({'overflow':'auto'});
+								$('.modal-backdrop').remove();
 								//$scope.visible = false;
 							}
 						});
@@ -117,6 +124,7 @@ app.controller('ctrl', function($scope, markHallService, userCenterService,membe
 				} else {
 						//$scope.isRealname = true;
 						$scope.show=1;//显示未实名
+						$('#orderReceiving').attr({'display':'none'});
 					}
 			}
 			$('#loadingMask').css({'display':'none'});

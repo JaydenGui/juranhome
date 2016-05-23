@@ -249,8 +249,7 @@ right:6px;top:2px;padding-left:45px;font-size:12px;}
 .find-designer-show-img li{margin-bottom: 25px;height:203px;overflow: hidden;}
 .find-designer-show-img li img{width:100%;cursor:pointer;height:203px;}
 .find-designer-container-arrow-top{width:46px;height:46px;position:fixed; right: 10px; bottom: 186px; /*display:none;*/}
-.button.disabled, .button[disabled], fieldset[disabled] .button {background-color: #e7e7e7 !important;box-shadow: none;
-    cursor: not-allowed;border-color: #e7e7e7 !important;}
+
 @media screen and (max-width: 1000px) { 
 .find-designer-show-img li{width:80%; height:auto;}	
 .find-designer-show-img li img{ width:100%; height:auto;}

@@ -383,6 +383,8 @@ public class MyOrderController {
 			 String contactsname=session.getSession(request,"users").get("userName").toString();
 			 int user_id=Integer.parseInt(session.getSession(request,"users").get("id").toString());
 			 
+			 String uid=request.getParameter("uid");
+			 
 			 
 			 String housetype=request.getParameter("housetype");
 			 String phone=request.getParameter("phone");
@@ -424,6 +426,7 @@ public class MyOrderController {
 			 
 			 param.put("province",province);
 			 param.put("city",city);
+			 param.put("hs_uid", uid);
 			 
 			 param.put("district",district);
 			 param.put("room",room);
@@ -470,7 +473,7 @@ public class MyOrderController {
              @"living_room"          : _livingRoom,
              @"toilet"               : _toilet,
              };*/
-			 
+			 System.err.println(param.toString());
 			 Map map=HTTPApiCURL.ApiCURL(request,Api.CUSTOMDESIGNER(),"POST", param.toString());
 			 
 			 return map;

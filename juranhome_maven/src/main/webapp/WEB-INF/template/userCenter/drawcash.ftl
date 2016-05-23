@@ -22,7 +22,7 @@
     </div>
     <!-- end: PAGE HEADER -->
     <!-- start: PAGE CONTENT -->
-    <div class="row">
+    <div>
         <div class="col-sm-12">
             <!-- start: PANLEL TABS -->
             <div class="panel panel-default">
@@ -41,7 +41,7 @@
                                                     	开户人姓名：
                                                 </label>
                                                 <div class="col-sm-9 inputwid">
-                                                    <input ng-disabled="disable"  id="lastname" type="text" ng-model="account_user_name" /><span></span>
+                                                    <input ng-disabled="disable" maxlength="10"  id="lastname" type="text" ng-model="account_user_name" /><span></span>
                                                     <span ng-if="isShow" style="margin-left:10px; color:#0084ff;cursor: pointer;" ng-click="updateBankCardInfo()"><img src="${baseUrl}/images/userCenter/banckimg_03.png">更换银行卡</span>
                                                 </div>
                                             </div>
@@ -62,11 +62,12 @@
                                                         <option value="中国华夏银行" >中国华夏银行</option>
                                                         <option value="中国民生银行" >中国民生银行</option>
                                                         <option value="广发银行" >广发银行</option>
-                                                        <option value="深圳发展银行" >深圳发展银行</option>
+                                                        <option value="平安银行" >平安银行</option>
                                                         <option value="招商银行" >招商银行</option>
                                                         <option value="兴业银行" >兴业银行</option>
                                                         <option value="北京银行" >北京银行</option>
                                                     </select>
+                                                    <span></span>
                                                 </div>
                                             </div>
                                             <div class="form-group bank-card">
@@ -74,7 +75,8 @@
                                                     	支行名称：
                                                 </label>
                                                 <div class="col-sm-9 inputwid">
-                                                    <input ng-disabled="disable" type="text" id="bankname" ng-model="branch_bank_name" /><span></span>
+                                                    <input ng-disabled="disable" maxlength="32" type="text" id="bankname" ng-model="branch_bank_name" /><span></span>
+                                                	<span></span>
                                                 </div>
                                             </div>
                                             <div class="form-group bank-card">
@@ -82,11 +84,12 @@
                                                    	银行卡号：
                                                 </label>
                                                 <div class="col-sm-9 inputwid">
-                                                    <input ng-disabled="disable" id="banknum" type="text" ng-model="deposit_card"/><span></span>
+                                                    <input ng-disabled="disable" id="banknum" type="text" maxlength="19" onkeyup="return ValidateNumber(this,value)" ng-model="deposit_card"/><span></span>
+                                               		<span></span>
                                                 </div>
                                             </div>
                                              <div class="form-group bank-card">
-												<button  style="margin-left: 45%;" href="javascript:;" data-target="#surepayment" data-toggle="modal" class="commit NewBtn btn-primarySubmit" data-placement="top" >确认并提交</button>
+												<button  style="margin-left: 45%;" href="javascript:;" ng-disabled="aaaa" data-target="#surepayment" data-toggle="modal" class="commit NewBtn btn-primarySubmit button" data-placement="top" >确认并提交</button>
                                              </div>                                             
                                         </form>
                                 </div>
@@ -114,3 +117,21 @@
 </div>
 </div>
 <script src="${baseUrl}/js/userCenter/my-money.js"></script>
+<script>
+function ValidateNumber(e, pnumber)
+{
+    if (!/^\d+$/.test(pnumber))
+    {
+        var newValue =/^\d+/.exec(e.value);         
+        if (newValue != null)         
+        {             
+            e.value = newValue;        
+        }      
+        else     
+        {          
+            e.value = "";    
+        } 
+    }
+    return false;
+}
+</script>

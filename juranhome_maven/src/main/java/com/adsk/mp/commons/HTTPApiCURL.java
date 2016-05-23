@@ -84,20 +84,11 @@ public class HTTPApiCURL {
 			if (session.getSession(request, "users") != null) {
 				
 				String token = session.getSession(request, "users").get("token").toString();
-				//String xsession = session.getSession(request, "users").get("xsession").toString();
-				//String role=session.getSession(request, "users").get("role").toString();
 				String acs_token = session.getSession(request, "users").get("ACS-Token").toString();
 				String memberType = session.getSession(request, "users").get("Member_Type").toString();
 				String hs_uid=session.getSession(request, "users").get("hs_uid").toString();
 				String X_Token = session.getSession(request, "users").get("X-Token").toString();
-//				String acs_member_id = session.getSession(request, "users").get("acs_member_id").toString();
-				connection.setRequestProperty("token", token);
-				//connection.setRequestProperty("xsession", xsession);
 				connection.setRequestProperty("X-Token", X_Token);
-				connection.setRequestProperty("ACS-Token", acs_token);
-				connection.setRequestProperty("Member-Type", memberType);
-				connection.setRequestProperty("ez_guid", "1C6401BD9FDAF76F6506CF97237AEE5E");
-				connection.setRequestProperty("ez_token", "FF5E7FF26768A8C28A292D16FC97E662");
 				connection.setRequestProperty("hs_uid", hs_uid);
 				connection.setRequestProperty("Authorization", "Basic "+X_Token);
 				String id = session.getSession(request, "users").get("id").toString();
@@ -213,21 +204,11 @@ public class HTTPApiCURL {
 
 			if (session.getSession(request, "users") != null) {
 				String token = session.getSession(request, "users").get("token").toString();
-				//String xsession = session.getSession(request, "users").get("xsession").toString();
-				//String role=session.getSession(request, "users").get("role").toString();
 				String acs_token = session.getSession(request, "users").get("ACS-Token").toString();
 				String memberType = session.getSession(request, "users").get("Member_Type").toString();
 				String hs_uid=session.getSession(request, "users").get("hs_uid").toString();
 				String X_Token = session.getSession(request, "users").get("X-Token").toString();
-//				String acs_member_id = session.getSession(request, "users").get("acs_member_id").toString();
-				//connection.setRequestProperty("token", token);
-				//connection.setRequestProperty("xsession", xsession);
-				connection.setRequestProperty("token", token);
 				connection.setRequestProperty("X-Token", X_Token);
-				connection.setRequestProperty("ACS-Token", acs_token);
-				connection.setRequestProperty("Member-Type", memberType);
-				connection.setRequestProperty("ez_guid", "1C6401BD9FDAF76F6506CF97237AEE5E");
-				connection.setRequestProperty("ez_token", "FF5E7FF26768A8C28A292D16FC97E662");
 				connection.setRequestProperty("Authorization", "Basic "+X_Token);
 				String uid;
 			
@@ -316,7 +297,7 @@ public class HTTPApiCURL {
 			connection.setRequestMethod(method);
 			connection.setRequestProperty("Content-Type", "application/json");
 			if(session.getSession(request, "users")!=null){
-				connection.setRequestProperty("X-Token", session.getSession(request, "users").get("X-Token").toString());
+//				connection.setRequestProperty("X-Token", session.getSession(request, "users").get("X-Token").toString());
 				connection.setRequestProperty("Authorization", "Basic "+session.getSession(request, "users").get("X-Token").toString());
 			}
 			connection.connect();

@@ -1,0 +1,120 @@
+body {
+    padding: 30px;
+    margin: 0px;
+    background: #eee;
+}
+.sample-content-wrapper {
+    max-width: 1280px;
+    margin: 50px auto 0;
+    background: #fff;
+}
+.content-wrapper {
+    padding: 30px 50px 50px;
+    font-family: 'Open Sans', sans-serif;
+}
+.content-wrapper h2 {
+    color: rgb(17, 86, 113);
+}
+.content-wrapper .content {
+    margin: 10px 0;
+}
+.content-wrapper a {
+    color: #007bb7;
+    text-decoration: none;
+}
+.content-wrapper a:hover {
+    color: #00beeb;
+}
+.skins_panel {
+    max-width: 1280px;
+    margin: 50px auto 0;
+    font-family: 'Open Sans', sans-serif;
+    background: #fff;
+    padding: 30px 0 10px;
+}
+.skins_panel > div {
+    width: 95%;
+    margin: 0 auto;
+}
+.skins_panel table {
+    width: 95%;
+    table-layout: fixed;
+    margin: 0 auto;
+}
+.skins_panel table tr td {
+    width: 16.66%;
+    padding-bottom: 15px;
+    text-align: center;
+    white-space: normal;
+}
+.skins_panel table tr td img {
+    width: 100%;
+    border-width: 0px;
+}
+.skins_panel table tr td span {
+    width: 100%;
+    text-align: center;
+    font-size: 0.7vw;
+}
+.skins_panel table tr td.kr-selected span {
+    border-bottom: 1px solid #000;
+}
+.carousel-control-panel {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 13px;
+    font-family: 'Open Sans', sans-serif;
+}
+.carousel-control-panel h3 {
+    font-size: 13px;
+    padding: 0;
+    margin: 5px 0;
+    font-weight: 400;
+}
+.ui-slider-horizontal .ui-slider-handle {
+    width: 13px !important;
+    height: 13px !important;
+}
+.kr-slider {
+    width: 75%;
+    float: left;
+    height: 5px !important;
+    margin-top: 4px;
+}
+.kr-value {
+    width: 15%;
+    text-align: right;
+    float: left;
+}
+.ui-slider-handle {
+    outline: none !important;
+}
+.kr-level {
+    margin: 5px 0;
+}
+.carousel-control-panel table tr td:first-child {
+    width: 10%;
+    height: 40px;
+    line-height: 50px;
+}
+.carousel-control-panel table tr td {
+    width: 18%;
+}
+.carousel-control-panel table tr td input {
+    width: 90%;
+    height: 14px;
+}
+.carousel-control-panel table tr td input[type="radio"] {
+    width: auto;
+    margin-left: 0;
+    top: 3px;
+    position: relative;
+}
+.carousel-control-panel table tr td label {
+    margin-right: 10px;
+}
+.carousel-control-panel table tr td select {
+    width: 90%;
+    height: 20px;
+    margin-top: 1px;
+}

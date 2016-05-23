@@ -18,8 +18,11 @@ body{font-family: "微软雅黑";}
     .desktop .animate-left.animated .sun  p,.desktop .animate-right.animated .sun p{
     font-size:12px;
     color: #333;
-    height:27px;
+    /*height:27px;*/
     }
+.timeline .creationtime-mian-design-data .creationtime-mian-design-data-body div img{
+	cursor:pointer;
+}
 .desktop .animate-left.animated .sunbd,.desktop .animate-right.animated .sunbd{
 	float: left;
 	

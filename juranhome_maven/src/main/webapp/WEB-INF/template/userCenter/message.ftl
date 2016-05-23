@@ -81,7 +81,7 @@
 	                    	<#if users?exists & users.type='member'>
 		                        <div class="clearfix">
 		                            <div >
-		                                <h3><input id="{{item.message_id}}" ng-model="item.isChecked" type="checkbox" style="cursor:pointer;"/>{{item.subject}}</h3>	   
+		                                <h3><input id="{{item.message_id}}" ng-model="item.isChecked" type="checkbox" style="cursor:pointer;"/>{{item.subject|code2name}}</h3>	   
 		                                <span>{{item.body|htmlDecode|getContent:"member"|substr}}</span>                             
 		                            </div>
 		                            <div ng-click="deleteMsg(item.message_id)">
@@ -92,12 +92,12 @@
 		                            </div>
 		                        </div>
 		                        <div class="control">
-		                            <p class="checkon">{{item.body|htmlDecode|getContent:"member"}}</p>
+		                            <p class="checkon padding8">{{item.body|htmlDecode|getContent:"member"}}</p>
 		                        </div>
 		                    <#elseif users?exists & users.type='designer'>
 		                    	<div class="clearfix">
 		                            <div >
-		                                <h3><input id="{{item.message_id}}" ng-model="item.isChecked" type="checkbox" style="cursor:pointer;"/>{{item.subject}}</h3>	   
+		                                <h3><input id="{{item.message_id}}" ng-model="item.isChecked" type="checkbox" style="cursor:pointer;"/>{{item.subject|code2name}}</h3>	   
 		                                <span>{{item.body|htmlDecode|getContent:"designer"|substr}}</span>                             
 		                            </div>
 		                            <div ng-click="deleteMsg(item.message_id)">
@@ -108,10 +108,10 @@
 		                            </div>
 		                        </div>
 		                        <div class="control">
-		                            <p class="checkon">{{item.body|htmlDecode|getContent:"designer"}}</p>
+		                            <p class="checkon padding8">{{item.body|htmlDecode|getContent:"designer"}}</p>
 		                        </div>
 		                    </#if>
-	                        <div class="messagetime">{{item.sent_time|formatdate:"yyyy-MM-dd hh:mm"}}</div>
+	                        <div class="messagetime">{{item.sent_time|str2date|formatdate:"yyyy-MM-dd hh:mm"}}</div>
 	                    </li>	                     
 	                </ul>
 	               </div>
@@ -144,6 +144,7 @@
     
     <script type="text/javascript">
       $(document).ready(function() {
+    		  pageActive("message");
           //Default Action
           $(".tab_content").hide(); //Hide all content
           $("ul.tabs li:first").addClass("active").show(); //Activate first tab

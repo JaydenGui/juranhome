@@ -1,0 +1,67 @@
+   .versioncue{
+   	   font-family: 微软雅黑!important;
+       font-size: 14px!important;
+       width: 550px;
+       height: 285px;
+       background-color: #fff;
+       border-radius: 5px;
+       position: absolute;
+       top: 50%;
+       left: 50%;
+       z-index:99999999;
+       margin-left: -253px;
+       margin-top: -100px;;
+       box-shadow: 0px 0px 8px #4a4a4a;
+   }
+   .versioncue  i{
+       display: inline-block;
+       float: right;
+       padding-top:2%;
+       padding-right:2%;
+       cursor: pointer;
+   }
+   .versioncue .version{
+       max-width: 450px;
+       margin-top: 7%;
+       margin-left: 8%;
+   }
+   .versioncue .version p{
+      line-height: 25px;
+      font-size: 14px;
+   }
+   .versioncue .version span{
+      font-size: 18px;
+      font-weight: 100;
+      height: 45px;
+      display: inline-block;
+   }
+   .versioncue .version ul{
+      padding: 0;
+   }
+   .versioncue .version ul li{
+       list-style: none;
+       line-height: 28px;
+   }
+   .versioncue .version ul li img{
+       margin-right: 8px;
+       vertical-align: middle;
+       display: inline-block;
+   }
+   .versioncue .version ul li .axma{
+       color:  #0084ff;
+       margin-left: 95px;
+       text-decoration: none;
+   }
+   .versioncue .version ul li a{
+       color:  #0084ff;
+       margin-left: 37px;
+       text-decoration: none;
+   }
+   .versioncue .version .axmb{
+       color:  #0084ff;
+       margin-left: 10px;
+       text-decoration: none;
+   }
+   .versioncue .version ul .axli{
+       margin-top: 20px;
+   }

@@ -1,4 +1,5 @@
 <#assign baseUrl=request.contextPath/>
+<#if users?exists & users.type=='designer'>
 <div class="main-content">
 	<div class="container" >
         <!-- start: PAGE HEADER -->
@@ -106,7 +107,7 @@
                                         </tbody>
            
                                     </table>
-                                    <div class="alert alert-info">
+                                    <div class="alert alert-info col-md-12">
 										设计宣言：{{mymark.bidder.declaration}}
                                     </div>
                                 </div>
@@ -161,44 +162,44 @@
 			<div class="modal-body" style="overflow:hidden;padding:0;">
 				<div class="col-md-12" style=background:#fff;line-height:15px;">
 		            <div class="col-md-12 confirmform">
-		            	<div class="col-md-4">客户姓名&nbsp;:</div>
-		            	<div class="col-md-8">{{mybiddetail.contacts_name}}</div>
+		            	<div class="col-md-3">客户姓名&nbsp;:</div>
+		            	<div class="col-md-9">{{mybiddetail.contacts_name}}</div>
 		            </div>
 		            <div class="col-md-12 confirmform">
-		            	<div class="col-md-4">联系电话&nbsp;:</div>
-		            	<div class="col-md-8">{{mybiddetail.contacts_mobile}}</div>
+		            	<div class="col-md-3">联系电话&nbsp;:</div>
+		            	<div class="col-md-9">{{mybiddetail.contacts_mobile}}</div>
 		            </div>
 		            <div class="col-md-12 confirmform">
-		            	<div class="col-md-4">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址&nbsp;&nbsp;:</div>
-		            	<div class="col-md-8">{{mybiddetail.province_name}}{{mybiddetail.city_name}}{{mybiddetail.district_name|replaceNone}}</div>
+		            	<div class="col-md-3">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址&nbsp;&nbsp;:</div>
+		            	<div class="col-md-9">{{mybiddetail.province_name}}{{mybiddetail.city_name}}{{mybiddetail.district_name|replaceNone}}</div>
 		            </div>
 		            <div class="col-md-12 confirmform">
-		            	<div class="col-md-4">设计预算&nbsp;:</div>
-		            	<div class="col-md-8">{{mybiddetail.design_budget}}</div>
+		            	<div class="col-md-3">设计预算&nbsp;:</div>
+		            	<div class="col-md-9">{{mybiddetail.design_budget}}</div>
 		            </div>
 		            <div class="col-md-12 confirmform">
-		            	<div class="col-md-4">装修预算&nbsp;:</div>
-		            	<div class="col-md-8">{{mybiddetail.decoration_budget}}</div>
+		            	<div class="col-md-3">装修预算&nbsp;:</div>
+		            	<div class="col-md-9">{{mybiddetail.decoration_budget}}</div>
 		            </div>
 		            <div class="col-md-12 confirmform">
-		            	<div class="col-md-4">房屋类型&nbsp;:</div>
-		            	<div class="col-md-8">{{mybiddetail.house_type|replaceHouseType}}</div>
+		            	<div class="col-md-3">房屋类型&nbsp;:</div>
+		            	<div class="col-md-9">{{mybiddetail.house_type|replaceHouseType}}</div>
 		            </div>
 		            <div class="col-md-12 confirmform">
-		            	<div class="col-md-4">房屋面积&nbsp;:</div>
-		            	<div class="col-md-8">{{mybiddetail.house_area|replaceArea}} m²</div>
+		            	<div class="col-md-3">房屋面积&nbsp;:</div>
+		            	<div class="col-md-9">{{mybiddetail.house_area|replaceArea}} m²</div>
 		            </div>
 		            <div class="col-md-12 confirmform">
-		            	<div class="col-md-4">户&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型&nbsp;&nbsp;:</div>
-		            	<div class="col-md-8">{{mybiddetail.room|replaceRoomType}}{{mybiddetail.living_room|replaceBedRoom}}{{mybiddetail.toilet|replaceRestRoom}}</div>
+		            	<div class="col-md-3">户&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型&nbsp;&nbsp;:</div>
+		            	<div class="col-md-9">{{mybiddetail.room|replaceRoomType}}{{mybiddetail.living_room|replaceBedRoom}}{{mybiddetail.toilet|replaceRestRoom}}</div>
 		            </div>
 		            <div class="col-md-12 confirmform">
-		            	<div class="col-md-4">风&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格&nbsp;&nbsp;:</div>
-		            	<div class="col-md-8">{{mybiddetail.decoration_style|replaceStyle}}</div>
+		            	<div class="col-md-3">风&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格&nbsp;&nbsp;:</div>
+		            	<div class="col-md-9">{{mybiddetail.decoration_style|replaceStyle}}</div>
 		            </div>
 		            <div class="col-md-12 confirmform">
-		            	<div class="col-md-4">发布时间&nbsp;:</div>
-		            	<div class="col-md-8">{{mybiddetail.publish_time}}</div>
+		            	<div class="col-md-3">发布时间&nbsp;:</div>
+		            	<div class="col-md-9">{{mybiddetail.publish_time}}</div>
 		            </div>
 		        </div>    
 			</div>
@@ -213,13 +214,22 @@
         </div> <!-- /.modal-content -->
     </div>
     <!--detail end-->
-    
+<#else>
+	<script >
+	$(function(){
+		location.href = baseUrl+"/";
+	});
+	</script>
+</#if>
     
 
     
 
 
 <script>
+$(document).ready(function() {
+		pageActive("bid");
+});
    $(function () {
      	$("[data-original-title='tooltip']").tooltip();
    });

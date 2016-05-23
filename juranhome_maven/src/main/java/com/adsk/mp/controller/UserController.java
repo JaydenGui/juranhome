@@ -40,6 +40,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.adsk.mp.commons.Api;
 import com.adsk.mp.commons.AssetsDemo;
+import com.adsk.mp.commons.CookieUtil;
 import com.adsk.mp.commons.GsonUtil;
 import com.adsk.mp.commons.HTTPApiCURL;
 import com.adsk.mp.commons.MyFileUpload;
@@ -67,15 +68,6 @@ public class UserController {
 		return "template/userCenter/index";
 	}
 
-	/**
-	 * return to Personal Center
-	 * 
-	 * @return
-	 */
-	@RequestMapping(value = "/pCenter")
-	public String personalCenter() {
-		return "template/userCenter/pcenter";
-	}
 
 	/**
 	 * security_center
@@ -384,22 +376,23 @@ public class UserController {
 	@RequestMapping(value = "/designerMapDeportAdd", method = RequestMethod.POST)
 	public String designerMapDeportAdd(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("*** into UserController's designerMapDeportAdd method ***");
+		CookieUtil cookieUtil=new CookieUtil();
+		cookieUtil.deleteCookie("status");
+		MyFileUpload mfu = new MyFileUpload();
+		Map<String, Object> map = mfu.process(request, response);
+		System.out.println("map.Data() : " + map.toString());
+		AssetsDemo ast = new AssetsDemo();
+		JsonObject json = new JsonObject();
+		JsonArray jArray = new JsonArray();
+		JsonParser jParser = new JsonParser();
+		SessionUtil session = new SessionUtil();
+		String xsession = session.getSession(request, "users").get("xsession").toString();
+		String id = session.getSession(request, "users").get("id").toString();
+		System.out.println("Xsession : " + xsession);
+		String file = "";
+		Map m = new HashMap();
+		Map splitMap = new HashMap();
 		try {
-			MyFileUpload mfu = new MyFileUpload();
-			Map<String, Object> map = mfu.process(request, response);
-			System.out.println("map.Data() : " + map.toString());
-			AssetsDemo ast = new AssetsDemo();
-			JsonObject json = new JsonObject();
-			JsonArray jArray = new JsonArray();
-			JsonParser jParser = new JsonParser();
-			SessionUtil session = new SessionUtil();
-			String xsession = session.getSession(request, "users").get("xsession").toString();
-			String id = session.getSession(request, "users").get("id").toString();
-			System.out.println("Xsession : " + xsession);
-			String file = "";
-			Map m = new HashMap();
-			Map splitMap = new HashMap();
-			try {
 				Set set = map.entrySet();
 				Iterator it = set.iterator();
 				int itCount = 0;
@@ -438,7 +431,7 @@ public class UserController {
 				}
 				System.out.println("multipart data map : " + m.toString());
 				System.out.println("first jArray : " + jArray);
-			} catch (Exception e) {
+		} catch (Exception e) {
 //				e.printStackTrace();
 				jArray = null;
 			}
@@ -488,6 +481,7 @@ public class UserController {
 			String status = map.get("status").toString();
 			String caseId = map.get("caseId").toString();
 			System.out.println("status : " + status + " , caseId : " + caseId);
+			Map ma = null;
 			int i_status = -1;
 			if (status != null && !status.equals("")) {
 
@@ -495,22 +489,18 @@ public class UserController {
 			}
 			if (i_status == 2 || i_status == 1) {
 
-				 Map ma = HTTPApiCURL.ApiCURL(request,
+				 ma = HTTPApiCURL.ApiCURL(request,
 				 Api.DESIGNER_CASE_LIST_MODIFY(caseId), PUT, json.toString());
 				 System.out.println("designerMapModify result : " +
 				 ma.toString());
-				 return "redirect:"+PropUtil.getProperty("redirectUrl.properties").get("REDIRECT_URL")+"/mark/designerCaselist/?act=case";
 			} else {
-				 Map ma = HTTPApiCURL.ApiCURL(request, Api.DESIGNERADDCASE(),
+				 ma = HTTPApiCURL.ApiCURL(request, Api.DESIGNERADDCASE(),
 				 POST, json.toString());
 				 System.out.println("designerMapDeportAdd result : " +
 				 ma.toString());
-				 return "redirect:"+PropUtil.getProperty("redirectUrl.properties").get("REDIRECT_URL")+"/mark/designerCaselist/?act=case";
 			}
-
-		} catch (Exception e) {
-			 return "redirect:"+PropUtil.getProperty("redirectUrl.properties").get("REDIRECT_URL")+"/mark/designerCaselist/?act=caseerr";
-		}
+			cookieUtil.addCookie(ma.get("status").toString(), request, response);
+			return "redirect:"+PropUtil.getProperty("redirectUrl.properties").get("REDIRECT_URL")+"/mark/designerCaselist/";
 	}
 
 	/**
@@ -810,71 +800,6 @@ public class UserController {
 		System.out.println("getPaypalLast reuslt : " + map.toString());
 		return map;
 	}
-	// @SuppressWarnings({ "rawtypes" })
-	// @RequestMapping(value = "/getPaypalReturn")
-	// public Map getPaypalReturn(HttpServletRequest request ,
-	// HttpServletResponse response){
-	// logger.debug("*** into UserController's getPaypalReturn method ***");
-	// //获取支付宝GET过来反馈信息
-	//// Map<String,String> params = new HashMap<String,String>();
-	//// Map requestParams = request.getParameterMap();
-	//// for (Iterator iter = requestParams.keySet().iterator();
-	// iter.hasNext();) {
-	//// String name = (String) iter.next();
-	//// String[] values = (String[]) requestParams.get(name);
-	//// String valueStr = "";
-	//// for (int i = 0; i < values.length; i++) {
-	//// valueStr = (i == values.length - 1) ? valueStr + values[i]
-	//// : valueStr + values[i] + ",";
-	//// }
-	//// //乱码解决，这段代码在出现乱码时使用。如果mysign和sign不相等也可以使用这段代码转化
-	//// valueStr = new String(valueStr.getBytes("ISO-8859-1"), "utf-8");
-	//// params.put(name, valueStr);
-	//// }
-	////
-	//// //获取支付宝的通知返回参数，可参考技术文档中页面跳转同步通知参数列表(以下仅供参考)//
-	//// //商户订单号
-	////
-	//// String out_trade_no = new
-	// String(request.getParameter("out_trade_no").getBytes("ISO-8859-1"),"UTF-8");
-	////
-	//// //支付宝交易号
-	////
-	//// String trade_no = new
-	// String(request.getParameter("trade_no").getBytes("ISO-8859-1"),"UTF-8");
-	////
-	//// //交易状态
-	//// String trade_status = new
-	// String(request.getParameter("trade_status").getBytes("ISO-8859-1"),"UTF-8");
-	////
-	//// //获取支付宝的通知返回参数，可参考技术文档中页面跳转同步通知参数列表(以上仅供参考)//
-	////
-	//// //计算得出通知验证结果
-	//// boolean verify_result = AlipayNotify.verify(params);
-	////
-	//// if(verify_result){//验证成功
-	//// //////////////////////////////////////////////////////////////////////////////////////////
-	//// //请在这里加上商户的业务逻辑程序代码
-	////
-	//// //——请根据您的业务逻辑来编写程序（以下代码仅作参考）——
-	//// if(trade_status.equals("TRADE_FINISHED") ||
-	// trade_status.equals("TRADE_SUCCESS")){
-	//// //判断该笔订单是否在商户网站中已经做过处理
-	//// //如果没有做过处理，根据订单号（out_trade_no）在商户网站的订单系统中查到该笔订单的详细，并执行商户的业务程序
-	//// //如果有做过处理，不执行商户的业务程序
-	//// }
-	////
-	//// //该页面可做页面美工编辑
-	//// out.println("验证成功<br />");
-	//// //——请根据您的业务逻辑来编写程序（以上代码仅作参考）——
-	////
-	//// //////////////////////////////////////////////////////////////////////////////////////////
-	//// }else{
-	//// //该页面可做页面美工编辑
-	//// out.println("验证失败");
-	//// }
-	//
-	// }
 
 	/**
 	 * @param request,
@@ -892,7 +817,6 @@ public class UserController {
 		System.err.println("getIndexDesigner map : " + map.toString());
 		return map;
 	}
-
 	/**
 	 * upload member Avatar
 	 * 
@@ -908,58 +832,53 @@ public class UserController {
 	public String uploadAvatar(HttpServletRequest request, HttpServletResponse response)
 			throws FileUploadException, ServletException, IOException {
 		System.out.println(" -------------- userController uploadAvatar -------------- ");
+		CookieUtil cookieUtil=new CookieUtil();
+		cookieUtil.deleteCookie("status");
 		SessionUtil session = new SessionUtil();
 		AssetsDemo asset = new AssetsDemo();
 		String FileResult = "";
 		String X_Token = session.getSession(request, "users").get("X-Token").toString();
 		String url = Api.UPLOADAVATAR();
-		try {
-			MyFileUpload mfu = new MyFileUpload();
-			Map map = mfu.process(request, response);
-			System.out.println("map.Data() : " + map.toString());
-			String avatar_map = map.get("avatar_data").toString();
-			System.out.println("avatar_map : " + avatar_map.toString());
-			Map xy = GsonUtil.formJson(avatar_map);
-			System.out.println("xy ====> " + xy);
-			System.out.println("xy ====> " + xy.get("x"));
-			int startX = (int) Math.round(Double.valueOf(xy.get("x").toString()));
-			int startx = (int) Math.round(Double.valueOf(xy.get("y").toString()));
-			int width = (int) Math.round(Double.valueOf(xy.get("width").toString()));
-			int height = (int) Math.round(Double.valueOf(xy.get("height").toString()));
+		MyFileUpload mfu = new MyFileUpload();
+		Map map = mfu.process(request, response);
+		String avatar_map = map.get("avatar_data").toString();
+		Map xy = GsonUtil.formJson(avatar_map);
+		int startX = (int) Math.round(Double.valueOf(xy.get("x").toString()));
+		int startx = (int) Math.round(Double.valueOf(xy.get("y").toString()));
+		int width = (int) Math.round(Double.valueOf(xy.get("width").toString()));
+		int height = (int) Math.round(Double.valueOf(xy.get("height").toString()));
+		
+		String FilePath = map.get("FilePath1").toString();
+		String ext = FilenameUtils.getExtension(FilePath);
+		BufferedImage reSizeImg = cut(FilePath, startX, startx, width, height);
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		
+		ImageIO.write(reSizeImg, "png", baos);
+		InputStream is = new ByteArrayInputStream(baos.toByteArray());
+		HttpEntity reqEntity = MultipartEntityBuilder.create().addBinaryBody("file", is)
+				.addTextBody("format", "json").addTextBody("software", "96").addTextBody("public", "true").build();
+		Request req = Request.Put(url).body(reqEntity).addHeader("X-Token", X_Token);
+		Response result = asset.RequestHttpExecute(req);
+		FileResult = asset.HandleHttpResponse("uploadFile", result);
+		Map resultMap = GsonUtil.formJson(FileResult);
+		System.out.println("return resultMap ==> " + resultMap);
+		is.close();
+		if(resultMap.get("avatar").toString().length() > 0){
 			
-			System.out.println(
-					"startX : " + startX + ", startx : " + startx + ", width : " + width + ", height : " + height);
-			String FilePath = map.get("FilePath1").toString();
-			String ext = FilenameUtils.getExtension(FilePath);
-			System.out.println("FilePath : "+FilePath);
-			System.out.println("ext : "+ext);
-			BufferedImage reSizeImg = cut(FilePath, startX, startx, width, height);
-			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-			ImageIO.write(reSizeImg, "png", baos);
-			InputStream is = new ByteArrayInputStream(baos.toByteArray());
-//			InputStream is = new ByteArrayInputStream(resizePNG(FilePath, ext, width, height, true));
-			HttpEntity reqEntity = MultipartEntityBuilder.create().addBinaryBody("file", is)
-					.addTextBody("format", "json").addTextBody("software", "96").addTextBody("public", "true").build();
-			System.out.println("build reqEntity ==> " + reqEntity);
-			Request req = Request.Put(url).body(reqEntity).addHeader("X-Token", X_Token);
-			System.out.println("request api ==> " + req);
-			Response result = asset.RequestHttpExecute(req);
-			System.out.println("response api ==> " + result);
-			FileResult = asset.HandleHttpResponse("uploadFile", result);
-			System.out.println("return FileResult ==> " + FileResult);
-			is.close();
-			return "redirect:" + PropUtil.getProperty("redirectUrl.properties").get("REDIRECT_URL")
-					+ "/user/personalinformation/?act=success";
-		} catch (Exception e) {
-			return "redirect:" + PropUtil.getProperty("redirectUrl.properties").get("REDIRECT_URL")
-					+ "/user/personalinformation/?act=error";
+			cookieUtil.addCookie("200", request, response);
 		}
+		else{
+			cookieUtil.addCookie("401", request, response);
+		}
+		return "redirect:" + PropUtil.getProperty("redirectUrl.properties").get("REDIRECT_URL")	+ "/user/personalinformation/";
 	}
-
 	// img cut
+	@SuppressWarnings("static-access")
 	public BufferedImage cut(String srcPath, int startX, int startY, int width, int height) throws IOException {
-		BufferedImage subImg;
-		BufferedImage bufImg = ImageIO.read(new File(srcPath));
+		BufferedImage subImg = null;
+		BufferedImage bufImg = null;
+		ImageIO IIO = null;
+		bufImg = IIO.read(new File(srcPath));
 		subImg = bufImg.getSubimage(startX, startY, width, height);
 		return subImg;
 

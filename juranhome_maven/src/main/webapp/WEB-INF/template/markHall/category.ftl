@@ -43,6 +43,7 @@
                             <option value="ASAN">东南亚</option>
                             <option value="US">美式</option>
                             <option value="country">田园</option>
+                            <option value="mediterranean">地中海</option>
                             <option value="modern">现代</option>
                             <option value="other">其他</option>
                         </select>
@@ -137,29 +138,29 @@
                 </div>
             </div>
             <div class="needDetail-body">
-                <div class="col-md-4 text-left">客户姓名:</div>
-                <div class="col-md-8 text-left">{{detail.contacts_name}}</div>
-                <div class="col-md-4 text-left">联系电话:</div>
-                <div class="col-md-8 text-left" ng-show="detail.bidding_status">{{detail.contacts_mobile}}</div>
-                <div class="col-md-8 text-left" ng-show="!detail.bidding_status">设计师应标后可见</div>
-                <div class="col-md-4 text-left">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址:</div>
-                <div class="col-md-8 text-left">{{detail.province_name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{detail.city_name}}&nbsp;&nbsp;&nbsp;{{detail.district_name|replaceNone}}</div>
-                <div class="col-md-4 text-left">设计预算:</div>
-                <div class="col-md-8 text-left">{{detail.design_budget}}</div>
-                <div class="col-md-4 text-left">装修预算:</div>
-                <div class="col-md-8 text-left">{{detail.decoration_budget}}</div>
-                <div class="col-md-4 text-left">房屋类型:</div>
-                <div class="col-md-8 text-left">{{detail.house_type|replaceHouseType}}</div>
-                <div class="col-md-4 text-left">房屋面积:</div>
-                <div class="col-md-8 text-left">{{detail.house_area|replaceArea}} m²</div>
-                <div class="col-md-4 text-left">户&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型:</div>
-                <div class="col-md-8 text-left">{{detail.room|replaceRoomType}}{{detail.living_room|replaceBedRoom}}{{detail.toilet|replaceRestRoom}}</div>
-                <div class="col-md-4 text-left">风&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格:</div>
-                <div class="col-md-8 text-left">{{detail.decoration_style|replaceStyle}}</div>
-                <div class="col-md-4 text-left">发布时间:</div>
-                <div class="col-md-8 text-left">{{detail.publish_time}}</div>
-                <div class="col-md-4 text-left">应标人数:</div>
-                <div class="col-md-8 text-left">{{detail.bidder_count}}</div>
+                <div class="col-md-3 text-left">客户姓名:</div>
+                <div class="col-md-9 text-left">{{detail.contacts_name}}</div>
+                <div class="col-md-3 text-left">联系电话:</div>
+                <div class="col-md-9 text-left" ng-show="detail.bidding_status">{{detail.contacts_mobile}}</div>
+                <div class="col-md-9 text-left" ng-show="!detail.bidding_status">设计师应标后可见</div>
+                <div class="col-md-3 text-left">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址:</div>
+                <div class="col-md-9 text-left">{{detail.province_name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{detail.city_name}}&nbsp;&nbsp;&nbsp;{{detail.district_name|replaceNone}}</div>
+                <div class="col-md-3 text-left">设计预算:</div>
+                <div class="col-md-9 text-left">{{detail.design_budget}}</div>
+                <div class="col-md-3 text-left">装修预算:</div>
+                <div class="col-md-9 text-left">{{detail.decoration_budget}}</div>
+                <div class="col-md-3 text-left">房屋类型:</div>
+                <div class="col-md-9 text-left">{{detail.house_type|replaceHouseType}}</div>
+                <div class="col-md-3 text-left">房屋面积:</div>
+                <div class="col-md-9 text-left">{{detail.house_area|replaceArea}} m²</div>
+                <div class="col-md-3 text-left">户&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型:</div>
+                <div class="col-md-9 text-left">{{detail.room|replaceRoomType}}{{detail.living_room|replaceBedRoom}}{{detail.toilet|replaceRestRoom}}</div>
+                <div class="col-md-3 text-left">风&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格:</div>
+                <div class="col-md-9 text-left">{{detail.decoration_style|replaceStyle}}</div>
+                <div class="col-md-3 text-left">发布时间:</div>
+                <div class="col-md-9 text-left">{{detail.publish_time}}</div>
+                <div class="col-md-3 text-left">应标人数:</div>
+                <div class="col-md-9 text-left">{{detail.bidder_count}}</div>
             </div>
             <div class="needDetail-footer">
                 <div><h3>我来应标</h3></div>
@@ -183,7 +184,7 @@
             </div>
         </div>
         <!--Modal Window of no  Certification-->
-        <div ng-show="show==1" class="no-certification modal fade" id="certification" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+        <div ng-show="show==1" class="no-certification modal fade" id="certification" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true" style="top:30%;">
             <div class="no-certification-header text-right">
             <span style="cursor:pointer;" data-dismiss="modal">×</span>
             </div>
@@ -209,7 +210,7 @@
 			            	</center>				
 							<div class="inline-cont">
 								<div class="inline-cont" style="position:relative">
-						          <a href="${baseUrl}/user/index/#mybidlist/" target="_blank" class="btn btn-blue pull-right" style=" position:absolute; top:200px; right:10%">查看结果 </a>
+						          <a href="${baseUrl}/user/index/#mybidlist" target="_blank" class="btn btn-blue pull-right" style=" position:absolute; top:200px; right:10%">查看结果 </a>
 						          <a href="${baseUrl}/mark/category"  class="btn btn-blue pull-right" style=" position:absolute; top:200px; right:30%">继续接单 </a>
 								  <a href="#" class="remind2" style="width:500px; display:inline-block"><img src="${baseUrl}/images/markHall/ordernow1.jpg"></a>
 								</div>

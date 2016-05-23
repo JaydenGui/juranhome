@@ -1,6 +1,6 @@
 <#assign baseUrl=request.contextPath />
 <!DOCTYPE html> 
-<html  ng-app="app" id="ng-app" ng-cloak>
+<html  ng-app="app" id="ng-app" ng-cloak ng-init="userType=true">
     <head ng-controller="seoCtrl">
         <style type="text/css">
 
@@ -35,7 +35,6 @@
 		<link rel="stylesheet" href="${baseUrl}/css/userCenter/style.css">
 		<link rel="stylesheet" href="${baseUrl}/css/userCenter/main.css">
 		<link rel="stylesheet" href="${baseUrl}/css/userCenter/main-responsive.css">
-		<link rel="stylesheet" href="${baseUrl}/css/userCenter/all.css">
 		<link rel="stylesheet" href="${baseUrl}/css/userCenter/bootstrap-colorpalette.css">
 		<link rel="stylesheet" href="${baseUrl}/css/userCenter/perfect-scrollbar.css">
 		<link rel="stylesheet" href="${baseUrl}/css/userCenter/theme_light.css" type="text/css" >
@@ -104,14 +103,14 @@
                                     <li class="clearfix">
                                         <div class="leftru col-lg-5 col-mg-5 col-sm-6 col-xs-6">
                                             <div class="form-group">
-                                                <label class="control-label"> 姓名 : <span class="symbol required"></span> </label>
+                                               <span class="symbol required"></span> <label class="control-label"> 姓名 : </label>
                                                 <div class="defaultValue"></div><input class="form-control" name="pro-name2" id="pro-name" type="text" value="" ng-model="contactsname" readonly=true required="" style="background:none" />
                                                 <span class="tips_false"></span>
                                             </div>
                                         </div>
                                         <div class="righttu col-lg-5 col-lg-offset-1 col-mg-5 col-mg-offset-1 col-sm-6 col-xs-6">
                                             <div class="form-group">
-                                                <label class="control-label"> 手机号码: <span class="symbol required"> </span> </label>
+                                                <span class="symbol required"> <label class="control-label"> 手机号码: </span> </label>
                                                 <input type="text" class="form-control" id="phone" name="phone" ng-model="contactsmobile" maxlength=11 style="ime-mode:disabled" onkeyup="return ValidateNumber(this,value)" required="" />
                                                 <span class="tips_false"> </span>
                                             </div>
@@ -119,7 +118,7 @@
                                     <li class="clearfix">
                                         <div class="leftru col-lg-5 col-mg-5 col-sm-6 col-xs-6">
                                             <div class="form-group selectF">
-                                                <label class="control-label"> 房屋类型 : <span class="symbol required"> </span> </label>
+                                                <span class="symbol required"> </span> <label class="control-label"> 房屋类型 : </label>
                                                 <select name="dd" id="dd" class="form-control" ng-model="housetype"> 
                                                 	<option value="" selected="selected"> 请选择 </option>
 													<option value="house" >住宅空间</option>
@@ -142,15 +141,15 @@
                                         </div>
                                         <div class="righttu col-lg-5 col-lg-offset-1 col-mg-5 col-mg-offset-1 col-sm-6 col-xs-6">
                                             <div class="form-group">
-                                                <label class="control-label"> 房屋面积 : <span class="symbol required"> </span> </label>
-                                                <div style="position:relative"><input type="text" placeholder="" class="form-control" maxlength="9" id="h_mesure" name="project-price" ng-model="housearea" style="ime-mode:disabled" onkeyup="return ValidateFloat(this,value)" /><span class="tips_false TipsFalse" style="margin-right:-24px;"> </span><span style="position:absolute;right:8px;top:8px;color:#999"> m²</span></div>
+                                                <span class="symbol required"> </span> <label class="control-label"> 房屋面积 : </label>
+                                                <div style="position:relative"><input type="text" placeholder="" class="form-control" maxlength="7" id="h_mesure" name="project-price" ng-model="housearea" style="ime-mode:disabled" onkeyup="return ValidateFloat(this,value)" /><span class="tips_false TipsFalse" style="margin-right:-24px;"> </span><span style="position:absolute;right:8px;top:8px;color:#999"> m²</span></div>
                                                 
                                             </div>
                                         </div> </li>
                                     <li class="clearfix">
                                         <div class="leftru col-lg-5 col-mg-5 col-sm-6 col-xs-6">
                                             <div class="form-group selectF">
-                                                <label class="control-label"> 设计预算: <span class="symbol required"> </span> </label>                                         
+                                                <span class="symbol required"> </span> <label class="control-label"> 设计预算: </label>                                         
                                                 <select class="form-control" id="design_budget" name="design_budget" ng-model="design_budget">
                                                 	 <option value="" selected="selected"> 请选择 </option> 
                                                 	 <option value="3000元以下"> 3000元以下 </option> 
@@ -165,8 +164,7 @@
                                         
                                         <div class="righttu col-lg-5 col-lg-offset-1 col-mg-5 col-mg-offset-1 col-sm-6 col-xs-6">
                                             <div class="form-group selectF" style="position:relative;">
-                                                <label class="control-label"> 装修预算（元） : <span class="symbol required"> </span> </label>
-                                               <!-- <div style="position:relative"><input type="text" placeholder="" class="form-control" id="money" name="project-price" ng-model="renovationbudget" style="ime-mode:disabled" onkeyup="return ValidateFloat(this,value)" required="" /><span style="position:absolute;right:-30px;top:8px;color:#666">万元</span></div> -->
+                                                <span class="symbol required"> </span> <label class="control-label"> 装修预算（元） : </label>
                                                 <select class="form-control" id="decoration_budget" name="Decoratebudget" ng-model="decoration_budget"> 
                                                 	<option value="" selected="selected"> 请选择 </option> 
                                                 	<option value="5万以下"> 5万以下 </option> 
@@ -183,7 +181,7 @@
                                       <li class="clearfix">
                                         <div class="leftru col-lg-5 col-mg-5 col-sm-6 col-xs-6">
                                             <div class="form-group  selectF">
-                                                <label class="control-label"> 风格 : <span class="symbol required"> </span> </label>
+                                                <span class="symbol required"> </span> <label class="control-label"> 风格 : </label>
                                                 <select class="form-control" id="renovationStylereq" name="renovationStylereq" ng-model="decoration_style">
                                                  <option value="" selected="selected"> 选择风格 </option> 
 		                                			<option value="Japan">日式</option>
@@ -205,7 +203,7 @@
                                        </li>
                                     <li class="clearfix">
                                         <div class="form-group connected-group col-lg-11 col-md-11 col-sm-11 col-xs-11">
-                                            <label class="control-label"> 项目地址 : <span class="symbol required"> </span> </label>
+                                            <span class="symbol required"> </span> <label class="control-label"> 项目地址 : </label>
                                             <div class="row">
                                                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 margin-bottom10 selectF" style=" height: 34px;">
                                                     <select id="seachprov" class="form-control" name="s_province" placeholder="省" ng-model="province" onChange="changeComplexProvince(this.value, sub_array, 'seachcity', 'seachdistrict');"> </select> &nbsp;&nbsp;
@@ -230,7 +228,7 @@
                                     	</li>
                                     <li>
                                         <div class="form-group connected-group col-lg-11 col-md-11 col-sm-12 col-xs-12">
-                                            <label class="control-label"> 户型 : <span class="symbol required"> </span> </label>
+                                            <span class="symbol required"> </span> <label class="control-label"> 户型 : </label>
                                             <div class="row">
                                                 <div class="col-md-3 selectF">
                                                     <select name="type_lv_room" id="room" class="form-control" ng-model="room">

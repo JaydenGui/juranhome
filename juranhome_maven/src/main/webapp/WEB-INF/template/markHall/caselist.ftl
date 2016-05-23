@@ -46,7 +46,7 @@
 		        <div class="edit-personal-container-body">
 			       <div style="width:1200px;margin:0px auto">
 			        <ol class="breadcrumb" style="margin:0px;padding-left:0px;border:0px; line-height: 2;">
-	                    <li><a href="${baseUrl}/mark/main/" style="color:#333">
+	                    <li><a href="${baseUrl}/mark/main" style="color:#333">
 	                        	我的主页
 	                    </a>  </li>
 	                    <li class="active">
@@ -185,20 +185,25 @@
 		 </script>
        	 <!-- Modal Dialog of reasons -->
        	 <script type="text/javascript">
-   			 	function getUrlParam(name) {
-					var reg = new RegExp("[\?\]"+name+"=([^\/]*)(\/?)","i");
-	           		var r = window.location.href.substr(1).match(reg); 
-	          		if (r != null) return unescape(r[1]); return null;
-				};
-				$(function() {
-					if(getUrlParam('act') && getUrlParam('act') == 'case') {
-						alert('发送成功！');
-					}
-					
-					if(getUrlParam('act') && getUrlParam('act') == 'caseerr') {
-						alert('发送失败！');
-			    	}
+	       	$(function() {
+				var status = $.cookie("status");
+	
+				if (status < 400 && status != null) {
+					$.cookie('status', null, {
+						expires : 0
+					});
+					alert("保存成功！");
+				} else if (status != null && status != "") {
+					$.cookie('status', null, {
+						expires : 0
+					});
+					alert("保存失败！");
+				}
+	
+				$.cookie('status', null, {
+					expires : 0
 				});
+	       	});
 	     </script>
 		<#if !users?exists>
 		     <script type="text/javascript">

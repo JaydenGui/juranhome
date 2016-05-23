@@ -13,9 +13,11 @@
     
     //昵称
     $('#nickname').focus(function(){
+    	$(this).attr('style','border: 1px #ddd solid');
+		$('.prompts').css({'display':'none'});
     }).blur(function(){	
-    	   var rf_reg = /[a-zA-Z0-9\u4E00-\u9FFF]{2,10}/;
-    		if(rf_reg.test($(this).val())||$(this).val().length==0){
+    	  var rf_reg=/^[\w\u4e00-\u9fa5]+$/gi;
+    		if(rf_reg.test($(this).val())&&$(this).val().length>=2){
 				ok1=true;
 				$(this).attr('style','border: 1px #ddd solid');
 				$('.prompts').css({'display':'none'});
@@ -29,23 +31,29 @@
     
     //住宅电话
     $('#home_phone').focus(function(){
+    	$(this).attr('style','border: 1px #ddd solid');
+	    $('.promptPhone').css({'display':'none'});
     }).blur(function(){	
-    	var isPhone = /^([0-9]{3,4}-)?[0-9]{7,8}$/;
-   	    var isMob=/^((\+?86)|(\(\+86\)))?(13[012356789][0-9]{8}|15[012356789][0-9]{8}|18[012356789][0-9]{8}|147[0-9]{8}|1349[0-9]{7})$/;
-   	    var value=document.getElementById("home_phone").value.trim();
-   	    if(isMob.test(value)||isPhone.test(value)||value.length==0){
+    	var fe_reg = /^[0-9]+$/;
+    	var value=document.getElementById("home_phone").value.trim();
+    	//alert(value + "," +fe_reg.test(value));
+   	    if((fe_reg.test(value) && value.length>=7) || value.length==0){
 			ok2=true;
 			$(this).attr('style','border: 1px #ddd solid');
    	    	$('.promptPhone').css({'display':'none'});
    	    }else{
    	    	ok2=false;
-   	    	$(this).attr('style','border: 1px #red solid');
+   	    	$(this).attr('style','border: 1px red solid');
 			$('.promptPhone').css({'display':'block'});
    	    }
     });
     
+    
+    
   //邮编
     $('#zip_code').focus(function(){
+    	$(this).attr('style','border: 1px #ddd solid');
+		$('.promptCode').css({'display':'none'});
     }).blur(function(){	
    	    var fe_reg = /^[0-9]{6}$/;
    		if(fe_reg.test($(this).val())||$(this).val().length==0){
@@ -186,7 +194,22 @@
     		}
     		//ok5=false;
     	}
-        if(ok1 && ok2 && ok3 && ok4 && ok5){
+    	 
+    	var isMob=/\d{7,11}$/; 
+    	var value=document.getElementById("home_phone").value.trim();
+   	    if(isMob.test(value)||value.length==0){
+			ok2=true;
+			$("#home_phone").attr('style','border: 1px #ddd solid');
+   	    	$('.promptPhone').css({'display':'none'});
+   	    }else{
+   	    	ok2=false;
+   	    	$("#home_phone").attr('style','border: 1px red solid');
+			$('.promptPhone').css({'display':'block'});
+			alert("请填写符合条件的住宅电话");
+			return false;
+   	    }
+    	
+        if(ok1 && ok3 && ok4 && ok5){
         	
         }else{
         	if(ok1==false){
@@ -196,11 +219,6 @@
         	}
     		if(ok4==false){
     			alert("请将生日填写完整");
-    			return false;
-        	}
-    		if(ok2==false){
-				$('#home_phone').attr('style','border: 1px red solid');
-    			alert("请填写符合条件的住宅电话");
     			return false;
         	}
     		if(ok5==false){

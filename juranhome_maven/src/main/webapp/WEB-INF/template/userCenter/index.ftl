@@ -16,7 +16,6 @@
 		<link rel="stylesheet" href="${baseUrl}/css/userCenter/style.css">
 		<link rel="stylesheet" href="${baseUrl}/css/userCenter/main.css">
 		<link rel="stylesheet" href="${baseUrl}/css/userCenter/main-responsive.css">
-		<link rel="stylesheet" href="${baseUrl}/css/userCenter/all.css">
 		<link rel="stylesheet" href="${baseUrl}/css/userCenter/bootstrap-colorpalette.css">
 		<!-- <link rel="stylesheet" href="${baseUrl}/css/userCenter/perfect-scrollbar.css"> -->
 		<link rel="stylesheet" href="${baseUrl}/css/userCenter/theme_light.css" type="text/css" >
@@ -118,7 +117,7 @@
 		
 		<!--[if lt IE 9]>
 		<!--<script src="${baseUrl}/js/public/respond.min.js"></script>-->
-		<![endif]-->
+		<!--<![endif]-->
 		
 		<script src="${baseUrl}/js/public/bootstrap-hover-dropdown.min.js"></script>
 		<!-- <script src="${baseUrl}/js/public/newArea.js"></script>  -->
@@ -127,6 +126,7 @@
 		<script src="${baseUrl}/js/public/bootstrap-fileupload.min.js"></script>
 		<script src="${baseUrl}/js/userCenter/perfect-scrollbar-v0.5.2.js" type="text/javascript"></script>
 		<script src="${baseUrl}/js/markHall/back-the-top.js"></script>
+		<script src="${baseUrl}/js/userCenter/clear_active.js"></script>
 		<!--<![endif]-->
 			
 		<!--data verification-->

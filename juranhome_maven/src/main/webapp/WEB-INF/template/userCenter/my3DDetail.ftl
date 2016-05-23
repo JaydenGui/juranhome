@@ -79,7 +79,7 @@
 	            </div>
 	            
 	                <!--design papper part-->
-	           <form name="form" id="form" role="form" enctype="multipart/form-data"  method="post" action="${baseUrl}/3Dscheme/uploadFile3DAsset" ng-submit="saveUpload()">
+	           <form name="form" id="form" role="form" enctype="multipart/form-data"  method="post" action="${baseUrl}/3Dscheme/uploadFile3DAsset" >
 	            <input name="needs_id" value="{{needs_id}}" type="hidden" />
 	            <input name="asset_id" value="{{asset_id}}" type="hidden" id="asset_id"/>
 	            <input type="hidden" id="bp_list" name="bp_list" />
@@ -140,7 +140,7 @@
 	                    <div class="col-md-2"></div>
 	                    <div class="col-md-3"></div>
 	                    <div class="col-md-1" style="margin-right:30px;">
-	                        <a class="NewBtn btn-defaultClose" href="${baseUrl}/user/index#/my3DScheme/" id="back" >返回</a>
+	                        <a class="NewBtn btn-defaultClose" href="${baseUrl}/user/index#/my3DScheme" id="back" >返回</a>
 	                    </div>
 	                    <div class="col-md-1">
 	                        <button class="NewBtn btn-primarySubmit" type="submit"  id="submit" > 保存</button>
@@ -150,11 +150,8 @@
 	        </div>
 	    </div>
 	    </form>
-	    <!-- end: PAGE CONTENT-->
 	</div>
 	</div>
 	<#include '/common/footer.html'/>
-	<script type="text/javascript">
-	</script>
 	</body>
 </html>

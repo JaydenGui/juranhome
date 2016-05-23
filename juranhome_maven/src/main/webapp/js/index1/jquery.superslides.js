@@ -421,7 +421,7 @@ var pagination = {
 
   that._findPositions();
   that.width  = that._findWidth();
-  that.height = that._findHeight();
+  that.height = that._findHeight()-88;
 
   this.css.children();
   this.css.containers();

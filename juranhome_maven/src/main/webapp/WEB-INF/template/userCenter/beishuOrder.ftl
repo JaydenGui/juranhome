@@ -1,4 +1,5 @@
 <#assign baseUrl=request.contextPath />
+<#if users?exists & users.type=='designer'>
 <div class="main-content">
 	<div class="container">
 		<!-- start: PAGE HEADER -->
@@ -104,8 +105,18 @@
 		<pagination ng-if="conf.totalItems>conf.itemsPerPage"  conf="conf" go-page="page.go_page(num)"></pagination>
 	<!-- end: PAGE HEADER -->
 </div>
+<#else>
+	<script >
+	$(function(){
+		location.href = baseUrl+"/";
+	});
+	</script>
+</#if>
 <script>
 $(document).on('click','#scrollTopG .scrollTopG',function(){
     $('html,body').animate({scrollTop:0},'slow');
+});
+$(document).ready(function() {
+	pageActive("order_beishu");
 });
 </script>

@@ -25,14 +25,20 @@
             $(this).attr('style','border: 1px #ddd solid');
         }).blur(function(){	
             var pattern = /^1[34578]\d{9}$/;
-            if(pattern.test($(this).val())){
-                $(this).next().text('输入成功').removeClass('state1').removeClass('state3').addClass('state4');
-                ok1=true;
-                $(this).attr('style','border: 1px #ddd solid');
-            }else{
+            if($(this).val()==0){
             	ok1=false;
-                $(this).next().text('格式错误').removeClass('state1').removeClass("state4").addClass('state3');
+                $(this).next().text('请输入手机号码').removeClass('state1').removeClass("state4").addClass('state3');
                 $(this).attr('style','border: 1px red solid');
+            }else{
+	            if(pattern.test($(this).val())){
+	                $(this).next().text('输入成功').removeClass('state1').removeClass('state3').addClass('state4');
+	                ok1=true;
+	                $(this).attr('style','border: 1px #ddd solid');
+	            }else{
+	            	ok1=false;
+	                $(this).next().text('请输入正确的手机号码').removeClass('state1').removeClass("state4").addClass('state3');
+	                $(this).attr('style','border: 1px red solid');
+	            }
             }
         
         });
@@ -54,24 +60,30 @@
         
         //房屋面积
         $('#h_mesure').focus(function(){
-        	$(this).next().text('输入整数不大于6位，小数不大于2位的数字').removeClass('state1').removeClass('state3 state4').addClass('state2');
+        	$(this).next().text('输入整数不大于4位，小数不大于2位的数字').removeClass('state1').removeClass('state3 state4').addClass('state2');
             $(this).attr('style','border: 1px #ddd solid');
         }).blur(function(){
-        	var rf_reg= /^\d{0,6}$|^\d{0,6}\.\d{1,2}$/;
-            if($(this).val()> 0 && $(this).val().length <=20 && $(this).val()!=''){
-            	if(!rf_reg.test($(this).val())){
-            		ok3=false;
-                    $('#h_mesure').next().text('输入整数不大于6位，小数不大于2位的数字').removeClass('state1').removeClass("state4").addClass('state3');
-                    $('#h_mesure').attr('style','border: 1px red solid');
-            	}else{
-            		$(this).next().text('输入成功').removeClass('state1').addClass('state4');
-            		ok3=true;
-            		$(this).attr('style','border: 1px #ddd solid');
-            	}
-            }else{
-            	ok3=false;
-                $(this).next().text('输入整数不大于6位，小数不大于2位的数字').removeClass('state1').addClass('state3');
+        	var rf_reg= /^\d{0,4}$|^\d{0,4}\.\d{1,2}$/;
+        	if($(this).val()==0){
+            	ok1=false;
+                $(this).next().text('请填写房屋面积').removeClass('state1').removeClass("state4").addClass('state3');
                 $(this).attr('style','border: 1px red solid');
+            }else{
+	            if($(this).val()> 0 && $(this).val().length <=20 && $(this).val()!=''){
+	            	if(!rf_reg.test($(this).val())){
+	            		ok3=false;
+	                    $('#h_mesure').next().text('输入整数不大于4位，小数不大于2位的数字').removeClass('state1').removeClass("state4").addClass('state3');
+	                    $('#h_mesure').attr('style','border: 1px red solid');
+	            	}else{
+	            		$(this).next().text('输入成功').removeClass('state1').addClass('state4');
+	            		ok3=true;
+	            		$(this).attr('style','border: 1px #ddd solid');
+	            	}
+	            }else{
+	            	ok3=false;
+	                $(this).next().text('输入整数不大于4位，小数不大于2位的数字').removeClass('state1').addClass('state3');
+	                $(this).attr('style','border: 1px red solid');
+	            }
             }
         });
 
@@ -180,14 +192,20 @@
         	$(this).next().text('请输入字数在2-32位之间.').removeClass('state1').removeClass('state3 state4').addClass('state2');
             $(this).attr('style','border: 1px #ddd solid');
         }).blur(function(){
-            if($(this).val().length >= 2 && $(this).val().length <=32 && $(this).val()!=''){
-                $(this).next().text('输入成功').removeClass('state1').addClass('state4');
-                ok10=true;
-                $(this).attr('style','border: 1px #ddd solid');
-            }else{
-            	ok10=false;
-                $(this).next().text('请输入字数在2-32位之间').removeClass('state1').removeClass("state4").addClass('state3');
+        	if($(this).val()==0){
+            	ok1=false;
+                $(this).next().text('请填写小区名称').removeClass('state1').removeClass("state4").addClass('state3');
                 $(this).attr('style','border: 1px red solid');
+            }else{
+	            if($(this).val().length >= 2 && $(this).val().length <=32 && $(this).val()!=''){
+	                $(this).next().text('输入成功').removeClass('state1').addClass('state4');
+	                ok10=true;
+	                $(this).attr('style','border: 1px #ddd solid');
+	            }else{
+	            	ok10=false;
+	                $(this).next().text('请输入字数在2-32位之间').removeClass('state1').removeClass("state4").addClass('state3');
+	                $(this).attr('style','border: 1px red solid');
+	            }
             }
         });
 
@@ -260,6 +278,18 @@
 
         //提交按钮,所有验证通过方可提交
         $('.button').click(function(){
+        	ok1 = $('#phone').val().length > 0;
+        	ok2 = $('#dd').val().length > 0;
+        	ok3 = $('#h_mesure').val().length > 0;
+        	ok4 = $('#design_budget').val().length > 0;
+        	ok5 = $('#decoration_budget').val().length > 0;
+        	ok6 = $('#renovationStylereq').val().length > 0;
+        	ok7 = $('#seachprov').val().length > 1;
+        	ok8 = $('#seachcity').val().length > 1;
+        	ok10 = $('#house-name').val().length > 1;
+        	ok11 = $('#room').val().length > 0;
+        	ok12= $('#livingroomCountreq').val().length > 0;
+        	ok13= $('#bathroomCountreq').val().length > 0;
         	var districtCount=document.getElementById("seachdistrict").options.length;
         	if(districtCount<=1)
         	{

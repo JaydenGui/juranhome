@@ -16,7 +16,8 @@ function previewImage(file, type) {
 			if (file.files[i].size > 6 * 1048576) {
 				alert(file.files[i].name + "　图片大小超标　("
 						+ (file.files[i].size / 1048576) + "M)，请选小于6M的图片！");
-				$('#designpage').val(null);
+				$(file).val(null);
+
 				imagesSize = false;
 
 				// return false;
@@ -34,6 +35,30 @@ function previewImage(file, type) {
 
 					var srcUrl = PickedImg.src;
 					var srcFileName = file.files[i].name;
+					var imageType = srcFileName.substr(srcFileName.lastIndexOf(".") + 1);
+					
+					switch(imageType){
+					case "doc":
+					case "docx":
+					case "docm":
+					case "dot":
+					case "dotx":
+					case "dotm":
+						srcUrl = "/juranhome/images/userCenter/imgWord.png";
+						break;
+					case "xls":
+					case "xlsb":
+					case "xlsm":
+					case "xlsx":
+					case "xlt":
+					case "xltm":
+					case "xltx":
+						srcUrl = "/juranhome/images/userCenter/imgExcel.png";
+						break;
+					case "pdf":
+						srcUrl = "/juranhome/images/userCenter/imgPdf.png";
+						break;
+					}
 
 					if (type == 1) {
 						$("#drawing")
@@ -75,7 +100,7 @@ function previewImage(file, type) {
 
 $(function() {
 	$("#back").click(function() {
-		location.href = baseUrl + "/user/index#/my3DScheme/";
+		location.href = baseUrl + "/user/index#/my3DScheme";
 	});
 
 	// To determine whether to upload pictures saved successfully
@@ -130,10 +155,19 @@ $(function() {
 			alert("请先创建3D设计方案后再上传！");
 			return false;
 		} else if ($("#designstuff").val() || $("#designpage").val()) {
+			//$("#submit, #back").attr("disabled", "disabled");
 			$("#form").submit();
 		} else {
 			alert("请选择图片后再保存！");
 			return false;
 		}
 	});
+	
+	//Listener browser Back event 
+	if (window.history && window.history.pushState) {
+        $(window).on('popstate', function () {
+        	 window.location=baseUrl+"/user/index/#/my3DScheme";
+        });
+       window.history.pushState('forward', null,'');
+    }
 });

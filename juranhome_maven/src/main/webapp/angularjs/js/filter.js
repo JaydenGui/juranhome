@@ -498,3 +498,25 @@ app.filter('workflowNode',function(){
 		 return node_id;
 	}
 });
+//Mapping code into Chinese
+app.filter('code2name',function(){
+	return function(code){
+		var map={
+			'invite_measure':'邀请量房',
+			'decline_measure':'消费者拒绝设计师',
+			'confirm_measure':'设计师同意量房',
+			'decline_invite_measure':'设计师拒绝量房',
+			'pay_for_measure':'支付量房费',
+			'open_3d_design':'打开3d工具',
+			'author_send_contract':'设计师发送合同',
+			'deliver_measure_file':'上传量房交付物',
+			'pay_for_first_fee':'支付设计首款',
+			'open_3d_design':'打开3d工具',
+			'pay_for_last_fee':'支付尾款',
+			'open_3d_design':'打开3d工具',
+			'deliver_design_results':'上传支付交付物',
+			'review_design_results':'编辑交付物'
+		};
+		return map[code];
+	}
+});

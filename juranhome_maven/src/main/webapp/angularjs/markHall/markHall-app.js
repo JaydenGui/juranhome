@@ -59,7 +59,11 @@ app.controller('ctrl', function($scope,designerService,orderService,schemeServic
 			if(r.status<400){
 				$scope.needsList =r.order_list;
 			}
-			
+			if(r.count<=0){
+		    	$('#noMatchOrder').css({'display':'block'});
+		    }else{
+		    	$('#noMatchOrder').css({'display':'none'});
+		    }
 			completeNum == 2 ? (requestComplete()) : (completeNum++);
 		});
 	}
@@ -79,7 +83,11 @@ app.controller('ctrl', function($scope,designerService,orderService,schemeServic
 
 				$scope.mybidlist=myBidAll;
 			}
-			
+			if(r.count<=0){
+		    	$('#noMatchMark').css({'display':'block'});
+		    }else{
+		    	$('#noMatchMark').css({'display':'none'});
+		    }
 			completeNum == 2 ? (requestComplete()) : (completeNum++);
 		});
 	}
@@ -109,6 +117,11 @@ app.controller('ctrl', function($scope,designerService,orderService,schemeServic
 		if(r.status<400){
 			$scope.beishuOrder =r.beishu_needs_order_list;
 		}
+		if(r.count<=0){
+	    	$('#noMatchBeishu').css({'display':'block'});
+	    }else{
+	    	$('#noMatchBeishu').css({'display':'none'});
+	    }
 		completeNum == 2 ? (requestComplete()) : (completeNum++);
 	});
 	
@@ -146,9 +159,13 @@ app.controller('ctrl', function($scope,designerService,orderService,schemeServic
 		orderService.confirm(datas).success(function(r) {
 			if (r.status < 400) {
 				alert("操作成功！");
+				$("html").css({'overflow':'auto'});
+				$('.modal-backdrop').remove();
 				orderList();
 			}else{
 				alert("操作失败！");
+				$("html").css({'overflow':'auto'});
+				$('.modal-backdrop').remove();
 			}
 		});
 	}
@@ -244,12 +261,14 @@ app.controller('ctrl', function($scope,designerService,orderService,schemeServic
 		totalDesign:function(){
 			$scope.totalDesign_error=false;
 			$scope.totalDesign_is_number_error=false;
+			$scope.totalDesign_isfee_error=false;
 		},
 		designFirst:function(){
 			$scope.designFirst_error=false;
 			$scope.designFirst_is_number_error=false;
 			$scope.designFirst_is_error=false;
 			$scope.designFirst_gte_error=false;
+			$scope.designFirst_isfistfee_error=false;
 		},
 		name:function(){
 			$scope.name_error=false;
@@ -264,7 +283,7 @@ app.controller('ctrl', function($scope,designerService,orderService,schemeServic
     };
 	
 	//save contracts
-	$scope.saveContract=function(needs_id){
+	$scope.saveContract=function(needs_id,measurement_fee){
 		//$('#contract2').modal('show');
 		//impressionDrawing  效果图
 		//diy   diy 渲染图
@@ -305,6 +324,9 @@ app.controller('ctrl', function($scope,designerService,orderService,schemeServic
 		}else if(isNaN($scope.totalDesign)||parseFloat($scope.totalDesign)<=0){
 			$scope.totalDesign_is_number_error=true;
 			is_submit = false;
+		}else if(parseFloat($scope.totalDesign)<=parseFloat(measurement_fee)){
+			$scope.totalDesign_isfee_error=true;
+			is_submit=false;
 		}
 		
 		if(!$scope.designFirst){
@@ -319,6 +341,9 @@ app.controller('ctrl', function($scope,designerService,orderService,schemeServic
 		}else if(parseFloat($scope.designFirst)>parseFloat($scope.totalDesign)){
 			$scope.designFirst_gte_error=true;
 			is_submit = false;
+		}else if(parseFloat($scope.designFirst)<=parseFloat(measurement_fee)){
+			$scope.designFirst_isfistfee_error=true;
+			is_submit=false;
 		}
 		
 		if(!$scope.name){

@@ -184,7 +184,7 @@
 		                            </div>
 								   	<div style="margin-top:15px; margin-bottom:15px;color:#000;" ng-cloak>您还尚未编辑资料，点击资料修改立即完善</div>
 	                        	</div>
-	                        	<div ng-if="!designerInfo.designer.introduction||!designerInfo.designer.personal_honour">
+	                        	<div ng-if="!(!designerInfo.designer.introduction&&!designerInfo.designer.personal_honour&&!designerInfo.designer.experience&&!designerInfo.designer.measurement_price&&!designerInfo.designer.design_price_min&&!designerInfo.designer.design_price_max&&!designerInfo.designer.style_long_names)">
 									<ul>
 										<li>关于我</li>
 										<li ng-if="!designerInfo.designer.introduction" class="datatext">未填写</li>
@@ -200,7 +200,7 @@
 	                        	<div>
 									<ul>
 										<li>关于我</li>
-										<li ng-if="!designerInfo.designer.introductionnull" class="datatext">未填写</li>
+										<li ng-if="!designerInfo.designer.introduction" class="datatext">未填写</li>
 										<li ng-if="designerInfo.designer.introduction!=null" class="datatext">{{designerInfo.designer.introduction}}</li>
 									</ul>
 									<ul>
@@ -253,7 +253,7 @@
 								<div class="marCaseData col-md-12 clearfix" ng-cloak>
 									<div class="coearfix" style="overflow:hidden;">
 										<div class="mar-case col-md-4" ng-repeat="case in myCaseList" ng-init="index=$index" ng-if="myCaseList.length>0">
-											<a href="${baseUrl}/caseBase/casedetail/caseid/{{case.id}}/" class="be-img-block" target="_blank">	      
+											<a href="${baseUrl}/caseBase/casedetail/caseid/{{case.id}}/uid/{{case.hs_designer_uid}}/" class="be-img-block" target="_blank">	      
 										       <img  ng-if="img.is_primary" ng-src="{{img.file_url}}Large.jpg" alt="" style="width:100%;height:190px" ng-repeat="img in case.images" ng-init="indexs=$index"/>
 											   <img src="${baseUrl}/images/global/default_image.jpg" alt="" style="width:100%;height:190px" ng-if="case.images.length==0"></a>					
 											<div class="casename left" style="min-height:21px;">{{case.title}}</div>
@@ -435,6 +435,7 @@
 									                         <option value="ASAN">东南亚</option>
 									                         <option value="US">美式</option>
 									                         <option value="country">田园</option>
+									                         <option value="mediterranean">地中海</option>
 									                         <option value="modern">现代</option>
 									                         <option value="other">其他</option>
 														</select>
@@ -544,7 +545,7 @@
 			              <button data-dismiss="modal" class="buttonsure NewBtn btn-defaultClose" onclick="CloseDetail()"> 
 			                                                           关闭
 			              </button>
-			              <button id="commit" class="NewBtn btn-primarySubmit"  type="button" ng-click="selectTa();" >
+			              <button id="commit" ng-disabled="selectTaAbleFlag" class="NewBtn btn-primarySubmit button"  type="button" ng-click="selectTa();" >
 			                                                           发送
 			              </button>
 					</div>

@@ -857,249 +857,59 @@ app.directive('breadcrumb', [
 		}
 	}
 ]);
-// <div table-list></div>
-app.directive('tableList', [
-	function () {
-		return {
-			restrict: 'A',
-			scope: {
-				thData: '='
-			},
-			transclude: true,
-			replace: true,
-			template: '<table class="table table-condensed table-striped table-bordered" ng-transclude></table>'
-		}
-	}
-]);
-// <div list-data="listData" callback="callback(v)" flag="flag"></div>
-app.directive('coomonselectitem', [
-	function () {
-		return {
-			restrict: 'A',
-			transclude: true,
-			template: '<div>\
-				<ul class="nav nav-tabs" >\
-				<li ng-repeat="ld in listData" ng-init="index=$index" ng-class={"active":ld.flag===flag}><a href="javascript:;" ng-click="selectFlag(ld.flag)">{{ld.name}}</a></li>\
-			</ul>\
-			</div>',
-			replace: true,
-			scope: {
-				flag: '=',
-				listData: '=',
-				callback: '&'
-			},
-			link: function (scope, element, attr) {
-				scope.selectFlag = function (v) {
-					if (scope.callback) {
-						scope.callback({
-							v: v
-						});
-					}
-				}
-			}
-		}
-	}
-]);
-//display-companytable
-app.directive('displayCompanytable', [
-	function () {
-		return {
-			restrict: 'A',
-			template: '<div>' +
-				'<div class="companyBox " ng-click="displayclose()"> </div>' +
-				'<div  class="tableDialog">' +
-				'<div>' +
-				'<a href="javascript:;" ng-click="displayclose()" class="closetable"></a>' +
-				'<div class="portlet box blue">' +
-				'<div class="portlet-title">' +
-				'<div class="caption">' +
-				'<i class="fa fa-align-justify"></i>{{tables.name}}' +
-				'</div>' +
-				'</div>' +
-				'<div class="portlet-body ">' +
-				'<table  class="table table-bordered table-condensed table-hover"' +
-				'<thead>' +
-				'<tr>' +
-				'<th ng-if="companyDisplay==true">企业</th>' +
-				'<th ng-if="companyDisplay==true">网格</th>' +
-				'<th class="textCenter" width="{{com.size}}%" ng-repeat="com in tables.columns">{{com.disp}}</th>' +
-				'<th class="textCenter" width="10%">状态</th>' +
-				'</tr>' +
-				'</thead>' +
-				'<tr>' +
-				'<td ng-if="companyDisplay==true" title="{{tableDatas.object_name}}"  style="cursor:pointer;">{{tableDatas.object_name}}</td>' +
-				'<td ng-if="companyDisplay==true" title="{{tableDatas.grid_name}}"   style="cursor:pointer;">{{tableDatas.grid_name}}</td>' +
-				'<td class="textCenter" ng-init="index = $index"  ng-repeat="m in tables.columns"  ng-bind-html=\'tableDatas[m.name] | typeFilter:m.type\'></td>' +
-				'<td class="textCenter" >' +
-				'<span ng-if="tableDatas.status==1">生效</span>' +
-				'<span ng-if="tableDatas.status==0">废止</span>' +
-				'</td>' +
-				'</tr>' +
-				'</table>' +
-				'</div>' +
-				'</div>' +
-				'</div>' +
-				'</div>' +
-				'</div>',
-			scope: {
-				initTable: '=',
-				initData: '=',
-				companyDisplay: '=',
-				displayclose: '&',
-			},
-			link: function (scope, element, attr) {
-				scope.tables = [];
-				scope.tableDatas = [];
-				if (scope.initTable) {
-					scope.tables = scope.initTable;
-					scope.tableDatas = scope.initData;
-				}
-			}
-		}
-	}
-]);
-app.directive('customScroll', [
-	function () {
-		return {
-			link: function (scope, element, attr) {
-				function getElemet() {
-					// return document.getElementById(id);
-					return element[0];
-				}
 
-				/**
-				 * 思路:将元素内的所有子元素加一层div  包裹起来
-				 * 设置div的css样式 并且监听div上的鼠标滚轮事件
-				 * 根据滚轮事件进行调整div的位置
-				 */
-				function setInnerWrap(box) {
-					var childNodes = box.childNodes;
-					var innerWrap = document.createElement('div');
-					for (var i = 0, len = childNodes.length; i < len; i++) {
-						if (childNodes[i] && childNodes[i].nodeType === 1) {
-							innerWrap.appendChild(childNodes[i]);
+//自定义系统消息指令
+app.directive('systemmsg',function(userCenterService){
+    	return  {
+    		restrict: 'E',
+    		transclude: true,
+    		template:"<a class='dropdown-toggle' data-close-others='true' data-hover='dropdown' data-toggle='dropdown' href='' style='padding-bottom:10px;'>"
+	                 +"<em class='clip-bubble-3' style='border-left: 1px solid #5c5c5c;padding-left: 15px; border-right: 1px solid #5c5c5c; padding-right: 15px;'></em>"
+	                 +"<span class='badge'>4</span>"
+	                 +"</a>"
+	                 +"<ul class='dropdown-menu posts' style='position: absolute; z-index: 100000000000000'>"
+	                 +"<li><span class='dropdown-menu-title'> 您有{{message.newMsgCount}}则信息</span></li>"
+	                 +"<li>"
+	                 +"<div class='drop-down-wrapper ps-container'>"
+	                 +"<ul>"
+	                 +"<li ng-repeat='item in message.messages'>"
+	                 +"<a href='"+baseUrl+"/user/index#/message/'>"
+	                 +"<div class='clearfix'>"
+	                 +"<div class='thread-image'>"
+	                 +"<img alt='' src='"+baseUrl+"/images/index/avatar-2.jpg'>"
+	                 +"</div>"
+	                 +"<div class='thread-content'>"
+	                 +"<span class='author'>{{item.subject}}</span>"
+	                 +"<span class='preview'>{{item.body|substr:10}}</span>"
+	                 +"<span class='time'>{{item.sent_time|fdate}}</span>"
+	                 +"</div>"
+	                 +"</div>"
+	                 +"</a>"
+	                 +"</li>"
+	                 +"</ul>"
+	                 +"<div class='ps-scrollbar-x-rail' style='width: 270px; display: none; left: 0px; bottom: 3px;'><div class='ps-scrollbar-x' style='left: 0px; width: 0px;'>"
+	                 +"</div></div><div class='ps-scrollbar-y-rail' style='top: 0px; height: 250px; display: none; right: 3px;'><div class='ps-scrollbar-y' style='top: 0px; height: 0px;'>"
+	                 +"</div></div></div>"
+	                 +"</li>"
+	                 +"<li class=view-all'>" 
+	                 +"<a href='"+baseUrl+"/user/index#/message/'> 浏览全部信息 <i class='fa fa-arrow-circle-o-right'></i>"
+	                 +"</a>"
+	                 +"</li>"
+	                 +"</ul>",
+    		link:function(scope, element, attr){
+    			//获取系统信息
+    			scope.getMessageList = function(data) {
+    				userCenterService.getSystemMessageList(data).success(function(r) {
+						if (r.status<400) {
+							scope.message=r;
 						}
-					}
-					box.appendChild(innerWrap);
-					return (innerWrap);
-				}
-
-				/**
-				 * [setInnerWrapStyle 设置内层样式]
-				 * @param {[obj]} ele [innerWrap]
-				 */
-				function setInnerWrapStyle(ele) {
-					var style = {
-						'height': '100%',
-						'width': '100%',
-						'display': 'table',
-						'position': 'absolute',
-						'top': 0
-					};
-					for (var s in style) {
-						ele.style[s] = style[s];
-					}
-				}
-
-				/**
-				 * 根据浏览器 返回对应的事件类型
-				 * @return {[string]} [description]
-				 */
-				function getHandle() {
-					var handle = (/Firefox/i.test(navigator.userAgent)) ? "DOMMouseScroll" : "mousewheel"
-					return handle;
-				}
-
-				/**
-				 * [setEventListener 设置滚轮监听事件]
-				 * @param {[obj]} ele [description]
-				 */
-				function setEventListener(ele) {
-					var boxHeight = getElemet().clientHeight;
-					var innerWrapHeight = ele.clientHeight;
-					var i = 0;
-					var top = {
-						speed: 8,
-						value: 0,
-						max: 0,
-						min: getElemet().clientHeight - ele.clientHeight,
-						check: function () {
-							return this.value >= this.min && this.value <= this.max;
-						},
-						repair: function () {
-							if (this.value > this.max) {
-								this.value = this.max;
-								i = this.max;
-							}
-							if (this.value < this.min) {
-								this.value = this.min;
-								i = Math.ceil(this.min / this.speed);
-							}
-						}
-					};
-					ele[addEvent()](getHandle(), function (e) {
-						// 更新内层的高度
-						innerWrapHeight = ele.clientHeight;
-						top.min = boxHeight - innerWrapHeight;
-						//设置滚动值
-						var d = e.wheelDelta || e.detail * (-40);
-						var direction = getDirection(d);
-						i += direction;
-						top.value = i * top.speed;
-						top.repair();
-						setInnerWrapPosition(this, top);
-					}, false);
-				}
-
-				function addEvent(handle) {
-					var handle;
-					if (window.addEventListener) {
-						handle = 'addEventListener';
-					} else {
-						handle = 'attachEvent';
-					}
-					return handle;
-				}
-
-				/**
-				 * 设置内层的top值
-				 * @param {[obj]} ele [内层元素]
-				 * @param {[obj]} top [top对象]
-				 */
-				function setInnerWrapPosition(ele, top) {
-					var t = top.value;
-					if (t > top.max) {
-						t = top.max;
-					}
-					if (t < top.min) {
-						t = top.min;
-					}
-					ele.style.top = t + 'px';
-				}
-
-				/**
-				 * [getDirection 根据滚轮方向确定文档移动方向]
-				 * @param  {[type]} num [description]
-				 * @return {[type]}     [description]
-				 */
-				function getDirection(num) {
-					var direction = num < 0 ? -1 : 1;
-					return direction;
-				}
-
-				/**
-				 * [init 启动函数]
-				 * @return {[type]} [description]
-				 */
-				function init() {
-					var box = getElemet('test');
-					// box.style.position = 'relative';
-					var innerWrap = setInnerWrap(box);
-					setInnerWrapStyle(innerWrap);
-					setEventListener(innerWrap);
-				}
-				element[0].onload = init();
-			}
-		}
-	}
-])
+					});
+				};
+				scope.getMessageList({
+					page: 0,
+					pageSize:20
+				});
+    		}
+    	}
+    }                     
+);

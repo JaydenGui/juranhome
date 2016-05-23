@@ -189,6 +189,7 @@
 									                         <option value="ASAN">东南亚</option>
 									                         <option value="US">美式</option>
 									                         <option value="country">田园</option>
+									                         <option value="mediterranean">地中海</option>
 									                         <option value="modern">现代</option>
 									                         <option value="other">其他</option>
 														</select>
@@ -299,7 +300,7 @@
 			              <button data-dismiss="modal" class="buttonsure NewBtn btn-defaultClose" >            
 			                       关闭
 			              </button>
-			              <button  class="NewBtn btn-primarySubmit"  type="button"   ng-click="selectTa();" >
+			              <button  class="NewBtn btn-primarySubmit button" id="transmit" ng-disabled="selectTaAbleFlag"  type="button"   ng-click="selectTa();" >
 			                                                           发送
 			              </button>
 					</div>

@@ -1,4 +1,5 @@
 	<#assign baseUrl=request.contextPath/>
+	<#if users?exists & users.type=='member'>
 	<#include '/common/modal.html'/>	
 	<link rel="stylesheet" href="${baseUrl}/css/public/date-time/bootstrap-datetimepicker.min.css">
 	<link rel="stylesheet" href="${baseUrl}/css/public/pgwslideshow.min.css">
@@ -75,8 +76,8 @@
 						<div class="col-md-12 pay-table" ng-if="status>13">
 							<table class="table common" cellpadding="10">
 								<tr><td>合同编号：</td><td class="rb">{{contractData[0].contract_no}}</td><td class="rp">总&nbsp金&nbsp额&nbsp&nbsp：</td><td>{{contractData[0].contract_charge|currency : '￥'}}</td></tr>
-								<tr><td>姓&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp名：</td>	<td class="rb">{{memberInfo.real_name.real_name}}</td><td class="rp" style="color:#0084ff">设计首款：</td>	<td style="color:#0084ff">{{contractData[0].contract_charge*0.8|currency : '￥'}}</td>	</tr>
-								<tr><td>手&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp机：</td><td class="rb">{{memberInfo.real_name.mobile_number}}</td><td class="rp">设计尾款：</td><td>{{contractData[0].contract_charge-contractData[0].contract_charge*0.8|currency : '￥'}}</td></tr>
+								<tr><td>姓&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp名：</td>	<td class="rb">{{memberInfo.real_name.real_name}}</td><td class="rp" style="color:#0084ff">设计首款：</td>	<td style="color:#0084ff">{{contractData[0].contract_first_charge|currency : '￥'}}</td>	</tr>
+								<tr><td>手&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp机：</td><td class="rb">{{memberInfo.real_name.mobile_number}}</td><td class="rp">设计尾款：</td><td>{{contractData[0].contract_charge-contractData[0].contract_first_charge|currency : '￥'}}</td></tr>
 							</table>
 						</div>	
 						<div  ng-if="status==31" style="text-align: right;line-height:50px; font-size:18px;">已扣除量房费:{{measurement_fee|currency : '￥'}}</div>
@@ -157,11 +158,11 @@
 									</div>
 									<div class="form-group">
 										<label class="col-sm-3 control-label" for="form-field-1">设计首款 :</label>
-										<div class="col-sm-2">{{contractData[0].contract_charge*0.8|currency : ''}} <span class="danw">元</span></div>
+										<div class="col-sm-2">{{contractData[0].contract_first_charge|currency : ''}} <span class="danw">元</span></div>
 									</div>
 									<div class="form-group">
 										<label class="col-sm-3 control-label" for="form-field-1">设计尾款 :</label>
-										<div class="col-sm-2">{{contractData[0].contract_charge-contractData[0].contract_charge*0.8|currency : ''}}<span class="danw">元</span></div>
+										<div class="col-sm-2">{{contractData[0].contract_charge-contractData[0].contract_first_charge|currency : ''}}<span class="danw">元</span></div>
 									</div>
 									</div>        
 								</form>	     
@@ -1231,37 +1232,39 @@
 									<!-- end: PAGE TITLE & BREADCRUMB -->
 								</div>
 								<div class="col-md-12 no-order" ng-if="isShow==true" ng-cloak>
-		<div class="col-md-12">
-			<div class="no-order-title">
-				您还没有家装订单
-			</div>	
-			<div class="go-now">马上去</div>	
-		</div>
-		<div class="col-md-4">
-			<a style="text-decoration: none;" href="${baseUrl}/caseBase/index/">
-			<div class="main-part">
-				<div class="e-i"></div>
-				<div class="em-h">浏览真实设计案例</div>
-				<div class="em-d"></div>
-			</div></a>
-		</div>
-		<div class="col-md-4">
-		<a style="text-decoration: none;" href="${baseUrl}/designer/index/">
-			<div class="main-part">
-				<div class="e-h"></div>	
-				<div class="em-h">找到满意的设计师</div>
-				<div class="em-d"></div>					
-			</div></a>
-		</div>
-		<div class="col-md-4">
-		<a style="text-decoration: none;" href="${baseUrl}/myOrder/addNeeds/">
-			<div class="main-part">
-				<div class="e-d"></div>
-				<div class="em-h">发布设计需求</div>
-				<div class="em-d"></div>
-			</div></a>
-		</div>
-	</div>	
+
+
+								<div class="col-md-12">
+									<div class="no-order-title">
+										您还没有家装订单
+									</div>	
+									<div class="go-now">马上去</div>	
+								</div>
+								<div class="col-md-4">
+									<a style="text-decoration: none;" href="${baseUrl}/caseBase/index/">
+									<div class="main-part">
+										<div class="e-i"></div>
+										<div class="em-h">浏览真实设计案例</div>
+										<div class="em-d"></div>
+									</div></a>
+								</div>
+								<div class="col-md-4">
+								<a style="text-decoration: none;" href="${baseUrl}/designer/index/">
+									<div class="main-part">
+										<div class="e-h"></div>	
+										<div class="em-h">找到满意的设计师</div>
+										<div class="em-d"></div>					
+									</div></a>
+								</div>
+								<div class="col-md-4">
+								<a style="text-decoration: none;" href="${baseUrl}/myOrder/addNeeds/">
+									<div class="main-part">
+										<div class="e-d"></div>
+										<div class="em-h">发布设计需求</div>
+										<div class="em-d"></div>
+									</div></a>
+								</div>
+							</div>	
 								<div class="modal fade" id="html5galleryplayer" tabindex="-1" role="dialog" aria-hidden="true">
 									<div class="modal-dialog" style="width:800px;margin-top:8%;">
 										<div class="modal-content">
@@ -1292,15 +1295,9 @@
 								<div class="panel panel-default od-panel" >
 									<div class="od-panel-heading ordert-title">
 									    <img ng-if="needs.is_beishu==0" style="float:left;position:relative;left:-7px;top:-2px;" alt="" src="${baseUrl}/images/userCenter/098.png">
-										<span ng-if="needs.is_beishu==0" style="float:left;font-size:14px;">北舒套餐-</span>
+										<span ng-if="needs.is_beishu==0" style="float:left;font-size:14px;"></span>
 										<div style="float:left; font-size:14px;">{{needs.community_name}} </div>
 										<div id="orderItemNum"> 项目编号:{{needs.needs_id}}</div><!--  -->
-										
-										<div class="panel-tools">
-											<a class="btn btn-xs btn-link panel-expand" href="#">
-												<i class="fa fa-resize-full"></i>
-											</a>
-										</div>
 									</div>
 									<div class="panel-body od-panel-body">
 	                                	<div  style=" background:#fff;">
@@ -1370,8 +1367,8 @@
 														</td>
 													</tr>
 													<tr ng-if="needs.custom_string_status==2">
-														<td   class="col-md-12" colspan="5" style="font-size:14px;color:#333;padding:0;">
-													   		审核未通过 : <span  ng-if="needs.audit_desc.length>0" ng-bind="needs.audit_desc"></span><span  ng-if="needs.audit_desc==null">无</span>
+														<td class="col-md-12" colspan="5" style="font-size:14px;color:#333;padding:0;">
+													   		审核意见 : <span  ng-if="needs.audit_desc.length>0" ng-bind="needs.audit_desc"></span><span  ng-if="needs.audit_desc==null">无</span>
 													   </td>
 													</tr>
 												</tbody>
@@ -1381,7 +1378,7 @@
 											<div class="panel panel-default accordionToggleOrder">
 												<div class="panel-heading">
 													<h4 class="panel-title">
-														<a class="accordion-toggleOrder" ng-click="getDesignInfo(blist.uid,blist.designer_id,blist.wk_cur_sub_node_id,blist.measurement_fee,blist.declaration);">
+														<a class="accordion-toggleOrder" ng-click="getDesignInfo(blist.uid,blist.designer_id,blist.wk_cur_sub_node_id,blist.measurement_fee,blist.declaration,needs.needs_id);">
 															<img  ng-if="blist.avatar!=''" ng-src="{{blist.avatar}}" width="30px" height="30px"/> 
 															<img  ng-if="blist.avatar==''" src="${baseUrl}/images/global/avatar_def.jpg" width="30px" height="30px" /> 
 															<i class="icon-arrow"></i>
@@ -1469,9 +1466,20 @@
 														    </tr>
 														    <tr ng-if="blist.wk_cur_sub_node_id>=11">
 														 		<td ng-if="blist.wk_cur_sub_node_id>=31" class="col-md-3" id="spanheigh">
-															 		<span>总&nbsp;&nbsp;金&nbsp;&nbsp;额&nbsp;&nbsp;:&nbsp;</span><span ng-if="blist.wk_cur_sub_node_id<41"> ￥0.00</span><span ng-if="blist.wk_cur_sub_node_id>=41">{{blist.design_contract[0].contract_charge|currency : '￥'}}</span> <br>
-															 		<span>已付金额&nbsp;&nbsp;:&nbsp;&nbsp;</span><span ng-if="blist.wk_cur_sub_node_id<41">￥0.00</span><span ng-if="blist.wk_cur_sub_node_id==41">{{blist.design_contract[0].contract_first_charge|currency : '￥'}}</span><span ng-if="blist.wk_cur_sub_node_id>=51">{{blist.design_contract[0].contract_charge|currency : '￥'}}</span><br>
-															 		<span>未付金额&nbsp;&nbsp;:&nbsp;&nbsp;</span><span ng-if="blist.wk_cur_sub_node_id>41">￥0.00</span><span ng-if="blist.wk_cur_sub_node_id==41">{{blist.design_contract[0].contract_charge-blist.design_contract[0].contract_first_charge|currency : '￥'}}</span><span ng-if="blist.wk_cur_sub_node_id==31">￥ 0.00</span><br>
+															 		<span>总&nbsp;&nbsp;金&nbsp;&nbsp;额&nbsp;&nbsp;:&nbsp;</span>
+															 		<span ng-if="blist.wk_cur_sub_node_id>=31">{{blist.design_contract[0].contract_charge|currency : '￥'}}</span> <br>
+															 		<div ng-if="blist.design_contract.length>0 && blist.wk_cur_sub_node_id>=41">
+															 		   <span>已付金额&nbsp;&nbsp;:&nbsp;&nbsp;</span>
+															 		      <!--   <span ng-if="blist.wk_cur_sub_node_id<41">{{blist.measurement_fee|currency : '￥'}}</span> -->
+															 		        <span ng-if="blist.wk_cur_sub_node_id==41">{{blist.design_contract[0].contract_first_charge|currency : '￥'}}</span>
+															 		        <span ng-if="blist.wk_cur_sub_node_id>=51">{{blist.design_contract[0].contract_charge|currency : '￥'}}</span><br>
+															 		
+															 		   <span>未付金额&nbsp;&nbsp;:&nbsp;&nbsp;</span>
+															 		        <!-- <span ng-if="blist.wk_cur_sub_node_id>41">￥0.00</span> -->
+															 		        <span ng-if="blist.wk_cur_sub_node_id==41">{{blist.design_contract[0].contract_charge-blist.design_contract[0].contract_first_charge|currency : '￥'}}</span>
+															 		       <!--  <span ng-if="blist.wk_cur_sub_node_id==31">{{blist.design_contract[0].contract_first_charge-blist.measurement_fee|currency : '￥'}}</span> -->
+															 		        <span  ng-if="blist.wk_cur_sub_node_id>=51">{{'0'|currency : '￥'}}</span>
+															 		</div>
 															 		<p style="font-size:12px;color:#818181;"><img style="display: inline-block;width:15px;height: 16px;margin-top: -2px;" src="${baseUrl}/images/userCenter/iii.png"/>已付量房费{{blist.measurement_fee|currency : '￥'}}</p><br>
 														 			
 														 		</td>
@@ -1480,23 +1488,27 @@
 														 		</td>
 													 		    <td   class="col-md-4" style="padding-left: 12%;">{{blist.join_time}}</td>
 													 		    <td ng-if="blist.wk_cur_sub_node_id>=13" class="col-md-5"  style="padding-left: 2%;">
+													 		         
+													 
 												 		    		<a href="javascript:void(0);" class="btn btn-for-detail tooltips orderBut"  ng-if="needs.is_beishu==1&&blist.wk_cur_sub_node_id==13||blist.wk_cur_sub_node_id==41"  data-toggle="modal" data-target="#pay_first" data-placement="top" data-original-title="查看详情" ng-click="orderDetail(needs.needs_id,blist.designer_id,3,blist.wk_cur_sub_node_id,blist.measurement_fee,blist.uid,blist.orders,blist.design_contract)" >支付</a>
-												 		    		<!-- <a href="javascript:void(0);" ng-if="needs.custom_string_status ==3 && needs.is_public !=1 && needs.is_beishu != 0 && needs.bidder_count!=0" class="btn btn-for-detail tooltips orderBut" data-toggle="modal" data-target="#pay_success" data-placement="top" data-original-title="" ng-click="orderDetail(needs.needs_id,blist.designer_id)" style="margin-top:10px">支付完成</a> -->
+												 		    	
 																	<a href="javascript:void(0);" ng-if="blist.wk_cur_sub_node_id==31"  ng-click="contract(needs,blist.design_contract,blist.orders,blist.designer_id,blist.uid,blist.wk_cur_sub_node_id,blist.measurement_fee);" class="btn btn-for-detail tooltips orderBut" data-toggle="modal" data-target="#contract2" data-placement="top" data-original-title=""  style="margin:10px 0">接收设计合同</a> 															
 																	<a href="javascript:void(0);" ng-if="blist.wk_cur_sub_node_id>=61"  class="btn btn-for-detail tooltips orderBut" data-toggle="modal" data-target="#design-case-list" data-placement="top" data-original-title="" ng-click="viewDelivery(needs.needs_id,blist.designer_id,blist.wk_cur_sub_node_id,needs.community_name)" style="margin-top:10px">设计交付查看</a>
 																	<a href="javascript:void(0);" ng-if="blist.delivery[0].files.length>0&&blist.wk_cur_sub_node_id==33"  class="btn btn-for-detail tooltips orderBut" data-toggle="modal" data-target="#design-case-list" data-placement="top" data-original-title="" ng-click="viewDelivery(needs.needs_id,blist.designer_id,blist.wk_cur_sub_node_id,needs.community_name)" style="margin-top:10px">量房交付查看</a>
 																	<span ng-if="blist.wk_cur_sub_node_id==14">抱歉！设计师因案件过多，拒绝了您的量房申请</span>
+																	<span ng-if="blist.wk_cur_sub_node_id==33&&blist.delivery[0].files.length==0">[项目结束]</span>
+																	<span ng-if="blist.wk_cur_sub_node_id==51">[等待上传交付物]</span>
 													 		    </td>
 													 		</tr>
 														</table>
-														<span id="UserDetail_{{blist.designer_id}}"></span>
-													 	<table class="table " ng-if="blist.bidder_count != 0">
+														<div id="UserDetail_{{needs.needs_id}}_{{blist.designer_id}}" class="col-md-12" ng-if="blist.wk_cur_sub_node_id<11"></div>
+													 	<table class="table " ng-if="blist.bidder_count != 0 && blist.wk_cur_sub_node_id<11">
 															<tbody>
 																<tr class="older-d-body">
 																	<td></td>	
 																	<td></td>																																		
 																	<td></td>
-																	<td ng-if="blist.wk_template_cur_node_id==14"></td>
+																	<td></td>
 																	<td class="center"></td>
 																	<td class="center order-select-ta-tr" style="text-align:right">
 																		<div class="visible-md visible-lg hidden-sm hidden-xs sadoasop" ng-if="blist.wk_cur_sub_node_id<11||wk_cur_sub_node_id==''">
@@ -1520,10 +1532,6 @@
 																</tr>
 															</tbody>
 														</table>
-														<div class="" ng-if="blist.wk_template_cur_node_id<11">
-															手机号 ：{{blist.designer_info.mobile_number}}<br>
-															{{blist.declaration}}
-														</div>
 													</div>
 													<div style="height:26px;position: relative;margin-bottom:-18px;">
 							                <div class="DesignerInformation">
@@ -1619,21 +1627,21 @@
 															<div class="row">
 																<div class="col-md-6">
 																	<div class="form-group">
-																		<label class="control-label">姓名 : <span class="symbol required"></span></label>
+																		<span class="symbol required"></span> <label class="control-label">姓名 : </label>
 																		<input type="text"  readonly="true" placeholder="吴XX(若我发布设计需求已填资料直接显示）" class="form-control input-new-color" id="firstname" name="firstname"  value="" ng-model="detail.contacts_name" style="background-color:#fff;"/>
 																		<span class="tips_false"></span>
 																	</div>	
 																</div>
 					                                            <div class="col-md-6">
 																	<div class="form-group">
-																		<label class="control-label">手机号码 : <span class="symbol required"></span></label>
+																		<span class="symbol required"></span> <label class="control-label">手机号码 : </label>
 																		<input type="text" placeholder="" class="form-control input-new-color" maxlength="11" id="phone" name="phone" value="" ng-model="detail.contacts_mobile" onkeyup="return ValidateNumber(this,value)" required=""/>
 																		<span class="tips_false"></span>
 																	</div>	
 																</div>
 					                                            <div class="col-md-6">
 																	<div class="form-group">
-																		<label class="control-label">房屋类型 : <span class="symbol required"></span></label>
+																		<span class="symbol required"></span> <label class="control-label">房屋类型 : </label>
 																		<select name="dd" id="dd" class="form-control selectasdop" ng-model="detail.house_type" ng-selected="detail.house_type" required=""> 
 																		<option value="house" >住宅空间</option>
 										                                <option value="catering">餐饮空间</option>
@@ -1655,14 +1663,14 @@
 																</div>
 																<div class="col-md-6">
 																	<div class="form-group">
-																		<label class="control-label">房屋面积（m²）: <span class="symbol required"></span></label>
-																		<input type="text" placeholder="m²" class="form-control input-new-color" maxlength="7" id="h_mesure" name="project-price" ng-model="detail.house_area" required="">
+																		<span class="symbol required"></span> <label class="control-label">房屋面积（m²）: </label>
+																		<input type="text" placeholder="m²" class="form-control input-new-color" maxlength="7" id="h_mesure" name="project-price" ng-model="detail.house_area" onkeyup="return ValidateFloat(this,value)">
 																		<span class="tips_false"></span>
 																	</div>	
 																</div>
 																<div class="col-md-6">
 																	<div class="form-group selectF">
-						                                                <label class="control-label"> 设计预算: <span class="symbol required"> </span> </label>
+						                                                <span class="symbol required"> </span> <label class="control-label"> 设计预算: </label>
 						                                                <!-- <div style="position:relative"><input type="text" placeholder="" class="form-control" id="money" name="project-price" ng-model="decoration_budget" style="ime-mode:disabled" onkeyup="return ValidateFloat(this,value)" required="" /><span style="position:absolute;right:-30px;top:8px;color:#666">万元</span></div> -->
 						                                                <select class="form-control selectasdop" id="design_budget" name="design_budget" ng-model="detail.design_budget" ng-selected="detail.design_budget">
 						                                                	  <option value="3000元以下"> 3000元以下 </option> 
@@ -1677,7 +1685,7 @@
 					                                            
 					                                            <div class="col-md-6">
 																	<div class="form-group">
-																		<label class="control-label">装修预算（元）: <span class="symbol required"></span></label>
+																		<span class="symbol required"></span> <label class="control-label">装修预算（元）: </label>
 																		<select  class="form-control selectasdop"  id="decoration_budget" name="Decoratebudget" ng-selected="detail.decoration_budget" ng-model="detail.decoration_budget">																	
 																			<option value="5万以下"> 5万以下 </option> 
 						                                                	<option value="5万-10万"> 5万-10万 </option> 
@@ -1691,7 +1699,7 @@
 																</div>
 					                                             <div class="col-md-6">
 																	<div class="form-group">
-																		<label class="control-label">风格 : <span class="symbol required"></span></label>																		
+																		<span class="symbol required"></span> <label class="control-label">风格 : </label>																		
 																		<select  class="form-control selectasdop" id="renovationStylereq" name="renovationStylereq" ng-model="detail.decoration_style" ng-selected="detail.decoration_style">
 					                                						<option value="Japan">日式</option>
 			                                								<option value="korea">韩式</option>
@@ -1711,7 +1719,7 @@
 																</div>
 																<div class="col-md-6">
 					                                            	<div class="form-group connected-group">
-																		<label class="control-label">户型 : <span class="symbol required"></span></label>
+																		 <span class="symbol required"></span> <label class="control-label">户型 :</label>
 																		<div class="row">
 																			<div class="col-md-4" style="padding:0px;padding-left:5px">
 																				<select name="type_lv_room" id="room" class="form-control selectashu" ng-model="detail.room" ng-selected="detail.room">
@@ -1752,7 +1760,7 @@
 					                                            </div>
 					                                            <div class="col-md-12">
 					                                            	<div class="form-group connected-group">
-																		<label class="control-label">项目地址 : <span class="symbol required"></span></label>
+																		<span class="symbol required"></span> <label class="control-label">项目地址 : </label>
 																		<div class="row" id="sapdasd">
 																			<div class="col-md-3">
 																				<select id="seachprov" name="s_province" class="form-control select-none siteaa"  onChange="changeComplexProvince(this.value, sub_array, 'seachcity', 'seachdistrict');"></select>
@@ -1780,7 +1788,7 @@
 											</div>
 											<div class="modal-footer common-modal-footer">
 												<button type="button" class="NewBtn btn-defaultClose"   data-dismiss="modal">关闭</button>
-												<button type="button" class="NewBtn btn-primarySubmit"  ng-click="modify(detail.needs_id)" >提交</button>
+												<button type="button" class="NewBtn btn-primarySubmit button"  ng-click="modify(detail.needs_id)" >提交</button>
 											</div>
 										</div>
 										<!-- /.modal-content -->
@@ -1976,82 +1984,6 @@
 		</div>
 	</div> 	
 	
-	<div class="modal fade confirmMain" id="confirm7" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog"  style="width:640px;">
-			<div class="modal-content">
-				<div class="modal-header" style="padding:25px;">
-					<button class="close" aria-hidden="true" type="button" data-dismiss="modal" onclick="setTimeout('$(window).resize()', 10)">
-		                <img src="${baseUrl}/images/userCenter/m-close-icon.png"/>
-		            </button>
-					<h4 class="modal-title">居然大厦</h4>
-				</div>
-				<div class="modal-body" style="overflow:hidden" style="padding:25px!important;">
-		           <div class="col-sm-12" style="padding:0;">
-						<div class="panel panel-default" style="border:2px solid #f4f4f4;height:400px;">
-							<div class="panel-heading" style="border:none;">
-									3D 设计方案
-								<div class="panel-tools"> </div>
-							</div>
-							<div class="panel-body wrapper" id="description" style="padding:0 10px;">
-								<a href="javascript:void(0)" class="planfloat">
-									<div class="plan">
-										<img src="${baseUrl}/images/global/plan_03.png" height="136" width="182" alt="">
-									</div>
-									<div class="center">居然大厦方案一</div>
-								</a>
-								<a href="javascript:void(0)" class="planfloat">
-									<div class="plan">
-										<img src="${baseUrl}/images/global/plan_03.png" height="136" width="182" alt="">
-									</div>
-									<div class="center">居然大厦方案二</div>
-								</a>
-								<a href="javascript:void(0)" class="planfloat">
-									<div class="plan">
-										<img src="${baseUrl}/images/global/plan_03.png" height="136" width="182" alt="">
-									</div>
-									<div class="center">居然大厦方案三</div>
-								</a>
-								<a href="javascript:void(0)" class="planfloat">
-									<div class="plan">
-										<img src="${baseUrl}/images/global/plan_03.png" height="136" width="182" alt="">
-									</div>
-									<div class="center">居然大厦方案四</div>
-								</a>
-								<a href="javascript:void(0)" class="planfloat">
-									<div class="plan">
-										<img src="${baseUrl}/images/global/plan_03.png" height="136" width="182" alt="">
-									</div>
-									<div class="center">居然大厦方案五</div>
-								</a>
-								<a href="javascript:void(0)" class="planfloat">
-									<div class="plan">
-										<img src="${baseUrl}/images/global/plan_03.png" height="136" width="182" alt="">
-									</div>
-									<div class="center">居然大厦方案六</div>
-								</a>
-								<a href="javascript:void(0)" class="planfloat">
-									<div class="plan">
-										<img src="${baseUrl}/images/global/plan_03.png" height="136" width="182" alt="">
-									</div>
-									<div class="center">居然大厦方案七</div>
-								</a>
-								<a href="javascript:void(0)" class="planfloat">
-									<div class="plan">
-										<img src="${baseUrl}/images/global/plan_03.png" height="136" width="182" alt="">
-									</div>
-									<div class="center">居然大厦方案八</div>
-								</a>
-							</div>
-						</div>
-		           </div>
-				</div>
-				<div class="modal-footer">
-					<a href="javascript:void(0);" data-dismiss="modal" class="NewBtn btn-defaultClose tooltips" data-placement="bottom" data-original-title="关闭">关闭</a>
-					<a href="javascript:void(0);" class="NewBtn btn-primarySubmit tooltips" data-placement="bottom" data-original-title="提交" >提交</a>
-				</div>
-			</div>
-		</div>
-	</div>
 	<div class="modal fade confirmMain" id="confirm10" tabindex="-1" role="dialog" aria-hidden="true" style="margin-top:5%">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -2092,6 +2024,13 @@
 		</ul>
 	</div>
 </div>
+<#else>
+	<script >
+	$(function(){
+		location.href = baseUrl+"/";
+	});
+	</script>
+</#if>
 <script src="${baseUrl}/js/userCenter/addNeeds.js"></script>
 <script src="${baseUrl}/js/public/date-time/bootstrap-datetimepickeruser.min.js"></script>
 <script src="${baseUrl}/js/public/date-time/bootstrap-datetimepicker.zh-CN.js"></script>
@@ -2140,6 +2079,7 @@ $(function(){
 	</script>
 	<script type="text/javascript">
     	$(document).ready(function(){
+    		 pageActive("prodect");
     	   var datejsop=new Date();
     	   $("#info-datetimepicker").attr('data-date',datejsop);
 		   var flag = true;

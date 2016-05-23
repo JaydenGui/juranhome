@@ -252,77 +252,87 @@ public class DiyschemeController {
 			System.err.println("*******designpage**********"+designpage.toString());
 			System.err.println("********designstuff*********"+designstuff.toString());
 			
+			System.out.println("designstuff.size() ==============> "+designstuff.size());
 			if(designstuff.size()>0 && !designstuff.toString().equals("[null]")){
-				System.out.println("designstuff.size() ==============> "+designstuff.size());
 				for(int i=0;i<designstuff.size();i++){
 					System.out.println("designstuff.get(i) =============================> "+designstuff.get(i));
-					String FileName = designstuff.get(i).indexOf("\\") > -1 ? designstuff.get(i).substring(designstuff.get(i).lastIndexOf("\\") + 1) : designstuff.get(i).substring(designstuff.get(i).lastIndexOf("/") + 1);
-					System.out.println("designstuff Upload File ==============================================================> " + FileName);
-					
-					if(designstuffUploadList.indexOf("," + FileName + ",") > -1){
-						System.out.println("Uploading ==============================================================> " + designstuff.get(i));
-						String file = ast.uploadFile(designstuff.get(i), xsession);
+					if(designstuff.get(i) != null){
+						String FileName = designstuff.get(i).indexOf("\\") > -1 ? designstuff.get(i).substring(designstuff.get(i).lastIndexOf("\\") + 1) : designstuff.get(i).substring(designstuff.get(i).lastIndexOf("/") + 1);
+						System.out.println("designstuff Upload File ==============================================================> " + FileName);
 						
-						Map splitMap = StrUtils.fileUploadSplit(file);
-						Map gMap = MyFileUpload.AssetFileUploadResponse(file);
+						if(designstuffUploadList.indexOf("," + FileName + ",") > -1){
+							System.out.println("Uploading ==============================================================> " + designstuff.get(i));
+							String file = ast.uploadFile(designstuff.get(i), xsession);
+							
+							Map splitMap = StrUtils.fileUploadSplit(file);
+							Map gMap = MyFileUpload.AssetFileUploadResponse(file);
+							
+							String uploadFileID = splitMap.get("file_id").toString();
+							String uploadFileName = splitMap.get("file_name").toString();
 						
-						String uploadFileID = splitMap.get("file_id").toString();
-						String uploadFileName = splitMap.get("file_name").toString();
-					
-						JsonObject jsonObject=new JsonObject();
-						
-		        		//file_ids+=splitMap.get("file_id").toString()+",";	
-		        		
-		        		
-						jsonObject.addProperty("id", uploadFileID);
-						jsonObject.addProperty("name", uploadFileName);
-						jsonObject.addProperty("source","1");
-						jsonObject.addProperty("extended_data","files");	
-						
-						jsonObject.addProperty("type",2);
-						jsonObject.addProperty("status", "0");
-						
-						jsonObject.addProperty("link",gMap.get("public_url").toString());
-						
-						jArray.add(jsonObject);
-					}
+							JsonObject jsonObject=new JsonObject();
+							
+			        		//file_ids+=splitMap.get("file_id").toString()+",";	
+			        		
+			        		
+							jsonObject.addProperty("id", uploadFileID);
+							jsonObject.addProperty("name", uploadFileName);
+							jsonObject.addProperty("source","1");
+							jsonObject.addProperty("extended_data","files");	
+							
+							jsonObject.addProperty("type",2);
+							jsonObject.addProperty("status", "0");
+							
+							jsonObject.addProperty("link",gMap.get("public_url").toString());
+							
+							jArray.add(jsonObject);
+						}
+						else{
+							System.out.println("designstuff Skiped File ==============================================================> " + FileName);
+						}
+					}		
 				}
 			}
 			else{
 				System.out.println("WHY designstuff ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			}
 			
+			System.out.println("designpage.size() ==============> "+designpage.size());
 			if(designpage.size()>0 && !designpage.toString().equals("[null]")){
-				System.out.println("designpage.size() ==============> "+designpage.size());
 				for(int i=0;i<designpage.size();i++){
-					String FileName = designpage.get(i).indexOf("\\") > -1 ? designpage.get(i).substring(designpage.get(i).lastIndexOf("\\") + 1) : designpage.get(i).substring(designpage.get(i).lastIndexOf("/") + 1);
-					System.out.println("designpage Upload File ==============================================================> " + FileName);
-					
-					if(designpageUploadList.indexOf("," + FileName + ",") > -1){
-						System.out.println("Uploading ==============================================================> " + designpage.get(i));
-						String file = ast.uploadFile(designpage.get(i), xsession);
+					if(designpage.get(i) != null){
+						String FileName = designpage.get(i).indexOf("\\") > -1 ? designpage.get(i).substring(designpage.get(i).lastIndexOf("\\") + 1) : designpage.get(i).substring(designpage.get(i).lastIndexOf("/") + 1);
+						System.out.println("designpage Upload File ==============================================================> " + FileName);
 						
-						Map splitMap = StrUtils.fileUploadSplit(file);
-						Map gMap = MyFileUpload.AssetFileUploadResponse(file);
+						if(designpageUploadList.indexOf("," + FileName + ",") > -1){
+							System.out.println("Uploading ==============================================================> " + designpage.get(i));
+							String file = ast.uploadFile(designpage.get(i), xsession);
+							
+							Map splitMap = StrUtils.fileUploadSplit(file);
+							Map gMap = MyFileUpload.AssetFileUploadResponse(file);
+							
+							String uploadFileID = splitMap.get("file_id").toString();
+							String uploadFileName = splitMap.get("file_name").toString();
 						
-						String uploadFileID = splitMap.get("file_id").toString();
-						String uploadFileName = splitMap.get("file_name").toString();
-					
-						JsonObject jsonObject=new JsonObject();
-						
-		        		//file_ids+=splitMap.get("file_id").toString()+",";	
-		        		
-						jsonObject.addProperty("id", splitMap.get("file_id").toString());
-						jsonObject.addProperty("name", splitMap.get("file_name").toString());
-						jsonObject.addProperty("source","1");
-						jsonObject.addProperty("extended_data","files");	
-						
-						jsonObject.addProperty("type",3);
-						jsonObject.addProperty("status", "0");
-						
-						jsonObject.addProperty("link",gMap.get("public_url").toString());
-						
-						jArray.add(jsonObject);
+							JsonObject jsonObject=new JsonObject();
+							
+			        		//file_ids+=splitMap.get("file_id").toString()+",";	
+			        		
+							jsonObject.addProperty("id", splitMap.get("file_id").toString());
+							jsonObject.addProperty("name", splitMap.get("file_name").toString());
+							jsonObject.addProperty("source","1");
+							jsonObject.addProperty("extended_data","files");	
+							
+							jsonObject.addProperty("type",3);
+							jsonObject.addProperty("status", "0");
+							
+							jsonObject.addProperty("link",gMap.get("public_url").toString());
+							
+							jArray.add(jsonObject);
+						}
+						else{
+							System.out.println("designpage Skiped File ==============================================================> " + FileName);
+						}
 					}
 				}
 			}
@@ -331,7 +341,7 @@ public class DiyschemeController {
 			}
 		
 		} catch (Exception e) {
-			
+			System.out.println("Upload failed XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX>>>>>>>> " + e.getMessage());
 		}
 		
 		JSONObject jsonFiles = new JSONObject();

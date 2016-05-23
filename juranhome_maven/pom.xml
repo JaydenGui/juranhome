@@ -4,7 +4,7 @@
 	<groupId>com.adsk.mp</groupId>
 	<artifactId>juranhome</artifactId>
 	<packaging>war</packaging>
-	<version>1.0.0</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<name>juranhome Maven Webapp</name>
 	<url>http://mvnrepository.com/</url>
 	<dependencies>

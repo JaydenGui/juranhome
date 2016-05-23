@@ -84,7 +84,7 @@
     	 var idcard=$("#id-card").val();
     	 var idImageChecked = checkIDImages();
 		if($('#phone2').val()&&$('#phone2').val().length>0){
-			if(ok1&&ok2&&ok3&&!(lastname==null)&&!(lastname==undefined)&&!(lastname=='')&&!(idcard==null)&&!(idcard==undefined)&&!(idcard=='')&&ImgCheck>=3){
+			if(ok1&&ok2&&ok3&&lastname&&idcard&&idImageChecked){
 				$(form).submit();
 				$('#btnSubmit').attr('disabled',true);
 		    }else{
@@ -92,7 +92,7 @@
 		        return false;
 		    }
 		}else{
-			if(ok1&&ok2&&ok3&&!(lastname==null)&&!(lastname==undefined)&&!(lastname=='')&&!(phone==null)&&!(phone==undefined)&&!(phone=='')&&!(idcard==null)&&!(idcard==undefined)&&!(idcard=='')&&idImageChecked){
+			if(ok1&&ok2&&ok3&&lastname&&phone&&idcard&&idImageChecked){
 				$(form).submit();
 				$('#btnSubmit').attr('disabled',true);
 		    }else{

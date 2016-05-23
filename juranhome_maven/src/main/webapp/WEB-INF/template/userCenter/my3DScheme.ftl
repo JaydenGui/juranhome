@@ -1,4 +1,5 @@
 <#assign baseUrl=request.contextPath/>
+<#if users?exists & users.type=='designer'>
 <link href="${baseUrl}/css/userCenter/myhomestyler.css" rel="stylesheet" type="text/css">
 
 <div class="main-content" style="padding:0 15px;">
@@ -86,8 +87,20 @@
        <pagination ng-if="conf.totalItems>conf.itemsPerPage"  conf="conf" go-page="page.go_page(num)" ></pagination>
     </div>
 </div>
+<#else>
+	<script >
+	$(function(){
+		location.href = baseUrl+"/";
+	});
+	</script>
+</#if>
 <script src="${baseUrl}/js/userCenter/my-designproject.js"></script>
+
 <script>
+$(document).ready(function() {
+		pageActive("3D");
+});
+
 $(document).on('click','#scrollTopG .scrollTopG',function(){
     $('html,body').animate({scrollTop:0},'slow');
 });

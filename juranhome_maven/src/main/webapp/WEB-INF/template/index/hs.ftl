@@ -198,12 +198,12 @@ body {
   <script data-source="${baseUrl}/js/index1/gwdpagedeck_min.js" data-version="8" data-exports-type="gwd-pagedeck" type="text/javascript" src="${baseUrl}/js/index1/gwdpagedeck_min.js"></script>
   <script data-source="${baseUrl}/js/index1/gwdimage_min.js" data-version="7" data-exports-type="gwd-image" type="text/javascript" src="${baseUrl}/js/index1/gwdimage_min.js"></script>
   <script type="text/javascript" gwd-events="support" src="${baseUrl}/js/index1/gwd-events-support.1.0.js"></script>
-  <script type="text/javascript" gwd-events="handlers">
+  <!--  <script type="text/javascript" gwd-events="handlers">
     gwd.auto_Gwd_video_1Waiting = function(event) {
       // GWD Predefined Function
       gwd.actions.gwdVideo.setSources('gwd-video_1', baseUrl+'/mp4/hs02.mp4');
     };
-  </script>
+  </script>-->
   <script type="text/javascript" gwd-events="registration">
     // Google Web Designer 中處理事件的支援程式碼
      // 這個指令碼區塊是自動產生的，請勿編輯！
@@ -227,7 +227,7 @@ body {
         <img is="gwd-image" source="${baseUrl}/images/index/computer.png" id="com" class="gwd-img-qte6 gwd-new-class-kutl" style="">
         <gwd_animation_pause_element style=""></gwd_animation_pause_element>
         <canvas is="gwd-rectangle" width="576" height="326" class="gwd-canvas-w6be" style="" x-off="0.1875" y-off="-0.041216671784610526" stroke-width="1" stroke-color="[0,0,0,1]" fill-color="[0,0,0,1]" tl-radius="0" tr-radius="0" bl-radius="0" br-radius="0" stroke-style="Solid"></canvas>
-        <video is="gwd-video" id="gwd-video_1" loop="loop" muted controls sources="${baseUrl}/mp4/hs02.mp4" src="${baseUrl}/mp4/hs02.mp4" class="gwd-video-1iwa" loop autoplay></video>
+        <video is="gwd-video" id="gwd-video_1" loop="loop" muted controls src="${baseUrl}/mp4/hs02.mp4" class="gwd-video-1iwa" loop autoplay></video>
       </div>
     </div>
   </div>

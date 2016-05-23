@@ -2162,7 +2162,7 @@ body {
 }
 
 .section {
-    padding-top:40px;
+    padding-top:15px;
 }
 
 .section-box {
@@ -8976,7 +8976,7 @@ body {
 }
 
 .section {
-    padding-top:40px;
+    padding-top:15px;
 }
 
 .section-box {
@@ -15786,7 +15786,7 @@ body {
 }
 
 .section {
-    padding-top:40px;
+    padding-top:15px;
 }
 
 .section-box {
@@ -17494,7 +17494,7 @@ body {
 
 .filter {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
 }
 
 .filter button {
@@ -20447,3 +20447,5 @@ li.dropdown.current-user .dropdown-menu li a {
 
 #verifiedbj{ background-color:#ddd; width:60px; height:20px; margin-top:10px;}
 >>>>>>> .r9184
+
+

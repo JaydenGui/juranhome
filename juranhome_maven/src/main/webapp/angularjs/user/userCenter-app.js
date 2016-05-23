@@ -10,10 +10,10 @@ app.config(function($routeProvider, $locationProvider) {
 	}).when('/im/', {
 		templateUrl : baseUrl + '/im/index',
 		controller : 'imCtrl'
-	}).when('/myorder/', {
+	}).when('/myorder', {
 		templateUrl : baseUrl + '/myOrder/myorder',
 		controller : 'myorderCtrl'
-	}).when('/designerOrder/', {
+	}).when('/designerOrder', {
 		templateUrl : baseUrl + '/myOrder/orderList',
 		controller : 'designerOrderCtrl'
 	}).when('/orderDetail/:id/', {
@@ -25,25 +25,25 @@ app.config(function($routeProvider, $locationProvider) {
 	}).when('/getMemberNeeds/', {
 		templateUrl : baseUrl + '/myOrder/getMemberNeeds',
 		controller : 'getMemberNeedsCtrl'
-	}).when('/mydiy/', {
+	}).when('/mydiy', {
 		templateUrl : baseUrl + '/user/mydiy',
 		controller : 'mydiyCtrl'
-	}).when('/mymoney/', {
+	}).when('/mymoney', {
 		templateUrl : baseUrl + '/user/mymoney',
 		controller : 'mymoneyCtrl'
-	}).when('/drawcash/', {
+	}).when('/drawcash', {
 		templateUrl : baseUrl + '/user/drawcash',
 		controller : 'drawcashCtrl'
-	}).when('/mybidlist/', {
+	}).when('/mybidlist', {
 		templateUrl : baseUrl + '/myOrder/mybidlist',
 		controller : 'mybidlistCtrl'
-	}).when('/mypage/', {
+	}).when('/mypage', {
 		templateUrl : baseUrl + '/user/mypage',
 		controller : 'mypageCtrl'
-	}).when('/my3DScheme/', {
+	}).when('/my3DScheme', {
 		templateUrl : baseUrl + '/3Dscheme/my3DScheme',
 		controller : 'my3DSchemeCtrl'
-	}).when('/beishuOreder/', {
+	}).when('/beishuOreder', {
 		templateUrl : baseUrl + '/myOrder/beishuOreder',
 		controller : 'beishuOrederCtrl'
 	}).when('/security_center/', {
@@ -73,6 +73,11 @@ app.controller('ctrl', function($scope,designerService,$filter,userCenterService
 			$scope.designerInfo=r;
 		}
 	});
+	
+	$scope.openwindow=function(){
+		window.open(baseUrl+'/mark/main');
+	};
+	
 	
 	// get member msg
 	var data = {};
@@ -422,8 +427,8 @@ app.controller('myorderCtrl', function($scope, $routeParams, userCenterService,o
 		var district_name_obj = document.getElementById("seachdistrict");
 		var district_name= district_name_obj.options.length > 1 ? $("#seachdistrict").find("option:selected").text() : "none";
 		
-		if(!pattern.test(contactsmobile)){
-			alert("联系电话填写有误！");
+		if((!contactsmobile)||(!pattern.test(contactsmobile))){
+			alert("联系电话为空或填写有误！");
 			return false;
 		}
 		if(provincename<=0){
@@ -440,7 +445,10 @@ app.controller('myorderCtrl', function($scope, $routeParams, userCenterService,o
 			alert("请选择地区");
 			return false;
     	}
-		
+		if(!neighbourhoods||neighbourhoods.length<2){
+			alert("小区名称为空或不符合规则");
+			return false;
+		}
 		$("#ModifySubmit, #ModifyClose").attr("disabled", "disabled");
 		var data = {
 			needId : needs_id,
@@ -641,27 +649,28 @@ app.controller('myorderCtrl', function($scope, $routeParams, userCenterService,o
 	
 	
 	//get  Design info
-	$scope.getDesignInfo=function(uid,designer_id,status,mesure_cost,declaration){
-		if(status==-1){
-			if($("#UserDetail_" + designer_id).html().length == 0){
-			designerService.getDesignerInfo({designer_id:designer_id,hs_uid:uid}).success(function(r){
-				//$scope.design_Info=r;
-				var designInfoStr = "";
-				designInfoStr += "<table class='table bid-designer-info' ng-if='blist.wk_cur_sub_node_id<11'>";
-				designInfoStr += "<tr><td>从业年限：" + r.designer.experience + "年</td>";
-				designInfoStr += "<td>设计费：" + r.designer.design_price_min + "元~" + r.designer.design_price_max + "元/m²</td></tr>";
-				designInfoStr += "<tr>";
-				designInfoStr += "<td>量房费:" + mesure_cost + "元</td>";
-			 	designInfoStr += "<td>擅长风格：" + r.designer.style_long_names + "</td>";
-			 	designInfoStr += "<td>手机：" + r.real_name.mobile_number + "</td>";
-			 	designInfoStr += "</tr>";
-			 	designInfoStr += "<tr><td colspan='3'><div class='designer-description'>" + declaration + "<br><br><br><br><br></div></td></tr>";
-			 	designInfoStr += "</table>";
-				
-			 	$("#UserDetail_" + designer_id).html(designInfoStr);
-				//alert($("#UserDetail_" + designer_id).html());
+	$scope.getDesignInfo=function(uid,designer_id,status,mesure_cost,declaration,needs_id){
+		if(status < 11){
+			//alert(declaration);
+			var designerDeclaration = declaration ? declaration : "";
+			if($("#UserDetail_" + needs_id + "_" + designer_id).html().length == 0){
+				designerService.getDesignerInfo({designer_id:designer_id,hs_uid:uid}).success(function(r){
+					var workingExperience = r.designer.experience ? r.designer.experience + "年" : "未填写";
+					var designInfoStr = "";
+					designInfoStr += "<table class='table bid-designer-info' ng-if='blist.wk_cur_sub_node_id<11'>";
+					designInfoStr += "<tr><td>从业年限：" + workingExperience + "</td>";
+					designInfoStr += "<td>设计费：" + r.designer.design_price_min + "元~" + r.designer.design_price_max + "元/m²</td></tr>";
+					designInfoStr += "<tr>";
+					designInfoStr += "<td class='col-md-2 col-sm-2'>量房费:" + mesure_cost + "元</td>";
+					designInfoStr += "<td class='col-md-7 col-sm-7'>擅长风格：" + r.designer.style_long_names + "</td>";
+					designInfoStr += "<td class='col-md-3 col-sm-3'>手机：" + r.real_name.mobile_number + "</td>";
+					designInfoStr += "</tr>";
+					designInfoStr += "<tr><td colspan='3'><div class='designer-description alert-info col-md-12'>" + designerDeclaration + "<br><br><br><br><br></div></td></tr>";
+					designInfoStr += "</table>";
+					$("#UserDetail_" + needs_id + "_" + designer_id).html(designInfoStr);
 				});
 			}
+			//alert($("#UserDetail_" + designer_id).html());
 		}
 	}
 	
@@ -766,7 +775,7 @@ app.controller('designerOrderCtrl', function($scope, orderService,userCenterServ
 				$scope.conf = {
 						currentPage : r.offset + 1,
 						totalItems : r.count,
-						itemsPerPage :30
+						itemsPerPage :20
 				};
 				
 			} else {
@@ -784,7 +793,7 @@ app.controller('designerOrderCtrl', function($scope, orderService,userCenterServ
 	function getOptions() {
 		var op = {
 			page :0,
-			pageSize :30
+			pageSize :20
 		}
 		return op;
 	}
@@ -931,12 +940,14 @@ app.controller('designerOrderCtrl', function($scope, orderService,userCenterServ
 		totalDesign:function(){
 			$scope.totalDesign_error=false;
 			$scope.totalDesign_is_number_error=false;
+			$scope.totalDesign_isfee_error=false;
 		},
 		designFirst:function(){
 			$scope.designFirst_error=false;
 			$scope.designFirst_is_number_error=false;
 			$scope.designFirst_is_error=false;
 			$scope.designFirst_gte_error=false;
+			$scope.designFirst_isfistfee_error=false;
 		},
 		name:function(){
 			$scope.name_error=false;
@@ -951,7 +962,7 @@ app.controller('designerOrderCtrl', function($scope, orderService,userCenterServ
     };
 	
 	//save contracts
-	$scope.saveContract=function(needs_id){
+	$scope.saveContract=function(needs_id,measurement_fee){
 		//$('#contract2').modal('show');
 		//impressionDrawing  效果图
 		//diy   diy 渲染图
@@ -960,7 +971,7 @@ app.controller('designerOrderCtrl', function($scope, orderService,userCenterServ
 		//designFirst 设计首款
 		//designTail  设计尾款
 		var is_submit = true;
-	
+		
 		$scope.ableFlag = true;
 		if(!$scope.impression){
 			$scope.impressionDrawing_error=true;
@@ -992,7 +1003,11 @@ app.controller('designerOrderCtrl', function($scope, orderService,userCenterServ
 		}else if(isNaN($scope.totalDesign)||parseFloat($scope.totalDesign)<=0){
 			$scope.totalDesign_is_number_error=true;
 			is_submit = false;
+		}else if(parseFloat($scope.totalDesign)<=parseFloat(measurement_fee)){
+			$scope.totalDesign_isfee_error=true;
+			is_submit=false;
 		}
+		
 		
 		if(!$scope.designFirst){
 			$scope.designFirst_error=true;
@@ -1006,6 +1021,9 @@ app.controller('designerOrderCtrl', function($scope, orderService,userCenterServ
 		}else if(parseFloat($scope.designFirst)>parseFloat($scope.totalDesign)){
 			$scope.designFirst_gte_error=true;
 			is_submit = false;
+		}else if(parseFloat($scope.designFirst)<=parseFloat(measurement_fee)){
+			$scope.designFirst_isfistfee_error=true;
+			is_submit=false;
 		}
 		
 		if(!$scope.name){
@@ -1034,7 +1052,6 @@ app.controller('designerOrderCtrl', function($scope, orderService,userCenterServ
 		}else{
 			contract_no=$scope.contractNumber;
 		}
-		
 		
 		var contractDate={
 		   needs_id:needs_id,
@@ -1193,6 +1210,12 @@ app.controller('designerOrderCtrl', function($scope, orderService,userCenterServ
 				return false;
 			}
 			
+			if(!designdrawing_id){ 
+				alert("请选择设计图纸");
+				$scope.goAbleFlag=false;
+				return false;
+			}
+			
 			if(!forageList_id){
 				$scope.goAbleFlag=false;
 				alert("材料清单");
@@ -1200,15 +1223,21 @@ app.controller('designerOrderCtrl', function($scope, orderService,userCenterServ
 			}
 			
 			fell_ids=forageList_id+bom_id;
+			
+		}else{
+			
+			if(!designdrawing_id){ 
+				alert("请选择设计图纸");
+				$scope.goAbleFlag=false;
+				return false;
+			}
+			
+			fell_ids+=designdrawing_id;
 		}
 		
-		if(!designdrawing_id){ 
-			alert("请选择设计图纸");
-			$scope.goAbleFlag=false;
-			return false;
-		}
+		
 			
-		fell_ids+=designdrawing_id;
+		
 		
 		var data={
 		    needs_id:needsId,
@@ -1217,10 +1246,9 @@ app.controller('designerOrderCtrl', function($scope, orderService,userCenterServ
 		    asset_id:design_asset_id,
 		    fell_ids:fell_ids
 		}
-		
 		//fell_ids:designdrawing_id+forageList_id+bom_id+diy_id
 		schemeService.designDelivery(data).success(function(r) {
-			$scope.goAbleFlag=true;
+			$scope.goAbleFlag=false;
 			if (r.status < 400) {
 			   alert("提交成功！");
 			   $('#confirm8').modal('hide');
@@ -1489,7 +1517,7 @@ app.controller('mydiyCtrl', function($scope,schemeService,page) {
 				$scope.conf = {
 						currentPage : r.offset + 1,
 						totalItems : r.count,
-						itemsPerPage : 20
+						itemsPerPage :15
 				};
 			} else {
 				alert("请求失败!");
@@ -1502,7 +1530,7 @@ app.controller('mydiyCtrl', function($scope,schemeService,page) {
 	function getOptions() {
 		var op = {
 			page : 0,
-			pageSize : 20
+			pageSize :15
 		}
 		return op;
 	}
@@ -1566,7 +1594,7 @@ app.controller('mybidlistCtrl', function($scope, orderService,page) {
 		orderService.stopmark(data).success(function(r){
 			if(r.status<400){
 				alert("您已终止应标");
-				location.href = baseUrl + "/user/index#mybidlist/";
+				location.href = baseUrl + "/user/index#mybidlist";
 			}
 		});
 	}
@@ -1919,10 +1947,10 @@ app.controller('mymoneyCtrl', function($scope, paymentService,page) {
 	$scope.page.set_val('go_page', function(page) {
 		var data = getOptions();
 		data.page = data.pageSize * (page - 1);
-		if(types==1){
-			getList(data);
-		}else{
+		if(types==2){
 			grtWithdrawalRecordList(data);
+		}else{
+			getList(data);
 		}
 	});
 	
@@ -1933,7 +1961,6 @@ app.controller('mymoneyCtrl', function($scope, paymentService,page) {
 		if (r.status < 400) {
 			$scope.designerMoneyInfo=r;
 		}
-		getList(getOptions());
 	});
 	
 	//get Transaction record list
@@ -1961,7 +1988,8 @@ app.controller('mymoneyCtrl', function($scope, paymentService,page) {
 		}
 		return op;
 	}
-    
+
+	getList(getOptions());
 	
 	function grtWithdrawalRecordList(data){
 		paymentService.withdrawalRecordInfo(data).success(function(r) {
@@ -2018,10 +2046,65 @@ app.controller('drawcashCtrl', function($scope,  paymentService) {
 	}
 	
 	$scope.submit=function(){
+		$scope.flag=false;
 		var account_user_name=$scope.account_user_name;
+		var name=/^[\u4e00-\u9fa5]{2,10}$/;
+		if(!account_user_name){
+			
+			$("html").css({'overflow':'auto'});
+			$('.modal-backdrop').remove();
+			$("#lastname").attr('style','border: 1px red solid');
+			$("#lastname").next().text('请填写开户人姓名').removeClass('state1 state4').addClass('state2 state3');
+			return false;
+		}else{
+			if(!name.test(account_user_name)){
+				$("html").css({'overflow':'auto'});
+				$('.modal-backdrop').remove();
+				alert("用户名格式错误，重新填写信息！");
+				return false;
+			}
+		}
 		var bank_name=$scope.bank_name;
+		if(!bank_name){
+			$("html").css({'overflow':'auto'});
+			$('.modal-backdrop').remove();
+			$('#bank').attr('style','border: 1px red solid !important');
+			$('#bank').next().text('请选择开户银行').removeClass('state1 state4').addClass('state2 state3');
+			return false;
+		}
 		var branch_bank_name=$scope.branch_bank_name;
+		 var bankname=/^[\u4e00-\u9fa5]{2,32}$/;
+		if(!branch_bank_name){
+			
+			$("html").css({'overflow':'auto'});
+			$('.modal-backdrop').remove();
+			$('#bankname').attr('style','border: 1px red solid');
+			$('#bankname').next().text('请填写支行名称').removeClass('state1 state4').addClass('state2 state3');
+			return false;
+		}else{
+			if(!bankname.test(branch_bank_name)){
+				$("html").css({'overflow':'auto'});
+				$('.modal-backdrop').remove();
+				alert("支行名称格式错误，重新填写信息！");
+				return false;
+			}
+		}
 		var deposit_card=$scope.deposit_card;
+		var num=/^\d{19}$/;
+		if(!deposit_card){
+			$("html").css({'overflow':'auto'});
+			$('.modal-backdrop').remove();
+			$("#banknum").attr('style','border: 1px red solid');
+			$('#banknum').next().text('请填写银行卡号').removeClass('state1 state4').addClass('state2 state3');
+			return false;
+		}else{
+			if(!num.test(deposit_card)){
+				$("html").css({'overflow':'auto'});
+				$('.modal-backdrop').remove();
+				alert("银行卡号格式错误，重新填写信息！");
+				return false;
+			}
+		}
 		//var amount=$scope.amount;
 		var data={
 				account_user_name:account_user_name,	
@@ -2030,9 +2113,14 @@ app.controller('drawcashCtrl', function($scope,  paymentService) {
 				deposit_card:deposit_card
 				//amount:amount
 		}
+		$scope.aaaa=true;
 		paymentService.submitDesignerBankCardInfo(data).success(function(r){
 			if(r.status<400){
+				$scope.aaaa=false;
 				$scope.OK=true;
+			}else{
+				$scope.aaaa=false;
+				alert("提现申请发送失败，请再次提交");
 			}
 		});
 	}

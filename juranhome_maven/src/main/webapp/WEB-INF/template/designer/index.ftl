@@ -38,15 +38,7 @@
 			src="${baseUrl}/angularjs/designer/designer-app.js"
 			charset="utf-8"></script>
 		<script src="${baseUrl}/js/markHall/back-the-top.js"></script>
-		<style>
-		.navbar-tools .nav a {
-			color: #fff;
-		}
 		
-		.navbar-tools .nav a:hover {
-			color: #0084ff
-		}
-		</style>
    </head>
 <body  ng-controller="ctrl"  style="background: #f3f3f3;">
 	<#--include common header--> 
@@ -121,7 +113,7 @@
 					<ul>
 						<li
 							class="col-md-3" ng-repeat="case in d.cases_list" ng-init="index=$index">
-							<a href="${baseUrl}/caseBase/casedetail/caseid/{{case.id}}/" target="_blank">
+							<a href="${baseUrl}/caseBase/casedetail/caseid/{{case.id}}/uid/{{case.hs_designer_uid}}/" target="_blank">
 								<img  ng-if="img.is_primary" ng-src="{{img.file_url}}Large.jpg" alt="" ng-repeat="img in case.images" ng-init="indexs=$index"/>
 								<img ng-if="case.images.length==0" height="196px" width="265px"  src="${baseUrl}/images/global/default_image.jpg" alt="" />
 							</a>

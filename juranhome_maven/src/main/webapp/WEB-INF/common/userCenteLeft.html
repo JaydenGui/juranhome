@@ -24,13 +24,13 @@
                        			</div>
                        		</a>
                        </div>
-                       <li class="menuitem" directive> 	
-                     		<a id="myorder" href="#myorder/">
+                       <li id="my_prodect" class="menuitem" directive> 	
+                     		<a id="myorder" href="#myorder">
                      			<i class="Personal_bg_icon"></i>
                      			<span class="title"> 我的装修项目 </span><span class="selected"></span> 
                      		</a> 
                      	</li>
-						<li class="menuitem">
+						<li id="my_diy" class="menuitem">
 							<a href="#mydiy">
 								<i class="Personal_bg_icon Personal_bg_icon1"></i>
 								<span class="title"> 我的DIY方案 </span>
@@ -38,7 +38,7 @@
 					   </li>
                        <!--  <li> <a href="#im/"><i  class="fa fa-reorder"></i> <span class="title"> 即时通讯</span><span class="selected"></span> </a></li>-->
 					 
-						<li class="menuitem">
+						<li id="my_message" class="menuitem">
 							<a href="#message/">
 								<i class="Personal_bg_icon Personal_bg_icon2"></i>
 								<span class="title">消息中心</span>
@@ -76,46 +76,46 @@
                        		</a> 
                        </div>
                        <li id="my_main" class="activeremove"> 
-                       		<a href="${baseUrl}/mark/main/" target="__blank">
+                       		<a href="javascript:void(0)" ng-click="openwindow()">
                        			<i class="Personal_bg_icon"></i>
                        			<span class="title"> 我的主页 </span>
                        			<div class="DesignerSelected"></div>
                        		</a> 
                        </li>
-                       <li class="menuitem"> 
-                       		<a href="#mybidlist/" id="mybidlist">
+                       <li id="my_bid" class="menuitem"> 
+                       		<a href="#mybidlist" id="mybidlist">
                        			<i class="Personal_bg_icon Personal_bg_icon1"></i>
                        			<span class="title"> 我的应标 </span>
                        			<div class="DesignerSelected"></div>
                        		</a> 
                        </li>
-                       <li class="multi-menu menuitem" ng-if="designerInfo.designer.is_loho==1" directive>
+                       <li id="my_order_beishu" class="multi-menu menuitem" ng-if="designerInfo.designer.is_loho==1" directive>
 							<a href="javascript:void(0)">
 								<i class="Personal_bg_icon Personal_bg_icon2"></i>
 								<span class="title"> 我的订单</span>
 								<div class="DesignerSelected"></div>
 							</a>
 							<ul class="sub-menu">
-								<li class="menuitem">
+								<li id="order_normal" class="menuitem">
 									<a href="#designerOrder" class="center">
 										我的装修订单
 									</a>
 								</li>
-								<li class="menuitem">
+								<li id="order_beishu" class="menuitem">
 									<a href="#beishuOreder" class="center">
 										北舒套餐订单
 									</a>
 								</li>
 							</ul>
 						</li>
-						<li class="menuitem" ng-if="designerInfo.designer.is_loho!=1" directive> 
+						<li id="my_order" class="menuitem" ng-if="designerInfo.designer.is_loho!=1" directive> 
                        		<a href="#designerOrder" >
                        			<i class="Personal_bg_icon Personal_bg_icon2"></i>
                        			<span class="title">我的订单</span>
                        			<div class="DesignerSelected"></div>
                        		</a> 
                        </li>
-                       <li class="menuitem"> 
+                       <li id="my_assets" class="menuitem"> 
                        		<a href="#mymoney" id="mymoney"> 
                        			<i class="Personal_bg_icon Personal_bg_icon3"></i>
                        			<span class="title"> 我的资产 </span>
@@ -123,14 +123,14 @@
                        		</a> 
                        </li>
                        
-                       <li class="menuitem"> 
-                       		<a href="#my3DScheme/">
+                       <li id="my_3D" class="menuitem"> 
+                       		<a href="#my3DScheme">
                        			<i class="Personal_bg_icon Personal_bg_icon4"></i>
                        			<span class="title"> 我的3D设计 </span>
                        			<div class="DesignerSelected"></div>
                        		</a> 
                        	</li>
-                       	<li class="menuitem">
+                       	<li id="my_message" class="menuitem">
 							<a href="#message/"> 
 								<i class="Personal_bg_icon Personal_bg_icon5"></i>
 								<span class="title">消息中心</span>

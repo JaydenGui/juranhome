@@ -155,11 +155,11 @@ app.controller('ctrl', function($scope,$filter,schemeService,caseService,userCen
 	
 	//Release requirements 
 	$scope.selectTa=function(){
-		$scope.ableFlag =true;
+		var pattern = /^1[34578]\d{9}$/;
 		var phone=$scope.contacts_mobile;
-		if(!phone){
+		if((!phone)||(!pattern.test(phone))){
 			$('#phone').attr('style','border: 1px red solid');
-			$('#phone').next().text('电话不能为空').removeClass('state1').addClass('state3');
+			$('#phone').next().text('电话为空或错误').removeClass('state1').addClass('state3');
 			return ;
 		}
 		var housetype = $scope.house_type;
@@ -270,20 +270,19 @@ app.controller('ctrl', function($scope,$filter,schemeService,caseService,userCen
 				district:district,
 		        province_name:$("#seachprov").find("option:selected").text(),
 			    city_name:$("#seachcity").find("option:selected").text(),
-			    district_name:$("#seachdistrict").find("option:selected").text() == "区" ? "none" : $("#seachdistrict").find("option:selected").text()
+			    district_name:$("#seachdistrict").find("option:selected").text() == "区" ? "none" : $("#seachdistrict").find("option:selected").text(),
+			    uid:uid,
 		}
-		//console.log(data);
-		$('#commit').attr('disabled',true);
+		$scope.selectTaAbleFlag=true;
 		orderService.customDesigner(data).success(function(r) {
-			$scope.ableFlag =false;
 			if(r.status<400){
 				alert("操作成功！");
 				$("#panel-config-two").modal('hide');
-				$('#commit').attr('disabled',false);
+				$scope.selectTaAbleFlag=true;
 				location.reload();
 			}else{
 			    alert("操作失败！");	
-				$('#commit').attr('disabled',false);
+			    $scope.selectTaAbleFlag=false;
 			}
 		});
 	};

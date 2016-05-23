@@ -63,7 +63,7 @@ public class CaseBaseController {
 	 * 
 	 * @return
 	 */
-	@RequestMapping(value="/casedetail/caseid/{caseid}/")
+	@RequestMapping(value="/casedetail/caseid/{caseid}/uid/{uid}")
 	public String casedetail(){
 		return "template/casebase/caseDetails";
 	}

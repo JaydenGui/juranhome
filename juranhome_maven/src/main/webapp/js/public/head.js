@@ -81,12 +81,12 @@ $(document).ready(function(){
     
     //case search page jump
     $('#searchbox').click(function(){
-		if($('#searchKeyWord').val()==''){
-			$(this).attr("disabled");
-		}else{
-			var keyWord = $('#searchKeyWord').val();
+		var keyWord = $('#searchKeyWord').val();
+		while(keyWord.indexOf(" ") > -1)keyWord = keyWord.replace(" ","");
+		if(keyWord != null && keyWord.length >0)
 			location.href=baseUrl+"/caseBase/index/keyWord/"+keyWord;
-		}
+		else
+			location.href=baseUrl+"/caseBase/index";
 	});
     
     $('.logInOutFrame button').click(function(){

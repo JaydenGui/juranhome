@@ -1,4 +1,5 @@
    <#assign baseUrl=request.contextPath/>
+   <#if users?exists & users.type=='member'>
    <div class="main-content">
 		<div class="container">	
 			<div>
@@ -78,13 +79,14 @@
 													<a href="${baseUrl}/3Dscheme/open3Dscheme/hs_design_id/{{diy.hs_design_id}}/acs_asset_id/{{diy.design_asset_id}}/acs_project_id/0/" target="_blank" title="图片说明" style="display:inline-block;width:100%;height:195px;">
 														<img style="width:100%;height:195px;" ng-src="{{diy.design_file[0].link}}" alt="" >
 													</a>
-													<p id="designername" style="text-align:center;height:44px;line-height:44px;" ng-cloak>{{diy.design_name}}</p> 
+													<p id="designername" style="text-align:center;height:44px;line-height:44px;" ng-bind="diy.design_name"></p> 
 												</div>
 											</div>
 											<!-- end: PAGE CONTENT-->
 										</div>
 										<!-- end: PAGE -->
 									</div>
+									<pagination ng-if="conf.totalItems>conf.itemsPerPage"  conf="conf" go-page="page.go_page(num)" ></pagination>
 								<!-- end: BASIC TABLE PANEL -->
 							</div>
 							</div>
@@ -94,7 +96,19 @@
 			</div>
 		</div>
 	</div>
-				
+<#else>
+	<script >
+	$(function(){
+		location.href = baseUrl+"/";
+	});
+	</script>
+</#if>				
   
     <script src="${baseUrl}/js/userCenter/my-diy.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+		  pageActive("diy");
+		  
+    });
+</script>
 

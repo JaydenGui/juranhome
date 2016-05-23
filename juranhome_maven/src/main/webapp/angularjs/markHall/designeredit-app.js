@@ -109,7 +109,7 @@ app.controller('ctrl', function($scope,designerService,messageService) {
 		designerService.updateDesignerDetail(data).success(function(r) {
 			if (r.status < 400) {
 				alert("保存成功");
-				location.href=location.href;
+				location.href=baseUrl+"/mark/main";
 			}else{
 				alert("信息更新失败");
 				$('#save').attr('disabled',false);

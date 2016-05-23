@@ -1,4 +1,5 @@
 <#assign baseUrl=request.contextPath/>
+<#if users?exists & users.type=='designer'>
 <div class="main-content">
     <div class="container" style="min-height: 730px;">
         <!-- start: PAGE HEADER -->
@@ -145,8 +146,18 @@
     <!-- end: PANLEL TABS -->
    
 </div>
+<#else>
+	<script >
+	$(function(){
+		location.href = baseUrl+"/";
+	});
+	</script>
+</#if>
 <script src="${baseUrl}/js/userCenter/my-money.js"></script>
 <script>
+$(document).ready(function() {
+	pageActive("assets");
+});
 $(document).on('click','#scrollTopG .scrollTopG',function(){
     $('html,body').animate({scrollTop:0},'slow');
 });

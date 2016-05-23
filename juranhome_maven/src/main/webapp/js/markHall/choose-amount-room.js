@@ -52,14 +52,14 @@
         
         //房屋面积
         $('#h_mesure').focus(function(){
-        	 $(this).next().text('输入整数不大于6位，小数不大于2位的数字').removeClass('state1').removeClass('state3 state4').addClass('state2');
+        	 $(this).next().text('输入整数不大于4位，小数不大于2位的数字').removeClass('state1').removeClass('state3 state4').addClass('state2');
              $(this).attr('style','border: 1px #ddd solid');
         }).blur(function(){
-        	var rf_reg= /^\d{0,6}$|^\d{0,6}\.\d{1,2}$/;
+        	var rf_reg= /^\d{0,4}$|^\d{0,4}\.\d{1,2}$/;
             if($('#h_mesure').val()> 0 && $('#h_mesure').val().length <=9 && $('#h_mesure').val()!=''){
             	if(!rf_reg.test($('#h_mesure').val())){
             		ok3=false;
-                    $('#h_mesure').next().text('输入整数不大于6位，小数不大于2位').removeClass('state1').removeClass('state4').addClass('state3');
+                    $('#h_mesure').next().text('输入整数不大于4位，小数不大于2位').removeClass('state1').removeClass('state4').addClass('state3');
                     $('#h_mesure').attr('style','border: 1px red solid');
             	}else{
             		ok3=true;
@@ -68,7 +68,7 @@
             	}
             }else{
             	ok3=false;
-                $('#h_mesure').next().text('输入整数不大于6位，小数不大于2位的数字').removeClass('state1').removeClass('state4').addClass('state3');
+                $('#h_mesure').next().text('输入整数不大于4位，小数不大于2位的数字').removeClass('state1').removeClass('state4').addClass('state3');
                 $('#h_mesure').attr('style','border: 1px red solid');
             }
         });
@@ -257,6 +257,18 @@
         
         //提交按钮,所有验证通过方可提交
         $('.button').click(function(){
+        	ok1 = $('#phone').val().length > 0;
+        	ok2 = $('#dd').val().length > 0;
+        	ok3 = $('#h_mesure').val().length > 0;
+        	ok4 = $('#design_budget').val().length > 0;
+        	ok5 = $('#decoration_budget').val().length > 0;
+        	ok6 = $('#renovationStylereq').val().length > 0;
+        	ok7 = $('#seachprov').val().length > 1;
+        	ok8 = $('#seachcity').val().length > 1;
+        	ok10 = $('#house-name').val().length > 1;
+        	ok11 = $('#room').val().length > 0;
+        	ok12= $('#livingroomCountreq').val().length > 0;
+        	ok13= $('#bathroomCountreq').val().length > 0;
         	var districtCount=document.getElementById("seachdistrict").options.length;
         	if(districtCount<=1)
         	{

@@ -58,73 +58,68 @@
 <body ng-controller="ctrl" class="home header-has-img">
     <div class="loading" id="loading"> <img src="${baseUrl}/images/markHall/022.gif" /> </div>
     <!-- loading end -->
-    <div class="modal-dialog modal fade" id="confirm2" tabindex="-1" role="dialog" aria-hidden="true" style="position:fixed; top:20%;display:none;">
-        <div class="modal-content" style="border:none;">
-            <div class="modal-header" style="border:none;padding:25px;padding-left:45px;">
-                <button class="close" aria-hidden="true" type="button" data-dismiss="modal" style="margin-top: -9px;opacity: 1;"> <img src="${baseUrl}/images/userCenter/m-close-icon.png"> </button>
-                <h4 class="modal-title">{{detail.neighbourhoods}}</h4> </div>
-            <div class="col-sm-12" style="background:#fff;padding:0px 25px">
-                <table class="table table-condensed ">
-                    <!--  <thead>
-              <tr>
-                  <th colspan="3">编号 : {{detail.needs_id}}</th>
-              </tr>
-             </thead> -->
-                    <tbody>
-                        <tr>
-                            <th colspan="3">编号 : {{detail.needs_id}}</th>
-                        </tr>
-                        <tr>
-                            <td>装修预算:</td>
-                            <td> {{detail.decoration_budget}} </td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>房屋面积:</td>
-                            <td>{{detail.house_area|replaceArea}} m²</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>发布时间:</td>
-                            <td>{{detail.publish_time}} </td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>客户姓名:</td>
-                            <td>{{detail.contacts_name}}</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>联系电话:</td>
-                            <td>{{detail.contacts_mobile}}</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址:</td>
-                            <td>{{detail.province_name}}{{detail.city_name}}{{detail.district_name|replaceNone}}</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>户&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型:</td>
-                            <td>{{detail.room|replaceRoomType}}{{detail.living_room|replaceBedRoom}}{{detail.toilet|replaceRestRoom}}</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>风&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格:</td>
-                            <td>{{detail.decoration_style|replaceStyle}}</td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <!--  <div class="col-md-12" style="background:#DAEDF8;padding-top:10px;margin-bottom:15px;border-radius:10px"">
-            	<p style="color:#5185A4;margin-bottom:0">设计宣言：{{detail..declaration}}</p>
-            </div>--></div>
-            <div class="modal-footer" style="background:#fff;border-radius:5px!important;overflow:hidden;border-color:#fff;">
+	<div class="modal-dialog modal fade confirmMain" id="confirm2" tabindex="-1" role="dialog" aria-hidden="true" style="position:fixed; top:10%;display:none;">
+        <div class="modal-content">
+            <div class="modal-header" style="border:none;padding:25px 25px 25px 40px;">
+           		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					<img src="${baseUrl}/images/userCenter/m-close-icon.png">
+				</button>
+				<h4 class="modal-title ng-binding">{{detail.community_name}}</h4>
+				<div class="needs_num ng-binding" style="margin-top:20px">项目编号 : {{detail.needs_id}}</div>
+			</div>
+			<div class="modal-body" style="overflow:hidden;padding:0;">
+		        <div class="col-md-12" style=background:#fff;line-height:15px;">
+		            <div class="col-md-12 confirmform">
+		            	<div class="col-md-3">客户姓名&nbsp;:</div>
+		            	<div class="col-md-9">{{detail.contacts_name}}</div>
+		            </div>
+		            <div class="col-md-12 confirmform">
+		            	<div class="col-md-3">联系电话&nbsp;:</div>
+		            	<div class="col-md-9">{{detail.contacts_mobile}}</div>
+		            </div>
+		            <div class="col-md-12 confirmform">
+		            	<div class="col-md-3">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址&nbsp;&nbsp;:</div>
+		            	<div class="col-md-9">{{detail.province_name}}{{detail.city_name}}{{detail.district_name|replaceNone}}</div>
+		            </div>
+		            <div class="col-md-12 confirmform">
+		            	<div class="col-md-3">设计预算&nbsp;:</div>
+		            	<div class="col-md-9">{{detail.design_budget}}</div>
+		            </div>
+		            <div class="col-md-12 confirmform">
+		            	<div class="col-md-3">装修预算&nbsp;:</div>
+		            	<div class="col-md-9">{{detail.decoration_budget}}</div>
+		            </div>
+		            <div class="col-md-12 confirmform">
+		            	<div class="col-md-3">房屋类型&nbsp;:</div>
+		            	<div class="col-md-9">{{detail.house_type|replaceHouseType}}</div>
+		            </div>
+		            <div class="col-md-12 confirmform">
+		            	<div class="col-md-3">房屋面积&nbsp;:</div>
+		            	<div class="col-md-9">{{detail.house_area|replaceArea}} m²</div>
+		            </div>
+		            <div class="col-md-12 confirmform">
+		            	<div class="col-md-3">户&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型&nbsp;&nbsp;:</div>
+		            	<div class="col-md-9">{{detail.room|replaceRoomType}}{{detail.living_room|replaceBedRoom}}{{detail.toilet|replaceRestRoom}}</div>
+		            </div>
+		            <div class="col-md-12 confirmform">
+		            	<div class="col-md-3">风&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格&nbsp;&nbsp;:</div>
+		            	<div class="col-md-9">{{detail.decoration_style|replaceStyle}}</div>
+		            </div>
+		            <div class="col-md-12 confirmform">
+		            	<div class="col-md-3">发布时间&nbsp;:</div>
+		            	<div class="col-md-9">{{detail.publish_time}}</div>
+		            </div>
+	            	<!-- <div class="col-md-12" style="background:#DAEDF8;padding-top:10px;margin-bottom:15px;border-radius:10px">
+	                	<p style="color:#5185A4">设计宣言：我超级棒的请选我为您服务，这是我的作品链接</p>
+	                	<p style="color:#5185A4">http://www.sj.com</p>
+	                </div> -->
+		        </div>
+	        </div>
+	       <div class="modal-footer" style="background:#fff;border-radius:5px!important;overflow:hidden;border-color:#fff;">
                 <div id="poploading" class="poploading" style="position: absolute;bottom: 10px;left: 15px;"><img src="${baseUrl}/images/global/LoadingCursor2.gif" /></div>
                 <button class="NewBtn btn-defaultClose" aria-hidden="true" data-dismiss="modal" type="button" > 关闭 </button>
             </div>
-        </div>
-        <!-- /.modal-content -->
+        </div> 
     </div>
     <!--detail end-->
     <div class="wrapper">
@@ -316,7 +311,7 @@
 			   		
 			   		
 			   		<!-- No message-->
-                           <div ng-if="beishuOrder.length<=0">
+                           <div id="noMatchBeishu" style="display:none;margin:80px auto 0;" ng-if="beishuOrder.length==0">
 		          				<div class="timeline-box timeline-box-left">
 		          				<span class="dot"></span>
                                 <div class="timeline-box-inner animate-left"  style="border-radius:5px 5px 10px 10px;">
@@ -343,7 +338,7 @@
 			</div>
 		</div>
 		 <div class="grid-more"  ng-if="beishuOrder.length>0"> <span class="ajax-loader"></span>
-                <form role="search" method="get" action="${baseUrl}/user/index#/beishuOreder/" target="_blank">
+                <form role="search" method="get" action="${baseUrl}/user/index#/beishuOreder" target="_blank">
                     <div class="fulllist"></div>
                     <button class="btn btn-border ripple">查看全部</button>
                 </form>
@@ -352,7 +347,7 @@
         </section>
         <!-- #about -->
         <h2 class="section-title animate" style="margin-top: 5%;">我的应标</h2>
-        <section id="experience2" class="section section-experience" style="max-width:1200px; margin:0 auto;">
+        <section id="experience2" class="section section-experience" style="max-width:1200px; margin:0 auto;padding-top:0;">
             <div class="animate-up">
                 <div class="filter">
                     <!-- <div class="filter-inner">
@@ -471,7 +466,7 @@
                             </div>
                         </div>
                         <!-- No message -->
-                        <div ng-if="mybidlist.length<=0">
+                        <div id="noMatchMark" style="display:none;margin:80px auto 0;" ng-if="mybidlist.length==0">
                             <div class="timeline-box timeline-box-left"> <span class="dot"></span>
                                 <div class="timeline-box-inner animate-left" style="border-radius:5px 5px 10px 10px;">
                                     <div>
@@ -491,7 +486,7 @@
                         </div>
                     </div>
                     <div class="grid-more" ng-if="mybidlist.length>0"> <span class="ajax-loader"></span>
-                        <form role="search" method="get" action="${baseUrl}/user/index#/mybidlist/" target="_blank">
+                        <form role="search" method="get" action="${baseUrl}/user/index#/mybidlist" target="_blank">
                             <div class="fulllist"></div>
                             <button class="btn btn-border ripple">查看全部</button>
                         </form>
@@ -503,6 +498,7 @@
         <h2 class="section-title animate" style="margin-top: 5%;">我的订单</h2>
         <section id="experience" class="section section-experience" style="max-width:1200px; margin:0 auto;">
             <div class="animate-up">
+            <!-- 
                 <div class="filter">
                     <div class="filter-inner">
                         <div class="filter-btn-group groupC">
@@ -515,6 +511,7 @@
                         </div>
                     </div>
                 </div>
+               -->
                 <div class="timeline">
                     <div class="timeline-bar"></div>
                     <div class="timeline-inner clearfix">
@@ -525,7 +522,7 @@
                                         <div class="creationtime">
                                             <div class="">
                                                 <div class="sun" style="height:30px;">{{order.publish_time}}</div>
-                                                <div class="daadasdy">应标阶段等待中</div>
+                                               <!--  <div class="daadasdy">应标阶段等待中</div> -->
                                             </div>
                                         </div>
                                     </div> <span class="arrow"></span>
@@ -627,7 +624,7 @@
                                         <div class="creationtime">
                                             <div class="">
                                                 <div class="sun" style="height:30px;">{{order.publish_time}}</div>
-                                                <div class="daadasdy">应标阶段等待中</div>
+                                               <!--  <div class="daadasdy">应标阶段等待中</div> -->
                                             </div>
                                         </div>
                                     </div> <span class="arrow"></span>
@@ -732,7 +729,7 @@
                         </div>
                     </div>
                     <!-- No message-->
-                    <div ng-if="needsList.length<=0">
+                    <div id="noMatchOrder" style="display:none;margin:80px auto 0;" ng-if="needsList.length==0">
                         <div class="timeline-box timeline-box-left"> <span class="dot"></span>
                             <div class="timeline-box-inner animate-left" style="border-radius:5px 5px 10px 10px;">
                                 <div>
@@ -753,7 +750,7 @@
                     <div style="clear: both; display: block; height: 50px;"></div>
                 </div>
                 <div class="grid-more" ng-if="needsList.length>0"> <span class="ajax-loader"></span>
-                    <form role="search" method="get" action="${baseUrl}/user/index#/designerOrder/" target="_blank">
+                    <form role="search" method="get" action="${baseUrl}/user/index#/designerOrder" target="_blank">
                         <div class="fulllist"></div>
                         <button class="btn btn-border ripple">查看全部</button>
                     </form>
@@ -837,9 +834,6 @@
 	        </div>
             <div class="modal-footer" style="background: #fff; border-radius: 5px!important;border:none;margin-top:10px;">
             	<div id="poploading" class="poploading"><img src="${baseUrl}/images/global/LoadingCursor2.gif" /></div>
-            	 <button type="button" class="NewBtn btn-defaultClose" data-dismiss="modal">
-				关闭
-				</button> 
             	<button type="button"  ng-if="detail.bidders[0].wk_cur_sub_node_id==11" class="NewBtn btn-refuse" data-target="#remind" data-toggle="modal" data-dismiss="modal">
 				拒绝
 				</button>
@@ -849,6 +843,31 @@
             </div>
         </div> 
     </div>
+     <div class="modal fade" id="remind" tabindex="-1" role="dialog" aria-hidden="true" style="margin-top:100px;">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<h4 class="modal-title">提示</h4>
+				</div>
+				<div class="modal-body">
+					您确定要拒绝“{{detail.contacts_name}}”的量房邀请吗？
+				</div>
+				<div class="modal-footer" style="background: #fff;border:none;">
+					<button type="button" class="NewBtn btn-defaultClose" data-dismiss="modal" >
+						关闭
+					</button>
+					<button type="button" class="NewBtn btn-primarySubmit" ng-click="refuse(detail.needs_id,detail.member_id)"  ng-disabled="refuseAbleFlag" data-dismiss="modal">
+						确定
+					</button>
+				</div>
+			</div>
+				<!-- /.modal-content -->
+		</div>
+			<!-- /.modal-dialog -->
+	</div>
 <!-- /Design confirmation volume -->
 <!-- contract2 -->
 	<div class="modal fade confirmMain" id="contract2" tabindex="-1" role="dialog" aria-hidden="true">
@@ -931,6 +950,7 @@
                                 <input type="text" ng-show="status<41" value="" placeholder="" class="inp-input sign-money form-control" ng-model="totalDesign" ng-focus="clearError.totalDesign();" /><span class="help-inline">元 </span></div>
                                 <span ng-if="totalDesign_error==true" class="formGspan">请填写</span> 
                                 <span ng-if="totalDesign_is_number_error==true" class="formGspan">请填写数字</span> 
+                                <span ng-if="totalDesign_isfee_error==true" class="formGspan">项目总金额不能小于量房费</span>
                              </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label" for="form-field-1">设计首款 :</label>
@@ -940,6 +960,7 @@
                                 <span ng-if="designFirst_is_number_error==true" class="formGspan">请填写数字</span> 
                                 <span ng-if="designFirst_is_error==true" style="color:#666;"> <img src="${baseUrl}/images/userCenter/warning-mark.png"></img>设计首款不得低于80%</span> 
                                 <span ng-if="designFirst_gte_error==true" class="formGspan">首款金额不能大于总金额</span>
+                                <span ng-if="designFirst_isfistfee_error==true" class="formGspan">设计首款不能小于量房费</span>
                             </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label" for="form-field-1">设计尾款 :</label>
@@ -1097,9 +1118,9 @@
     <div class="modal-footer">
         <button class="NewBtn btn-defaultClose" aria-hidden="true" data-dismiss="modal" class="close" type="button">关闭</button>
         <!-- data-dismiss="modal" data-toggle="modal" data-target="" -->
-        <button class="NewBtn btn-primarySubmit" aria-hidden="true" ng-if="status==21" ng-disabled="ableFlag" ng-click="saveContract(needs_id);" class="close" type="button" >创建发送</button>
+        <button class="NewBtn btn-primarySubmit" aria-hidden="true" ng-if="status==21" ng-disabled="ableFlag" ng-click="saveContract(needs_id,detail.bidders[0].measurement_fee);" class="close" type="button" >创建发送</button>
         <!-- #contractprompt -->
-        <button class="NewBtn btn-primarySubmit" aria-hidden="true" ng-if="status==31" ng-disabled="ableFlag" ng-click="saveContract(needs_id);" class="close" type="button">修改发送</button>
+        <button class="NewBtn btn-primarySubmit" aria-hidden="true" ng-if="status==31" ng-disabled="ableFlag" ng-click="saveContract(needs_id,detail.bidders[0].measurement_fee);" class="close" type="button">修改发送</button>
     </div>
     </div>
     <!-- /.modal-content -->
@@ -1111,12 +1132,31 @@
     <div class="modal fade confirmMain" id="confirm8" tabindex="-1" role="dialog" aria-hidden="true" style="margin-top:5%">
         <div class="modal-dialog" style="width:800px">
             <div class="modal-content">
-                <div class="modal-header" style="padding:25px;padding-left:35px" ng-if="schemeList.design_file.length>0&&is_designdrawing">
+            
+            
+            
+                <div class="modal-header" style="padding:25px;padding-left:35px" ng-if="schemeList.design_file.length>0 && is_designdrawing&&is_diy&&is_forageList&&is_bom&&type==1">
                     <button class="close" aria-hidden="true" type="button" data-dismiss="modal"> <img src="${baseUrl}/images/userCenter/m-close-icon.png" /> </button>
-                    <h4 class="modal-title">{{community_name}}</h4> </div>
-                <div class="modal-header" style="padding:25px;background:#0084ff;color:#fff;border-radius:4px 4px 0 0" ng-if="schemeList.design_file.length<=0||!is_designdrawing">
+                    <h4 class="modal-title">{{community_name}}</h4> 
+                </div>
+                
+                <div class="modal-header" style="padding:25px;padding-left:35px" ng-if="schemeList.design_file.length>0&&is_designdrawing&&type==0">
+                    <button class="close" aria-hidden="true" type="button" data-dismiss="modal"> <img src="${baseUrl}/images/userCenter/m-close-icon.png" /> </button>
+                    <h4 class="modal-title">{{community_name}}</h4> 
+                </div>
+                
+                
+                <div class="modal-header" style="padding:25px;background:#0084ff;color:#fff;border-radius:4px 4px 0 0" ng-if="(schemeList.design_file.length<=0||!is_forageList||!is_diy||!is_designdrawing||!is_bom)&&type==1">
                     <button class="close" aria-hidden="true" type="button" data-dismiss="modal" style="font-size:32px;color:#fff;margin-top:-7px;"> <img src="${baseUrl}/images/userCenter/m-close-icon1.png" /> </button>
-                    <h5 class="modal-title">您还没有完善交付档案，请到“个人中心>>我的设计方案”上传后再试</h5> </div>
+                    <h5 class="modal-title">您还没有完善交付档案，请到“个人中心>>我的设计方案”上传后再试</h5> 
+                </div>
+                
+                 <div class="modal-header" style="padding:25px;background:#0084ff;color:#fff;border-radius:4px 4px 0 0" ng-if="(schemeList.design_file.length<=0||!is_designdrawing)&&type==0">
+                    <button class="close" aria-hidden="true" type="button" data-dismiss="modal" style="font-size:32px;color:#fff;margin-top:-7px;"> <img src="${baseUrl}/images/userCenter/m-close-icon1.png" /> </button>
+                    <h5 class="modal-title">您还没有完善交付档案，请到“个人中心>>我的设计方案”上传后再试</h5> 
+                </div>
+              
+              
                 <div class="modal-body" style="overflow:hidden">
                     <div class="col-sm-12">
                         <div class="panel panel-default">

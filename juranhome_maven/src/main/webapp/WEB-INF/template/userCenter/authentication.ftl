@@ -23,7 +23,7 @@
 	                <!-- start: PAGE TITLE & BREADCRUMB -->
 	                <ol class=" breadcrumb certificate-breadcrumb">
 	                    <li>
-	                        <a href="${baseUrl}/user/index#/mybidlist/" style="text-decoration:none;color:#666;">
+	                        <a href="${baseUrl}/user/index#/mybidlist" style="text-decoration:none;color:#666;">
 	                            个人中心
 	                        </a>
 	                    </li>
@@ -67,7 +67,7 @@
 	                                                 真实姓名
 	                                             </label>
 	                                             <div class="col-sm-5">
-	                                                 <input type="text"  ng-disabled="isOnlyRead"  class="form-control" id="lastname" name="lastname"  ng-model="realname.real_name">
+	                                                 <input type="text"  ng-disabled="isOnlyRead" maxlength="10"  class="form-control" id="lastname" name="lastname"  ng-model="realname.real_name">
 	                                                 <span></span>
 	                                             </div>
 	                                         </div>
@@ -193,7 +193,7 @@
 	                                <div class="col-md-2"></div>
 	                                <div class="col-md-1"></div>
 	                                <div class="col-md-2">
-	                                    <button id="btnSubmit" class="NewBtn btn-primarySubmit" type="submit"  onclick="$('#submitType').val(1)"> 提交</button>
+	                                    <button id="btnSubmit" class="NewBtn btn-primarySubmit button" type="submit"  onclick="$('#submitType').val(1)"> 提交</button>
 	                                </div>
 	                            </div>
 	                        </div>
@@ -204,7 +204,7 @@
 	                                <div class="col-md-2"></div>
 	                                <div class="col-md-1"></div>
 	                                <div class="col-md-2">
-	                                    <button id="btnSubmit" class="NewBtn btn-primarySubmit" type="submit"  onclick="$('#submitType').val(2)" > 重新提交</button>
+	                                    <button id="btnSubmit" class="NewBtn btn-primarySubmit button" type="submit"  onclick="$('#submitType').val(2)" > 重新提交</button>
 	                                </div>
 	                            </div>
 	                        </div>

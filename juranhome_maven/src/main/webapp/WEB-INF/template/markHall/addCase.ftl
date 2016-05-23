@@ -68,7 +68,7 @@
 		        <div class="case-details-content clearfix" style="padding:0px">
 		        	<div style="width:1200px;margin:0px auto">
 				        <ol class="breadcrumb" style="margin:0px !important;padding-left:0px;border:0px; line-height: 2;">
-		                    <li><a href="${baseUrl}/mark/main/" style="color:#333">
+		                    <li><a href="${baseUrl}/mark/main" style="color:#333">
 		                        	我的主页
 		                    </a>  </li>
 		                    <li>
@@ -85,9 +85,9 @@
 		                    <h3 ng-if="data.custom_string_status==0">上传案例</h3>
 		                    <h3 ng-if="data.custom_string_status!=0">编辑案例</h3>
 		                    <div class="case-details-container-left-container">
-		                        <p> 案例名称：<span>*</span></p>
+		                        <p><span>*</span> 案例名称：</p>
 		                        <input type="text" style="border-radius: 5px!important" name="pro-name" id="pro-name" placeholder="" ng-model="title" maxlength="22" onkeyup="ValidateCaseName(this, value)"/> <span></span>
-		                        <p> 项目地址：<span>*</span></p>
+		                        <p><span>*</span> 项目地址：</p>
 		                        <div name="select-name">
 		                        
 		                        	<select id="seachprov" name="s_province" class="form-controler"  placeholder="省"  onChange="changeComplexProvince(this.value, sub_array, 'seachcity', 'seachdistrict');"> </select>                                      
@@ -95,7 +95,7 @@
                                     <select id="seachdistrict" name="s_county" class="form-controler" placeholder="县/区"> </select>
 
 		                        </div>
-		                        <p> 户型：<span>*</span></p>
+		                        <p><span>*</span> 户型：</p>
 		                        <div>
 		                            <select  class="form-controler" name="s_house" id="s_house" ng-model="room_type" >
 		                                <option value="">室</option>
@@ -126,8 +126,8 @@
 		                                <option value="five">五卫</option>
 		                            </select>
 		                        </div>
-		                        <p class="col-md-6"> 面积：<span>*</span></p>
-		                        <p class="col-md-6"> 房屋类型：<span>*</span></p>
+		                        <p class="col-md-6"><span>*</span> 面积：</p>
+		                        <p class="col-md-6"><span>*</span> 房屋类型：</p>
 		                        <div class="col-md-6" style="padding:0">
 		                             <input  type="text" placeholder="" style="border-radius: 5px!important;color:#333;" name="dwelling-area" id="dwelling-area" ng-model="room_area" onkeyup="return ValidateFloat(this,value)" maxlength="9" /><span style="position:absolute;right:163px;top:7px;"></span>
 		                             <span style="position: absolute;right:36%; font-size:16px;top:5px;color:#999;">平米</span>
@@ -152,8 +152,8 @@
 		                                <option value="other">其他</option>
 		                            </select>
 		                        </div>
-		                         <p class="col-md-6"> 项目报价：<span>*</span></p>
-		                        <p class="col-md-6"> 风格：<span>*</span></p>
+		                         <p class="col-md-6"><span>*</span> 项目报价：</p>
+		                        <p class="col-md-6"><span>*</span> 风格：</p>
 		                        <div class="col-md-6" style="padding:0">
 		                            <input  type="text" placeholder="" style="border-radius: 5px!important;color:#333;" id="project-price" name="project-price" ng-model="prj_price" onkeyup="return ValidateFloat(this,value)" maxlength="4" /><span style="position:absolute;right:163px;top:7px;"></span>
 		                            <span style="position: absolute;right:36%; font-size:16px;top:5px;color:#999;">万元</span>
@@ -175,7 +175,7 @@
 		                                <option value="other">其他</option>
 		                            </select>
 		                        </div>
-		                        <p class="col-md-12"> 小区名称：<span>*</span></p>
+		                        <p class="col-md-12"><span>*</span> 小区名称：</p>
 		                        <input type="text" style="border-radius: 5px!important" maxlength="32" name="dwelling-name" id="dwelling-name" placeholder="" ng-model="community_name" onkeyup="return ValidateString(this, value)" /> <span></span>
 		                        <p class="col-md-12"> 设计理念:</p>
 		                        <div class="col-md-12" style="padding:0">

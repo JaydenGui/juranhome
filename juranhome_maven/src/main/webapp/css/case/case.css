@@ -250,6 +250,12 @@ body{
 .show-li .caseInfo .c-detail span { 
     font-size: 12px;
 }
+.show-li .caseInfo .designer-info a{
+	display:block;
+	height:35px;
+	width:249px;
+	overflow:hidden;
+}
 .show-li .caseInfo .designer-info img {
     float: left;
     border-radius: 50%;

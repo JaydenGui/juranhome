@@ -9457,7 +9457,7 @@ var _gsScope="undefined"!=typeof module&&module.exports&&"undefined"!=typeof glo
 						width: bg_width,
 						height: bg_height,
 						left: - (bg_width - parseFloat(cloud_wrapper.css('width'))) / 2,
-						top: - (bg_height - parseFloat(cloud_wrapper.css('height'))) / 2-86,
+						top: - (bg_height - parseFloat(cloud_wrapper.css('height'))) / 2,
 						position: 'absolute'
 					});
 				}
@@ -11255,7 +11255,7 @@ var _gsScope="undefined"!=typeof module&&module.exports&&"undefined"!=typeof glo
 					shape.css(css);
 					
 					var margin_left = - parseFloat(cell.position().left);
-					var margin_top = - parseFloat(cell.position().top)-86;
+					var margin_top = - parseFloat(cell.position().top);
 					if (transition.cellThick == 0) {
 						
 						var clonedUpcomingSkyBg = upcomingSkyBg.clone().css({

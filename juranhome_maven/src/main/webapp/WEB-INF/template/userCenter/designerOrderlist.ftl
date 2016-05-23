@@ -1,4 +1,5 @@
 <#assign baseUrl=request.contextPath />
+<#if users?exists & users.type=='designer'>
 <link rel="stylesheet" href="${baseUrl}/css/public/pgwslideshow.min.css">
 <div class="main-content">	
 	 <div class="modal-dialog modal fade confirmMain" id="measureconfirm" tabindex="-1" role="dialog" aria-hidden="true" style="position:fixed; top:10%;display:none;">
@@ -68,7 +69,7 @@
 	        </div>
             <div class="modal-footer" style="background: #fff; border-radius: 5px;border:none;margin-top:10px;">
             	<div id="poploading" class="poploading" style="display:block"><img src="${baseUrl}/images/global/LoadingCursor2.gif" /></div>
-            	<button type="button" class="NewBtn btn-defaultClose" data-dismiss="modal">关闭</button>
+            	<button type="button" ng-if="detail.bidders[0].wk_cur_sub_node_id!=11" class="NewBtn btn-defaultClose" data-dismiss="modal">关闭</button>
             	<button type="button" ng-if="detail.bidders[0].wk_cur_sub_node_id==11" class="NewBtn btn-refuse" data-target="#remind" data-toggle="modal" data-dismiss="modal">
 				拒绝
 				</button>
@@ -88,7 +89,7 @@
 					<h4 class="modal-title">提示</h4>
 				</div>
 				<div class="modal-body">
-					您确定要拒绝“{{detail.consumer_name}}”的量房邀请吗？
+					您确定要拒绝“{{detail.contacts_name}}”的量房邀请吗？
 				</div>
 				<div class="modal-footer" style="background: #fff;border:none;">
 					<button type="button" class="NewBtn btn-defaultClose" data-dismiss="modal" >
@@ -308,7 +309,7 @@
 							<span class="serial">1.2</span>&nbsp;&nbsp;甲乙双方协商，乙方应提供给甲方
 							<form role="form" class="form-horizontal Act-1-form" style="margin-left:45px;">
 								<div class="form-group">
-									<label class="col-sm-3 control-label" for="form-field-1">效果图 :</label>
+									<label class="col-sm-3 control-label" for="form-field-1"><span class="symbol required"></span> 效果图 :</label>
 									<div class="col-sm-4 helpInline"><span ng-if="status>=41">{{contract_Data.design_sketch}}</span> 
 									<input type="text" placeholder=""  class="form-control" ng-show="status<41"  ng-model="impression" ng-focus="clearError.impressionDrawing();" value=""/>
 									<span class="help-inline">张 </span></div>
@@ -316,13 +317,13 @@
 									<span ng-if="impressionDrawing_is_number_error==true" class="formGspan">请填写数字</span>
 								</div>
 							    <div class="form-group">
-									<label class="col-sm-3 control-label" for="form-field-1">渲染图 :</label>
+									<label class="col-sm-3 control-label" for="form-field-1"><span class="symbol required"></span> 渲染图 :</label>
 									<div class="col-sm-4 helpInline"><span ng-if="status>=41">{{contract_Data.render_map}}</span> <input type="text" placeholder=""  class="form-control" ng-show="status<41" ng-model="diy" ng-focus="clearError.diy();"/><span class="help-inline" >张 </span></div>
 									<span ng-if="diy_error==true" class="formGspan">请填写</span>
 									<span ng-if="diy_is_number_error==true" class="formGspan">请填写数字</span>
 								</div>
 							    <div class="form-group">
-									<label class="col-sm-3 control-label" for="form-field-1">每增加一张效果图费用 :</label>
+									<label class="col-sm-3 control-label" for="form-field-1"><span class="symbol required"></span> 每增加一张效果图费用 :</label>
 									<div class="col-sm-4 helpInline"><span ng-if="status>=41">{{contract_Data.design_sketch_plus|currency : ''}}</span> <input type="text" placeholder="" class="form-control" ng-show="status<41" ng-model="price" ng-focus="clearError.price();"/><span class="help-inline" >元</span></div>
 									<span ng-if="price_error==true" class="formGspan">请填写</span>
 									<span ng-if="price_is_number_error==true" class="formGspan">请填写数字</span>
@@ -333,21 +334,23 @@
 						<div>
 							<form role="form" class="form-horizontal Act-2-form" style="margin-left:45px;">
 								<div class="form-group">
-									<label class="col-sm-3 control-label" for="form-field-1"></span>本项目设计费总额：</label>
+									<label class="col-sm-3 control-label" for="form-field-1"></span><span class="symbol required"></span> 本项目设计费总额：</label>
 									<div class="col-sm-4 helpInline"><span ng-if="status>=41">{{totalDesign|currency : ''}}</span><input type="text" ng-show="status<41"  value="" placeholder="" class="inp-input sign-money form-control" ng-model="totalDesign" ng-focus="clearError.totalDesign();"/><span class="help-inline">元 </span></div>
 									<span ng-if="totalDesign_error==true" class="formGspan">请填写设计费总额</span>
 									<span ng-if="totalDesign_is_number_error==true" class="formGspan">请填写数字</span>
+									<span ng-if="totalDesign_isfee_error==true" class="formGspan">项目总金额不能小于量房费</span>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-3 control-label" for="form-field-1">设计首款 :</label>
+									<label class="col-sm-3 control-label" for="form-field-1"><span class="symbol required"></span> 设计首款 :</label>
 									<div class="col-sm-4 helpInline"><input type="text" ng-show="status<41"  placeholder="" value="" class="form-control" ng-model="designFirst" ng-focus="clearError.designFirst();"/><span ng-show="status>=41" >{{designFirst|currency : ''}}</span><span class="help-inline">元 </span></div>
 									<span ng-if="designFirst_error==true" class="formGspan">请填写设计首款</span>
 									<span ng-if="designFirst_is_number_error==true" class="formGspan">请填写数字</span>
 									<span ng-if="designFirst_is_error==true" class="formGspan">首款金额不能小于总金额的80%</span>
 									<span ng-if="designFirst_gte_error==true" class="formGspan">首款金额不能大于总金额</span>
+									<span ng-if="designFirst_isfistfee_error==true" class="formGspan">设计首款不能小于量房费</span>
 								</div>
 								<div class="form-group">
-									<label class="col-sm-3 control-label" for="form-field-1">设计尾款 :</label>
+									<label class="col-sm-3 control-label" for="form-field-1"><span class="symbol required"></span> 设计尾款 :</label>
 									<div class="col-sm-4 helpInline"><input type="text"  ng-show="status<41" class="form-control" value="{{totalDesign-designFirst|currency : ''}}" readonly="readonly" style="background:#fff;"/> <span ng-if="status>=41">{{totalDesign-designFirst|currency : ''}}</span><span class="help-inline">元</span></div>
 								</div>        
 							</form>
@@ -500,8 +503,8 @@
 		<!-- <iframe src="contract.html" width="100%" height="500" style="border:none" ></iframe> -->
 		<div class="modal-footer">
 			<button class="NewBtn btn-defaultClose" aria-hidden="true" data-dismiss="modal" class="close" type="button">关闭</button><!-- data-dismiss="modal" data-toggle="modal" data-target="" -->
-			<button class="NewBtn btn-primarySubmit" ng-if="status==21" aria-hidden="true"   ng-disabled="ableFlag"  ng-model="ableFlag"  ng-click="saveContract(needs_id);"  class="close" type="button">创建发送</button><!-- #contractprompt -->
-		    <button class="NewBtn btn-primarySubmit" ng-if="status==31" aria-hidden="true"   ng-disabled="ableFlag"  ng-model="ableFlag"  ng-click="saveContract(needs_id);"  class="close" type="button">修改发送</button>
+			<button class="NewBtn btn-primarySubmit" ng-if="status==21" aria-hidden="true"   ng-disabled="ableFlag"  ng-model="ableFlag"  ng-click="saveContract(needs_id,detail.bidders[0].measurement_fee);"  class="close" type="button">创建发送</button><!-- #contractprompt -->
+		    <button class="NewBtn btn-primarySubmit" ng-if="status==31" aria-hidden="true"   ng-disabled="ableFlag"  ng-model="ableFlag"  ng-click="saveContract(needs_id,detail.bidders[0].measurement_fee);"  class="close" type="button">修改发送</button>
 		</div>
 	</div>
 <!-- /.modal-content -->
@@ -521,44 +524,44 @@
 			<div class="modal-body" style="overflow:hidden;padding:0;">
 		        <div class="col-md-12" style=background:#fff;line-height:15px;">
 		            <div class="col-md-12 confirmform">
-		            	<div class="col-md-4">客户姓名&nbsp;:</div>
-		            	<div class="col-md-8">{{detail.contacts_name}}</div>
+		            	<div class="col-md-3">客户姓名&nbsp;:</div>
+		            	<div class="col-md-9">{{detail.contacts_name}}</div>
 		            </div>
 		            <div class="col-md-12 confirmform">
-		            	<div class="col-md-4">联系电话&nbsp;:</div>
-		            	<div class="col-md-8">{{detail.contacts_mobile}}</div>
+		            	<div class="col-md-3">联系电话&nbsp;:</div>
+		            	<div class="col-md-9">{{detail.contacts_mobile}}</div>
 		            </div>
 		            <div class="col-md-12 confirmform">
-		            	<div class="col-md-4">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址&nbsp;&nbsp;:</div>
-		            	<div class="col-md-8">{{detail.province_name}}{{detail.city_name}}{{detail.district_name|replaceNone}}</div>
+		            	<div class="col-md-3">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址&nbsp;&nbsp;:</div>
+		            	<div class="col-md-9">{{detail.province_name}}{{detail.city_name}}{{detail.district_name|replaceNone}}</div>
 		            </div>
 		            <div class="col-md-12 confirmform">
-		            	<div class="col-md-4">设计预算&nbsp;:</div>
-		            	<div class="col-md-8">{{detail.design_budget}}</div>
+		            	<div class="col-md-3">设计预算&nbsp;:</div>
+		            	<div class="col-md-9">{{detail.design_budget}}</div>
 		            </div>
 		            <div class="col-md-12 confirmform">
-		            	<div class="col-md-4">装修预算&nbsp;:</div>
-		            	<div class="col-md-8">{{detail.decoration_budget}}</div>
+		            	<div class="col-md-3">装修预算&nbsp;:</div>
+		            	<div class="col-md-9">{{detail.decoration_budget}}</div>
 		            </div>
 		            <div class="col-md-12 confirmform">
-		            	<div class="col-md-4">房屋类型&nbsp;:</div>
-		            	<div class="col-md-8">{{detail.house_type|replaceHouseType}}</div>
+		            	<div class="col-md-3">房屋类型&nbsp;:</div>
+		            	<div class="col-md-9">{{detail.house_type|replaceHouseType}}</div>
 		            </div>
 		            <div class="col-md-12 confirmform">
-		            	<div class="col-md-4">房屋面积&nbsp;:</div>
-		            	<div class="col-md-8">{{detail.house_area|replaceArea}} m²</div>
+		            	<div class="col-md-3">房屋面积&nbsp;:</div>
+		            	<div class="col-md-9">{{detail.house_area|replaceArea}} m²</div>
 		            </div>
 		            <div class="col-md-12 confirmform">
-		            	<div class="col-md-4">户&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型&nbsp;&nbsp;:</div>
-		            	<div class="col-md-8">{{detail.room|replaceRoomType}}{{detail.living_room|replaceBedRoom}}{{detail.toilet|replaceRestRoom}}</div>
+		            	<div class="col-md-3">户&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型&nbsp;&nbsp;:</div>
+		            	<div class="col-md-9">{{detail.room|replaceRoomType}}{{detail.living_room|replaceBedRoom}}{{detail.toilet|replaceRestRoom}}</div>
 		            </div>
 		            <div class="col-md-12 confirmform">
-		            	<div class="col-md-4">风&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格&nbsp;&nbsp;:</div>
-		            	<div class="col-md-8">{{detail.decoration_style|replaceStyle}}</div>
+		            	<div class="col-md-3">风&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格&nbsp;&nbsp;:</div>
+		            	<div class="col-md-9">{{detail.decoration_style|replaceStyle}}</div>
 		            </div>
 		            <div class="col-md-12 confirmform">
-		            	<div class="col-md-4">发布时间&nbsp;:</div>
-		            	<div class="col-md-8">{{detail.publish_time}}</div>
+		            	<div class="col-md-3">发布时间&nbsp;:</div>
+		            	<div class="col-md-9">{{detail.publish_time}}</div>
 		            </div>
 	            	<!-- <div class="col-md-12" style="background:#DAEDF8;padding-top:10px;margin-bottom:15px;border-radius:10px">
 	                	<p style="color:#5185A4">设计宣言：我超级棒的请选我为您服务，这是我的作品链接</p>
@@ -750,18 +753,35 @@
 <div class="modal fade confirmMain" id="confirm8" tabindex="-1" role="dialog" aria-hidden="true" style="margin-top:5%">
 	<div class="modal-dialog" style="width:800px">
 		<div class="modal-content">
-			<div class="modal-header" style="padding:25px;" ng-if="schemeList.design_file.length>0&&is_designdrawing">
+		
+		    <div class="modal-header" style="padding:25px;" ng-if="schemeList.design_file.length>0 && is_designdrawing&&is_diy&&is_forageList&&is_bom&&type==1">
 				<button class="close" aria-hidden="true" type="button" data-dismiss="modal">
 	                <img src="${baseUrl}/images/userCenter/m-close-icon.png"/>
 	            </button>
 				<h4 class="modal-title">{{community_name}}</h4>
 			</div>
-			<div class="modal-header" style="padding:25px;background:#0084ff;color:#fff;border-radius:4px 4px 0 0" ng-if="schemeList.design_file.length<=0||!is_designdrawing" ng-cloak>
+		    
+			<div class="modal-header" style="padding:25px;" ng-if="schemeList.design_file.length>0&&is_designdrawing&&type==0">
+				<button class="close" aria-hidden="true" type="button" data-dismiss="modal">
+	                <img src="${baseUrl}/images/userCenter/m-close-icon.png"/>
+	            </button>
+				<h4 class="modal-title">{{community_name}}</h4>
+			</div>
+			
+			<div class="modal-header" style="padding:25px;background:#0084ff;color:#fff;border-radius:4px 4px 0 0" ng-if="(schemeList.design_file.length<=0||!is_forageList||!is_diy||!is_designdrawing||!is_bom)&&type==1" ng-cloak>
 				<button class="close" aria-hidden="true" type="button" data-dismiss="modal" style="font-size:32px;color:#fff;margin-top:-6px;">
 	                <img src="${baseUrl}/images/userCenter/m-close-icon1.png"/>
 	            </button>
-				<h5 class="modal-title">您还没有完善交付资料，请到“个人中心>>我的设计方案”上传后再试</h5>
+				<h5 class="modal-title">您还没有完善交付资料，请到“个人中心>>我的3D设计”上传后再试</h5>
 			</div>
+			
+			<div class="modal-header" style="padding:25px;background:#0084ff;color:#fff;border-radius:4px 4px 0 0" ng-if="(schemeList.design_file.length<=0||!is_designdrawing)&&type==0" ng-cloak>
+				<button class="close" aria-hidden="true" type="button" data-dismiss="modal" style="font-size:32px;color:#fff;margin-top:-6px;">
+	                <img src="${baseUrl}/images/userCenter/m-close-icon1.png"/>
+	            </button>
+				<h5 class="modal-title">您还没有完善交付资料，请到“个人中心>>我的3D设计”上传后再试</h5>
+			</div>
+			
 			<div class="modal-body col-md-12" style="overflow:hidden">
 	           <div class="col-sm-12">
 					<div class="panel panel-default">
@@ -843,8 +863,8 @@
 			</div>
 			<div class="modal-footer" style="background:#fff;border:none;">
 				<a href="javascript:void(0);" data-dismiss="modal" class="NewBtn btn-defaultClose tooltips" data-placement="bottom" data-original-title="关闭" >关闭</a>
-				<a href="javascript:void(0);" ng-if="type==1"  class="NewBtn btn-primarySubmit tooltips"  ng-disabled="goAbleFlag" data-placement="bottom" data-original-title="发送"  ng-click="saveDesignDelivery();" ng-disabled="schemeList.design_file.length==0||!is_forageList||!is_diy||!is_designdrawing||!is_bom" >发送</a>
-				<a href="javascript:void(0);" ng-if="type==0"  class="NewBtn btn-primarySubmit tooltips"  ng-disabled="goAbleFlag" data-placement="bottom" data-original-title="发送"  ng-click="saveDesignDelivery();" ng-disabled="schemeList.design_file.length==0||!is_designdrawing" >发送</a>
+				<button href="javascript:void(0);" ng-if="type==1"  class="NewBtn btn-primarySubmit tooltips"  data-placement="bottom" data-original-title="发送"  ng-click="saveDesignDelivery();" ng-disabled="schemeList.design_file.length==0||!is_forageList||!is_diy||!is_designdrawing||!is_bom||goAbleFlag" >发送</button>
+				<button href="javascript:void(0);" ng-if="type==0"  class="NewBtn btn-primarySubmit tooltips"  data-placement="bottom" data-original-title="发送"  ng-click="saveDesignDelivery();" ng-disabled="schemeList.design_file.length==0||!is_designdrawing||goAbleFlag" >发送</button>
 			</div>
 		</div>
 	</div>
@@ -1286,10 +1306,20 @@
 					                        <span ng-if="order.bidders[0].wk_cur_sub_node_id==22">已付量房费  ：{{order.bidders[0].measurement_fee|currency : '￥'}}</span>
 				                        </td>
 				                        <td class="col-md-3" ng-if="order.bidders[0].wk_cur_sub_node_id>=31">
-					                                                                                    总金额 <span ng-if="order.bidders[0].wk_cur_sub_node_id!=33">{{order.bidders[0].design_contract[0].contract_charge|currency : '￥'}}</span><span ng-if="order.bidders[0].wk_cur_sub_node_id==33">￥ 0.00</span><br>
-											已付金额 <span ng-if="order.bidders[0].wk_cur_sub_node_id==31||order.bidders[0].wk_cur_sub_node_id==33">￥ 0.00</span><span ng-if="order.bidders[0].wk_cur_sub_node_id==41">{{order.bidders[0].design_contract[0].contract_first_charge|currency : '￥'}}</span ><span ng-if="order.bidders[0].wk_cur_sub_node_id>=51">{{order.bidders[0].design_contract[0].contract_charge|currency : '￥'}}</span><br>
-											未付金额 <span ng-if="order.bidders[0].wk_cur_sub_node_id==31">{{order.bidders[0].design_contract[0].contract_first_charge|currency : '￥'}}</span><span ng-if="order.bidders[0].wk_cur_sub_node_id>=51">￥0.00</span><span ng-if="order.bidders[0].wk_cur_sub_node_id==41">{{order.bidders[0].design_contract[0].contract_charge-order.bidders[0].design_contract[0].contract_first_charge|currency : '￥'}}</span><span ng-if="order.bidders[0].wk_cur_sub_node_id==33">￥ 0.00</span><br>
-											待付金额<span ng-if="order.bidders[0].wk_cur_sub_node_id==31">{{order.bidders[0].design_contract[0].contract_first_charge|currency : '￥'}}</span><span ng-if="order.bidders[0].wk_cur_sub_node_id>=51">￥0.00</span><span ng-if="order.bidders[0].wk_cur_sub_node_id==41">{{order.bidders[0].design_contract[0].contract_charge-order.bidders[0].design_contract[0].contract_first_charge|currency : '￥'}}</span><span ng-if="order.bidders[0].wk_cur_sub_node_id==33">￥ 0.00</span>
+					                                                                                    总&nbsp; 金 额   <span ng-if="order.bidders[0].wk_cur_sub_node_id!=33"> {{order.bidders[0].design_contract[0].contract_charge|currency : '￥'}}</span>
+					                              <span ng-if="order.bidders[0].wk_cur_sub_node_id==33 &&order.bidders[0].design_contract.length==0">￥ 0.00</span>
+					                              <span ng-if="order.bidders[0].wk_cur_sub_node_id==33 &&order.bidders[0].design_contract.length>0"> {{order.bidders[0].design_contract[0].contract_charge|currency : '￥'}}</span>
+											
+											<div ng-if="order.bidders[0].wk_cur_sub_node_id!=33">
+											   已付金额  <span ng-if="order.bidders[0].wk_cur_sub_node_id==31||order.bidders[0].wk_cur_sub_node_id==33">{{order.bidders[0].measurement_fee|currency : '￥'}}</span>
+											      <span ng-if="order.bidders[0].wk_cur_sub_node_id==41">{{order.bidders[0].design_contract[0].contract_first_charge|currency : '￥'}}</span >
+											      <span ng-if="order.bidders[0].wk_cur_sub_node_id>=51">{{order.bidders[0].design_contract[0].contract_charge|currency : '￥'}}</span><br>
+											未付金额   <span ng-if="order.bidders[0].wk_cur_sub_node_id==31">{{order.bidders[0].design_contract[0].contract_charge-order.bidders[0].measurement_fee|currency : '￥'}}</span>
+											      <span ng-if="order.bidders[0].wk_cur_sub_node_id>=51">{{'0'|currency : '￥'}}</span>
+											      <span ng-if="order.bidders[0].wk_cur_sub_node_id==41">{{order.bidders[0].design_contract[0].contract_charge-order.bidders[0].design_contract[0].contract_first_charge|currency : '￥'}}</span>
+											      <span ng-if="order.bidders[0].wk_cur_sub_node_id==33">{{'0'|currency : '￥'}}</span>
+											</div>
+										    <p style="font-size:12px;color:#818181;"><img style="display: inline-block;width:15px;height: 16px;margin-top: -2px;" src="${baseUrl}/images/userCenter/iii.png"/>已付量房费{{order.bidders[0].measurement_fee|currency : '￥'}}</p>
 				                        </td>
 				                        <td class="col-md-3">{{order.publish_time}}</td>
 				                        <td class="col-md-2">
@@ -1384,7 +1414,13 @@
 				<!-- end: BASIC TABLE PANEL -->
 				
 			</div>
-
+<#else>
+	<script >
+	$(function(){
+		location.href = baseUrl+"/";
+	});
+	</script>
+</#if>
 <script src="${baseUrl}/js/public/pgwslideshow.min.js"></script>
 <script type="text/javascript">
 
@@ -1439,5 +1475,8 @@ $(function(){
    	$(document).on('click','#scrollTopG .scrollTopG',function(){
  	    $('html,body').animate({scrollTop:0},'slow');
  	});
+});
+$(document).ready(function() {
+		pageActive("order");
 });
 </script>

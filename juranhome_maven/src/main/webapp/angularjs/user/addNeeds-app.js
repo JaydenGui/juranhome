@@ -18,7 +18,7 @@ app.controller('ctrl', function($scope,indexService ,userCenterService,messageSe
 			$scope.nickName = r.nick_name;
 			$scope.gender = r.gender ;
 			$scope.location = r.address;
-			$scope.contactsmobile = r.mobile_number;
+			$scope.contactsmobile =r.mobile_number;
 		} 
 		
 	});
@@ -32,6 +32,7 @@ app.controller('ctrl', function($scope,indexService ,userCenterService,messageSe
 		var root = $('div.modal-content');
 		var loadingMask = $('div.loadingMask');
 		var contactsname = $scope.contactsname;
+		var pattern = /^1[34578]\d{9}$/;
 		
 		
 		if(!contactsname)
@@ -43,7 +44,7 @@ app.controller('ctrl', function($scope,indexService ,userCenterService,messageSe
 		}
 		var contactsmobile = $scope.contactsmobile;
 		//alert(contactsmobile);
-		if(!contactsmobile)
+		if((!contactsmobile)||(!pattern.test(contactsmobile)))
 		{
 			root.find('#phone').focus();
 			//root.find('#firstname').attr('style', 'border: 1px red solid');
@@ -158,7 +159,7 @@ app.controller('ctrl', function($scope,indexService ,userCenterService,messageSe
 			if(r.status<400){
 				alert("发布成功!");
 
-				location.href = baseUrl+"/user/index#/myorder/";
+				location.href = baseUrl+"/user/index#/myorder";
 			}
 			else{
 				alert("somthing hava error, error code : "+r.status);

@@ -111,7 +111,7 @@
 				<div class="show-list show-box-current">
 					<ul class="show-ul" >
 						<li class="show-li" ng-repeat="case in caseLsit" ng-init="index=$index" ng-cloak>
-						        <a href="${baseUrl}/caseBase/casedetail/caseid/{{case.id}}/" target="_blank">
+						        <a href="${baseUrl}/caseBase/casedetail/caseid/{{case.id}}/uid/{{case.hs_designer_uid}}/" target="_blank">
 									<div class="image" >
 									    <img  ng-if="img.is_primary" ng-src="{{img.file_url}}Large.jpg" height="214" width="282" alt="" ng-repeat="img in case.images" ng-init="indexs=$index"/>
 										<img  ng-if="case.images.length==0" src="${baseUrl}/images/global/default_image.jpg" height="214" width="282" alt="" />
